@@ -48,8 +48,6 @@
                                 <li><a class="dropdown-item" href="/asrama">Asrama</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="/prestasimahasiswa">Prestasi Mahasiswa</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/virtualtour">Virtual Tour</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Fasilitas
@@ -61,8 +59,12 @@
                                 <li><a class="dropdown-item" href="/ruangbaca">Ruang Baca</a></li>
                                 <li><a class="dropdown-item" href="/laboratorium">Laboratorium</a></li>
                                 <li><a class="dropdown-item" href="/ruangseminar">Ruang Seminar</a></li>
+                                @foreach ($category as $item)
+                                    <a href="/?category={{ $item->id }}" class="dropdown-item">{{ $item->category }}</a>
+                                @endforeach
                             </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="/prestasi">Prestasi Mahasiswa</a></li>
                         <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                     </ul>
                 </div>

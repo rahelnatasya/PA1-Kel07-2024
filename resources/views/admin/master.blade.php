@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Manajemen Rekayasa</title>
+    <title>Halaman Admin Manajemen Rekayasa</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -18,7 +18,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('Template/fontawesome/css/all.min.css') }}">
     <!-- Logo website-->
-    <link rel="website icon" type="png" href="{{ asset('asset/logo.png') }}">
+    <link rel="website icon" type="png" href="{{ asset('aset/img/logo.png') }}">
     <!-- Sweet Alert-->
     <link rel="stylesheet" href="{{ asset('Template/plugins/sweetalert2/sweetalert2.min.css') }}">
 

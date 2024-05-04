@@ -27,7 +27,6 @@ class AuthController extends Controller
         $user = User::where('email', $credentials['email'])->first();
 
         if ($user && Hash::check($credentials['password'], $user->password)) {
-            // User exists and password matches
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
         

@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class GaleriRuang extends Model
 {
     use HasFactory;
-    protected $table = 'galeri_ruang';
+    protected $table = 'galery_room';
+
+    public function category()
+    {
+        return $this->belongsTo(CategoryRoom::class, 'room_id');
+    }
 }

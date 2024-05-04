@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GaleriRuangBaca;
+use App\Models\GaleriRuang;
 use Illuminate\Http\Request;
 
 class RuangBacaController extends Controller
 {
     public function index(){
-        $ruangbaca = GaleriRuangBaca::all();
+        $ruangbaca = GaleriRuang::where('ruang', 'Ruang Baca')->get();
         return view('ruangbaca', ['ruangbaca' => $ruangbaca]);
     }
 }

@@ -21,14 +21,16 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <a href="{{ Route('admin.berita.index') }}" class="nav-link">
                     <i class="fas fa-newspaper"></i>
                     <span>Berita</span>
                 </a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="berita">Lihat Berita</a>
-                    <a class="dropdown-item" href="tambahberita">Tambah Berita</a>
-                </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ Route('admin.testimoni.index') }}" class="nav-link">
+                    <i class="fas fa-comment"></i>
+                    <span>Testimoni</span>
+                </a>
             </li>
             <li class="nav-item">
                 <a href="{{ Route('admin.kurikulum.index') }}" class="nav-link">
@@ -37,9 +39,21 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ Route('admin.dosen.index') }}" class="nav-link">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Dosen Staff</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ Route('admin.ruang.index') }}" class="nav-link">
                     <i class="fas fa-images"></i>
-                    <span>Galeri Ruang</span>
+                    <span>Galeri Kategori Fasilitas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ Route('admin.category.index') }}" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Deskripsi Kategori Fasilitas</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -57,7 +71,13 @@
             <li class="nav-item">
                 <a href="{{ Route('admin.himamera.index') }}" class="nav-link">
                     <i class="fas fa-users"></i>
-                    <span>Himamera</span>
+                    <span>Kegiatan Mahasiswa</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ Route('admin.prestasi.index') }}" class="nav-link">
+                    <i class="fas fa-medal"></i>
+                    <span>Prestasi Mahasiswa</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -66,12 +86,29 @@
                     <span>MR CLUB</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{ Route('admin.asrama.index') }}" class="nav-link">
-                    <i class="fas fa-home"></i>
-                    <span>Asrama</span>
-                </a>
-            </li>
         </ul>
     </div>
 </div>
+<style>
+        .sidebar .nav-link {
+    transition: all 0.3s ease;
+    }
+
+    .sidebar .nav-link:hover {
+    background-color: #f8f9fa;
+    color: #343a40;
+    }
+</style>
+<script>
+        // Get sidebar element
+    const sidebar = document.querySelector('.sidebar');
+
+    // Toggle sidebar visibility
+    function toggleSidebar() {
+        sidebar.classList.toggle('active');
+    }
+
+    // Add event listener to sidebar toggle button
+    document.querySelector('.sidebar-toggle').addEventListener('click', toggleSidebar);
+
+</script>

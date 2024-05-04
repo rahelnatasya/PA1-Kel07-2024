@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\himamera;
+use App\Models\Himamera;
 use Illuminate\Http\Request;
 
 class HimameraController extends Controller

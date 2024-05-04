@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="{{asset('Template/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('Template/dist/css/adminlte.min.css')}}">
+    
+    <link rel="website icon" type="png" href="{{ asset('aset/img/logo.png') }}">
+
 
 </head>
 

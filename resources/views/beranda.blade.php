@@ -48,27 +48,23 @@
                             <li><a class="dropdown-item" href="/asrama">Asrama</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/prestasimahasiswa">Prestasi Mahasiswa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/virtualtour">Virtual Tour</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Fasilitas
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <li><a class="dropdown-item" href="/olahraga">Olahraga</a></li>
-                            <li><a class="dropdown-item" href="/ruangkelas">Ruang kelas</a></li>
-                            <li><a class="dropdown-item" href="/smartclass">Smartclass</a></li>
-                            <li><a class="dropdown-item" href="/ruangbaca">Ruang Baca</a></li>
-                            <li><a class="dropdown-item" href="/laboratorium">Laboratorium</a></li>
-                            <li><a class="dropdown-item" href="/ruangseminar">Ruang Seminar</a></li>
+                            @foreach ($category as $item)
+                                <a href="/?category={{ $item->id }}" class="dropdown-item">{{ $item->category }}</a>
+                            @endforeach
                         </ul>
+                        <li class="nav-item"><a class="nav-link" href="/prestasi">Prestasi Mahasiswa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Header - set the background image for the header in the line below-->
+    <!-- Header -->
     <header class="py-5 bg-image-full" style="background-image: url({{URL::asset('aset/img/header.png')}}">
         <div class="text-center my-5">
             <img class="img-fluid mb-2" src="{{ asset('aset/img/logo.png') }}" alt="..." width="100" />
@@ -79,71 +75,101 @@
     </header>
     <!-- News Section -->
     <div class="container">
-        <h1 class="my-4 text-center">Berita Terkini</h1>
+        <h3 class="my-4 text-center">Berita Terkini</h3>
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="{{URL::asset('aset/img/berita1.png')}}" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a>Program Studi Manajemen Rekayasa melakukan Studi Banding ke Program Studi Teknik Industri Universitas Gadjah Mada</a>
-                        </h5>
-                        <p class="card-text">Pada Jumat 15 Maret 2024, Program Studi Manajemen Rekayasa melakukan Studi Banding ke Program</p>
-                    </div>
-                </div>
+<!-- Tambahkan kode HTML untuk tombol View More dan modal -->
+@foreach ($berita as $data)
+<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="card h-100 bg-light">
+        <a href="#"><img class="card-img-top" src="{{ asset('aset/img/'.$data->images) }}" alt="" style="height: 200px; object-fit: cover;"></a>
+        <div class="card-body">
+            <h5 class="card-title">
+                <a href="#" style="color:black; text-decoration:none;">{{ $data->title }}</a>
+            </h5>
+            <p class="card-text">{{ $data->date }}</p>
+            <button type="button" class="btn btn-primary view-more" data-toggle="modal" data-target="#beritaModal{{ $data->id }}">
+                View More
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="beritaModal{{ $data->id }}" tabindex="-1" aria-labelledby="beritaModalLabel{{ $data->id }}" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="beritaModalLabel{{ $data->id }}">{{ $data->title }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="{{URL::asset('aset/img/berita2.png')}}" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a>Program Studi Manajemen Rekayasa melakukan kunjungan Industri ke Danliris Group</a>
-                        </h5>
-                        <p class="card-text">Pada hari Rabu 13 Maret 2024, Program Studi Manajemen Rekayasa melakukan kunjungan Industri Ke Danliris Group yang berlokasi di Sukoharjo, Jawa Tengah</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="{{URL::asset('aset/img/berita3.png')}}" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a>Tiga orang mahasiswa Manajemen Rekayasa mendapatkan penghargaan dalam Lomba Inovasi Kewirausahaan Mahasiswa Indonesia (LIKMI) #3</a>
-                        </h5>
-                        <p class="card-text">Lomba Inovasi Kewirausahaan Mahasiswa (LIKMI) merupakan wadah dan ajang lomba bagi mahasiswa yang</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="{{URL::asset('aset/img/berita4.png')}}" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a>Pembekalan dan Pemberangkatan Mahasiswa MBKM PMM Batch 4, dan MSIB Batch 6, serta Magang PT. Dan Liris, Prodi Manajemen Rekayasa</a>
-                        </h5>
-                        <p class="card-text">Dari hasil pengumuman MBKM program flagship, tercatat 39 mahasiswa yang lolos program MBKM</p>
-                    </div>
-                </div>
+            <div class="modal-body">
+                <p>{{ $data->description }}</p>
+                <p>Tanggal: {{ $data->date }}</p>
+                <p>Ditulis oleh: {{ $data->created_by }}</p>
             </div>
         </div>
+    </div>
+</div>
+@endforeach
+
+<!-- Tambahkan script JavaScript -->
+<script>
+    // Menggunakan event delegation untuk menangani tombol View More
+    document.addEventListener('click', function(event) {
+        // Periksa apakah tombol yang ditekan memiliki kelas 'view-more'
+        if (event.target.classList.contains('view-more')) {
+            // Ambil target modal berdasarkan atribut data-target pada tombol
+            var targetModalId = event.target.getAttribute('data-target');
+            // Cari modal dengan ID yang sesuai dan panggil metode modal Bootstrap 'show()'
+            var modal = document.querySelector(targetModalId);
+            if (modal) {
+                var bsModal = new bootstrap.Modal(modal);
+                bsModal.show();
+            }
+        }
+    });
+</script>
+
+        </div>           
+    </div>
+        <!-- Content section-->
+<!-- Content section-->
+<section class="py-5">
+    <div class="container my-3">
+        <h3 class="text-center">Testimoni</h3>
+        <div class="row justify-content-center">
+            @foreach($testimoni as $item)
+            <div class="col-lg-3 mb-4">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <img src="{{ asset('aset/img/'.$item->images) }}" class="img-fluid mb-3" style="width: 250px; height: auto;">
+                        <h5 class="card-title">{{ $item->name }}</h5>
+                        <p class="card-text text-justify">{{ $item->content }}</p>
+                        <p class="card-text"><small class="text-muted">{{ $item->jobdescription }}</small></p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
         <section class="py-5 bg-image-full">
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-4 text-center">
-                        <h2>Semua Berita</h2>
+                        <h3>Video Terkait</h3>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
-        <!-- Content section-->
-        <section class="py-5">
+        <section class="py-5 bg-image-full">
             <div class="container my-5">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <h2>Testimoni</h2>
-                        <p class="lead">The background images used in this template are sourced from Unsplash and are open source and free to use.</p>
-                        <p class="mb-0">I can't tell you how many people say they were turned off from science because of a science teacher that completely sucked out all the inspiration and enthusiasm they had for the course.</p>
+                    <div class="col-lg-4 text-center">
+                        <h3>Kerja Sama</h3>
                     </div>
                 </div>
             </div>

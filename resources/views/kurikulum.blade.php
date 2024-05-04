@@ -15,9 +15,10 @@
     </div>
 </header>
 
-<div class="container text-center"> SEMESTER I
+<div class="container text-center"> 
     <div class="row">
         <div class="row">
+            <div class="col fw-bold">Semester</div>
             <div class="col fw-bold">Kode Mata Kuliah</div>
             <div class="col fw-bold">Nama Mata Kuliah</div>
             <div class="col fw-bold">SKS</div>
@@ -25,6 +26,7 @@
 
         @foreach($kurikulum as $data)
         <div class="row">
+            <div class="col">{{ $data['semester'] }}</div>
             <div class="col">{{ $data['kode'] }}</div>
             <div class="col">{{ $data['nama'] }}</div>
             <div class="col">{{ $data['sks'] }}</div>

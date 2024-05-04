@@ -1,20 +1,24 @@
 <?php
 
-use App\Http\Controllers\Admin\Dosen;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AsramaController;
 use App\Http\Controllers\RuangBacaController;
 use App\Http\Controllers\GaleriRuangController;
 use App\Http\Controllers\RuangSeminarController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryRoomController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\HimameraController;
 use App\Http\Controllers\KurikulumController;
+use App\Http\Controllers\LaboratoriumController;
 use App\Http\Controllers\MrClubController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfilLulusanController;
+use App\Http\Controllers\RuangKelasController;
 use App\Http\Controllers\SmartClassController;
 use App\Http\Controllers\VisiMisiController;
-use App\Models\GaleriRuang;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,76 +33,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/main', function () {
-//     return view('layout.main');
-// });
-Route::get('/', function () {
-    return view('beranda');
-});
-Route::get('/visimisi', function () {
-    return view('visimisi');
-});
-Route::get('/profillulusan', function () {
-    return view('profil');
-});
-Route::get('/dosen', function () {
-    return view('dosen');
-});
-// Route::get('/ruangseminar', function () {
-//     return view('ruangseminar');
-// });
-Route::get('/smartclass', function () {
-    return view('smartclass');
-});
-Route::get('/ruangbaca', function () {
-    return view('ruangbaca');
-});
-
-Route::get('/strukturdosen', function () {
-    return view('strukturdosen');
-});
-Route::get('/laboratorium', function () {
-    return view('lab.laboratorium');
-});
-Route::get('/mrclub', function () {
-    return view('mrclub');
-});
-// Route::get('/production', function () {
-//     return view('lab.production');
-// });
-// Route::get('/productdesign', function () {
-//     return view('lab.productdesign');
-// });
-// Route::get('/data', function () {
-//     return view('lab.data');
-// });
-// Route::get('/fisika', function () {
-//     return view('lab.fisika');
-// });
-
-Route::get('/galerywp', function () {
-    return view('himamera.welcoming');
-});
-// Route::get('/galerygraduation', function () {
-//     return view('himamera.graduation');
-// });
-// Route::get('/galerymrcup', function () {
-//     return view('himamera.mrcup');
-// });
-// Route::get('/galerynonton', function () {
-//     return view('himamera.nonton');
-// });
-// Route::get('/galerykaderisasi', function () {
-//     return view('himamera.kaderisasi');
-// });
-Route::get('/dashboardadmin', function () {
-    return view('dashboard.homepage');
-});
-
-Route::get('/sejarah', function () {
-    return view('sejarah');
-});
-// Route::get('/bahasa', [labBahasaController::class, 'index']);
 
 // Route::prefix('Admin')->middleware('auth')->group(function () {
 //     Route::get('/Admin', [DashboardController::class, 'index']);
@@ -107,37 +41,58 @@ Route::get('/sejarah', function () {
 // Route::post('/login', [AuthController::class, 'authenticate']);
 // Route::post('/logout', [AuthController::class, 'logout']);
 
-
-
-
-
-
-
-
-
-
-
 Route::get('/kurikulum', [KurikulumController::class, 'index']);
 Route::get('/profillulusan', [profilLulusanController::class, 'index']);
 Route::get('/ruangbaca', [RuangBacaController::class, 'index']);
 Route::get('/ruang', [GaleriRuangController::class, 'index']);
 Route::get('/ruangseminar', [RuangSeminarController::class, 'index']);
+Route::get('/ruangkelas', [RuangKelasController::class, 'index']);
 Route::get('/smartclass', [SmartClassController::class, 'index']);
 Route::get('/visimisi', [VisiMisiController::class, 'index']);
 Route::get('/himamera', [HimameraController::class, 'index']);
 Route::get('/mrclub', [MrClubController::class, 'index']);
 Route::get('/asrama', [AsramaController::class, 'index']);
 Route::get('/dosen', [DosenController::class, 'index']);
+Route::get('/laboratorium', [LaboratoriumController::class, 'index']);
+Route::get('/', [BeritaController::class, 'index'])->name('home');
+Route::get('/prestasi', [PrestasiController::class, 'index']);
+Route::get('/category', [CategoryRoomController::class, 'index']);
+
+
+Route::get('/strukturdosen', function () {
+    return view ('strukturdosen');
+});
+Route::get('/olahraga', function () {
+    return view ('olahraga');
+});
+
+
 
 
 
 
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
-Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::prefix('admin')->middleware('auth')->group(function(){
 Route::get('/', [DashboardController::class, 'index']);
+
+//Berita
+Route::get('berita', [App\Http\Controllers\Admin\BeritaController::class,'index'])->name('admin.berita.index');
+Route::get('berita/create', [App\Http\Controllers\Admin\BeritaController::class,'create'])->name('admin.berita.create');
+Route::post('admin/berita',[App\Http\Controllers\Admin\BeritaController::class, 'store'])->name('admin.berita.store');
+Route::get('admin/berita/{id}/edit', [App\Http\Controllers\Admin\BeritaController::class, 'edit'])->name('admin.berita.edit');
+Route::put('admin/berita/{id}', [App\Http\Controllers\Admin\BeritaController::class, 'update'])->name('admin.berita.update');
+Route::delete('admin/berita/{id}', [App\Http\Controllers\Admin\BeritaController::class, 'destroy'])->name('admin.berita.destroy');
+
+//Testimoni
+Route::get('testimoni', [App\Http\Controllers\Admin\TestimoniController::class,'index'])->name('admin.testimoni.index');
+Route::get('testimoni/create', [App\Http\Controllers\Admin\TestimoniController::class, 'create'])->name('admin.testimoni.create');
+Route::post('admin/testimoni',[App\Http\Controllers\Admin\TestimoniController::class, 'store'])->name('admin.testimoni.store');
+Route::get('admin/testimoni/{id}/edit', [App\Http\Controllers\Admin\TestimoniController::class, 'edit'])->name('admin.testimoni.edit');
+Route::put('admin/testimoni/{id}', [App\Http\Controllers\Admin\TestimoniController::class, 'update'])->name('admin.testimoni.update');
+Route::delete('admin/testimoni/{id}', [App\Http\Controllers\Admin\TestimoniController::class, 'destroy'])->name('admin.testimoni.destroy');
 
 //Kurikulum
 Route::get('kurikulum', [App\Http\Controllers\Admin\KurikulumController::class,'index'])->name('admin.kurikulum.index');
@@ -166,10 +121,20 @@ Route::delete('admin/visimisi/{visimisi}', [App\Http\Controllers\Admin\VisiMisiC
 //Ruang
 Route::get('ruang', [App\Http\Controllers\Admin\GaleriRuangController::class,'index'])->name('admin.ruang.index');
 Route::get('galeriruang/create', [App\Http\Controllers\Admin\GaleriRuangController::class,'create'])->name('admin.ruang.create');
-Route::post('admin/galeriruang',[App\Http\Controllers\Admin\GaleriRuangController::class, 'store'])->name('admin.ruang.store');
+Route::post('/galeriruang',[App\Http\Controllers\Admin\GaleriRuangController::class, 'store'])->name('admin.ruang.store');
 Route::get('admin/ruang/{id}/edit', [App\Http\Controllers\Admin\GaleriRuangController::class, 'edit'])->name('admin.ruang.edit');
 Route::put('admin/ruang/{id}', [App\Http\Controllers\Admin\GaleriRuangController::class, 'update'])->name('admin.ruang.update');
 Route::delete('admin/ruang/{id}', [App\Http\Controllers\Admin\GaleriRuangController::class, 'destroy'])->name('admin.ruang.destroy');
+
+//Category Room
+Route::get('category', [App\Http\Controllers\Admin\CategoryRoomController::class,'index'])->name('admin.category.index');
+Route::get('category/create', [App\Http\Controllers\Admin\CategoryRoomController::class,'create'])->name('admin.category.create');
+Route::post('category',[App\Http\Controllers\Admin\CategoryRoomController::class, 'store'])->name('admin.category.store');
+Route::get('category/{id}/edit', [App\Http\Controllers\Admin\CategoryRoomController::class, 'edit'])->name('admin.category.edit');
+Route::get('category/{id}', [App\Http\Controllers\Admin\CategoryRoomController::class,'show'])->name('admin.category.view');
+Route::put('category/{id}', [App\Http\Controllers\Admin\CategoryRoomController::class, 'update'])->name('admin.category.update');
+Route::delete('category/{id}', [App\Http\Controllers\Admin\CategoryRoomController::class, 'destroy'])->name('admin.category.destroy');
+
 
 //Himamera
 Route::get('himamera', [App\Http\Controllers\Admin\HimameraController::class,'index'])->name('admin.himamera.index');
@@ -203,5 +168,21 @@ Route::post('admin/dosen',[App\Http\Controllers\Admin\DosenController::class, 's
 Route::get('admin/dosen/{id}/edit', [App\Http\Controllers\Admin\DosenController::class, 'edit'])->name('admin.dosen.edit');
 Route::put('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'update'])->name('admin.dosen.update');
 Route::delete('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'destroy'])->name('admin.dosen.destroy');
+
+//Laboratorium
+Route::get('laboratorium', [App\Http\Controllers\Admin\LaboratoriumController::class,'index'])->name('admin.laboratorium.index');
+Route::get('laboratorium/create', [App\Http\Controllers\Admin\LaboratoriumController::class,'create'])->name('admin.laboratorium.create');
+Route::post('admin/laboratorium',[App\Http\Controllers\Admin\LaboratoriumController::class, 'store'])->name('admin.laboratorium.store');
+Route::get('admin/laboratorium/{id}/edit', [App\Http\Controllers\Admin\LaboratoriumController::class, 'edit'])->name('admin.laboratorium.edit');
+Route::put('admin/laboratorium/{id}', [App\Http\Controllers\Admin\LaboratoriumController::class, 'update'])->name('admin.laboratorium.update');
+Route::delete('admin/laboratorium/{id}', [App\Http\Controllers\Admin\LaboratoriumController::class, 'destroy'])->name('admin.laboratorium.destroy');
+
+//Prestasi
+Route::get('prestasi', [App\Http\Controllers\Admin\PrestasiController::class,'index'])->name('admin.prestasi.index');
+Route::get('prestasi/create', [App\Http\Controllers\Admin\PrestasiController::class,'create'])->name('admin.prestasi.create');
+Route::post('admin/prestasi',[App\Http\Controllers\Admin\PrestasiController::class, 'store'])->name('admin.prestasi.store');
+Route::get('admin/prestasi/{id}/edit', [App\Http\Controllers\Admin\PrestasiController::class, 'edit'])->name('admin.prestasi.edit');
+Route::put('admin/prestasi/{id}', [App\Http\Controllers\Admin\PrestasiController::class, 'update'])->name('admin.prestasi.update');
+Route::delete('admin/prestasi/{id}', [App\Http\Controllers\Admin\PrestasiController::class, 'destroy'])->name('admin.prestasi.destroy');
 
 });

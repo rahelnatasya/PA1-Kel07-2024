@@ -27,21 +27,6 @@
             </div>
         </div>
 
-
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box" style="background-color: #3c8dbc">
-                <div class="inner">
-                    <p>Galeri Ruang Baca</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-book-open"></i>
-                </div>
-                <a href="{{ Route('admin.ruangbaca.index') }}" class="small-box-footer">More info <i
-                        class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -76,26 +61,26 @@
             <!-- small box -->
             <div class="small-box bg-info">
                 <div class="inner">        
-                    <p>Galeri Ruang Kelas</p>
+                    <p>Galeri Kategori Fasiltas</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-chalkboard"></i>
                 </div>
-                <a href="{{ Route('admin.ruangkelas.index') }}" class="small-box-footer">More info <i
+                <a href="{{ Route('admin.ruang.index') }}" class="small-box-footer">More info <i
                             class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-secondary">
+            <div class="small-box bg-info">
                 <div class="inner">        
-                    <p>Galeri Smart Class</p>
+                    <p>Deskripsi Kategori Fasilitas</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-chair"></i>
+                    <i class="fas fa-chalkboard"></i>
                 </div>
-                <a href="{{ Route('admin.smartclass.index') }}" class="small-box-footer">More info <i
+                <a href="{{ Route('admin.category.index') }}" class="small-box-footer">More info <i
                             class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
@@ -112,21 +97,7 @@
                 <a href="{{ Route('admin.mrclub.index') }}" class="small-box-footer">More info <i
                             class="fas fa-arrow-circle-right"></i></a>
             </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-light">
-                <div class="inner">        
-                    <p>Galeri Ruang Seminar</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-microphone"></i>
-                </div>
-                <a href="{{ Route('admin.ruangseminar.index') }}" class="small-box-footer">More info <i
-                            class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>      
+        </div>  
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->

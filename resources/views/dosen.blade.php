@@ -29,10 +29,9 @@
           <div class="card border-0 shadow">
               <img src="{{ URL::asset('aset/img/'. $item->gambar) }}" class="card-img-top" alt="{{ $item->gambar }}">
               <div class="card-body text-center">
-                  <h5 class="card-title mb-0">{{ $item['nama'] }}</h5>
                   <!-- Add data-dosen-id attribute with the faculty member's ID -->
                   <button type="button" class="btn btn-primary mt-2 btn-view-details" data-toggle="modal" data-target="#exampleModal{{$item['id']}}" data-dosen-id="{{ $item['id'] }}">
-                      View Details
+                    <h5 class="card-title mb-0">{{ $item['nama'] }}</h5>
                   </button>
               </div>
           </div>

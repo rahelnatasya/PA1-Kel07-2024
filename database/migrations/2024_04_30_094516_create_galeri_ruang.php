@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('galeri_ruang', function (Blueprint $table) {
+        Schema::create('category_room', function (Blueprint $table) {
             $table->id();
-            $table->enum('ruang', array('Ruang Kelas', 'Ruang Baca', 'Ruang Seminar', 'Smart Room'));
-            $table->string('gambar');
+            $table->string('category');
+            $table->text('description');
             $table->timestamps();
         });
     }
