@@ -43,8 +43,8 @@ class BeritaController extends Controller
 
         $newBerita->save();
 
-        return redirect()->route('admin.berita.index')->with('status', 'Berita berhasil ditambahkan');
-    }
+        return redirect()->route('admin.berita.index')->with('success', 'Berita berhasil ditambahkan.');
+   }
 
     public function edit($id)
     {

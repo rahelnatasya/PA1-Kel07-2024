@@ -4,7 +4,6 @@
     Create Prestasi Mahasiswa
 @endsection
 
-
 @section('content')
     <div class="section-body">
         <form action="{{ route('admin.prestasi.store') }}" method="post" enctype="multipart/form-data">
@@ -14,27 +13,36 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group mb-3">
-                                <label for="jenisprestasi">Jenis Prestasi: </label>
-                                <input type="text" class="form-control" id="jenisprestasi" name="jenisprestasi"
-                                    placeholder="Contoh: MBKM">
-                                @error('jenisprestasi')
+                                <label for="name">Nama Kegiatan</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                @error('name')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label for="nama">Nama Mahasiswa: </label>
-                                <input type="text" class="form-control" id="nama" name="nama"
-                                    placeholder="Masukkan nama mahasiswa">
-                                @error('nama')
+                                <label for="time_event">Waktu Pelaksanaan</label>
+                                <input type="text" class="form-control" id="time_event" name="time_event" placeholder="">
+                                @error('time_event')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
-                            </div>
+                            </div>                            
+                            <div class="form-group">
+                                <label for="achievement_level">Tingkat Prestasi</label>
+                                <select name="achievement_level" class="form-control" id="achievement_level">
+                                    <option value="Lokal">Lokal</option>
+                                    <option value="Wilayah">Wilayah</option>
+                                    <option value="Nasional">Nasional</option>
+                                    <option value="Internasional">Internasional</option>
+                                </select>
+                                @error('achievement_level')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>   
                             <div class="form-group mb-3">
-                                <label for="deskripsi">Deskripsi Prestasi : </label>
-                                <input type="text" class="form-control" id="deskripsi" name="deskripsi"
-                                rows="5" style="height: 150px; placeholder="">
-                                @error('deskripsi')
-                                    <span class="text-danger mt-5">{{ $message }}</span>
+                                <label for="description">Prestasi yang Dicapai</label>
+                                <input type="text" class="form-control" id="description" name="description" placeholder="">
+                                @error('description')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
@@ -42,7 +50,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan Prestasi Mahasiswa</button>
             </div>
         </form>
     </div>

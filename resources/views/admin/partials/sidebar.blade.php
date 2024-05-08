@@ -1,7 +1,12 @@
 <div class="sidebar">
-    <div class="sidebar-header">
-        <h3>Admin Website</h3>
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+        <img src="{{URL::asset ('Template/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
     </div>
+    <div class="info">
+        <a href="#" class="d-block">Admin Website | MR</a>
+    </div>
+</div>
     <div class="sidebar-search">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="Search...">
@@ -23,7 +28,7 @@
             <li class="nav-item">
                 <a href="{{ Route('admin.berita.index') }}" class="nav-link">
                     <i class="fas fa-newspaper"></i>
-                    <span>Berita</span>
+                    <span>Berita Terkini</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -39,23 +44,28 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ Route('admin.strukturdosen.index') }}" class="nav-link">
+                    <i class="fas fa-user-tie"></i>
+                    <span>Struktur Dosen</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ Route('admin.dosen.index') }}" class="nav-link">
                     <i class="fas fa-user-tie"></i>
                     <span>Dosen Staff</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{ Route('admin.ruang.index') }}" class="nav-link">
-                    <i class="fas fa-images"></i>
-                    <span>Galeri Kategori Fasilitas</span>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="facilitiesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-building"></i>
+                    <span>Fasilitas</span>
                 </a>
+                <div class="dropdown-menu" aria-labelledby="facilitiesDropdown">
+                    <a class="dropdown-item" href="{{ Route('admin.ruang.index') }}">Galeri </a>
+                    <a class="dropdown-item" href="{{ Route('admin.category.index') }}">Deskripsi </a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a href="{{ Route('admin.category.index') }}" class="nav-link">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Deskripsi Kategori Fasilitas</span>
-                </a>
-            </li>
+            
             <li class="nav-item">
                 <a href="{{ Route('admin.profillulusan.index') }}" class="nav-link">
                     <i class="fas fa-graduation-cap"></i>
@@ -82,7 +92,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{ Route('admin.mrclub.index') }}" class="nav-link">
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-running"></i>
                     <span>MR CLUB</span>
                 </a>
             </li>
@@ -99,16 +109,5 @@
     color: #343a40;
     }
 </style>
-<script>
-        // Get sidebar element
-    const sidebar = document.querySelector('.sidebar');
 
-    // Toggle sidebar visibility
-    function toggleSidebar() {
-        sidebar.classList.toggle('active');
-    }
 
-    // Add event listener to sidebar toggle button
-    document.querySelector('.sidebar-toggle').addEventListener('click', toggleSidebar);
-
-</script>

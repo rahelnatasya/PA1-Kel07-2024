@@ -16,15 +16,30 @@
                         <div class="form-group mb-3">
                             <label for="images">Pilih Gambar :</label>
                             <input type="file" class="form-control" id="images" name="images">
+                            <br>
                             @error('images')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                             <img src="{{ asset('aset/img/'. $testimoni->images) }}" alt="{{ $testimoni->images }}" width="200">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="name">name Pemberi Testimoni :</label>
+                            <label for="name">Nama Pemberi Testimoni :</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{ $testimoni->name }}">
                             @error('name')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="created_by">Ditulis oleh: </label>
+                            <input type="text" class="form-control" id="created_by" name="created_by" value="{{ $testimoni->created_by }}" >
+                            @error('created_by')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="jobdescription">Profesi Pemberi Testimoni :</label>
+                            <input type="text" class="form-control" id="jobdescription" name="jobdescription" value="{{ $testimoni->jobdescription }}">
+                            @error('profesi')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
@@ -35,27 +50,13 @@
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="form-group mb-3">
-                            <label for="created_by">Ditulis oleh: </label>
-                            <textarea class="form-control" id="created_by" name="created_by" rows="3">{{ $testimoni->created_by }}</textarea>
-                            @error('created_by')
-                                <span class="text-danger mt-2">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="jobdescription">Profesi Pemberi Testimoni :</label>
-                            <textarea class="form-control" id="jobdescription" name="jobdescription" rows="3">{{ $testimoni->jobdescription }}</textarea>
-                            @error('profesi')
-                                <span class="text-danger mt-2">{{ $message }}</span>
-                            @enderror
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
+        <button type="submit" class="btn btn-primary" id="btn-simpan">Simpan Testimoni</button>
+        <a href="{{ route('admin.testimoni.index') }}" class="btn btn-warning" id="btn-batal">Batal</a>
+    </form>
     </form>
 </div>
 @endsection

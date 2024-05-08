@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('dosens', function (Blueprint $table) {
             $table->id();
-            $table->text('nama');
-            $table->text('pendidikan');
-            $table->text('role');
-            $table->string('nidn');
-            $table->string('gambar');
+            $table->string('employee_no')->unique();
+            $table->text('name');
+            $table->text('education');
+            $table->enum('role', ['dosen', 'staff']);           
+            $table->string('images');
             $table->timestamps();
         });
     }

@@ -21,9 +21,10 @@
                                     <tr>
                                         <th scope="col">No.</th>
                                         <th scope="col">Semester</th>
+                                        <th scope="col">Jumlah SKS</th>
                                         <th scope="col">Kode Matakuliah</th>
                                         <th scope="col">Nama Matakuliah</th>
-                                        <th scope="col">Jumlah sks</th>
+                                        <th scope="col">Status</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
@@ -32,21 +33,20 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->semester }}</td>
-                                            <td>{{ $item->kode }}</td>
-                                            <td>{{ $item->nama }}</td>
                                             <td>{{ $item->sks }}</td>
-                                            <td class="d-flex justify-content-center">
-                                                <a href="{{ route('admin.kurikulum.edit', ['kurikulum' => $item->id]) }}"
-                                                    class="btn btn-primary mr-2"><i class="fa fa-edit"></i></a>
-
-                                                <form action="{{ route('admin.kurikulum.destroy', ['kurikulum' => $item->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger"
-                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                            class="fa fa-trash"></i></button>
-                                                </form>
+                                            <td>{{ $item->kode_mk }}</td>
+                                            <td>{{ $item->subject }}</td>
+                                            <td>{{ $item->status }}</td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="{{ route('admin.kurikulum.edit', ['kurikulum' => $item->id]) }}" class="btn btn-warning" onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
+                                                    <form action="{{ route('admin.kurikulum.destroy', ['kurikulum' => $item->id]) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger mx-1"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach

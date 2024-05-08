@@ -20,15 +20,15 @@ class ProfilLulusanController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'judul' => 'required|string',
+            'name' => 'required|string',
             'jobtitle' => 'required|string',
-            'deskripsi' => 'required|string',
+            'description' => 'required|string',
         ]);
 
         $profillulusan = new Profillulusan([
-            'judul' => $request->get('judul'),
+            'name' => $request->get('name'),
             'jobtitle' => $request->get('jobtitle'),
-            'deskripsi' => $request->get('deskripsi'),
+            'description' => $request->get('description'),
         ]);
 
         $profillulusan->save();
@@ -38,15 +38,15 @@ class ProfilLulusanController extends Controller
     public function update(Request $request, $id)
 {
     $request->validate([
-        'judul' => 'required|string',
+        'name' => 'required|string',
         'jobtitle' => 'required|string',
-        'deskripsi' => 'required|string',
+        'description' => 'required|string',
     ]);
 
     $profillulusan = Profillulusan::findOrFail($id);
-    $profillulusan->judul = $request->input('judul');
+    $profillulusan->name = $request->input('name');
     $profillulusan->jobtitle = $request->input('jobtitle');
-    $profillulusan->deskripsi = $request->input('deskripsi');
+    $profillulusan->description = $request->input('description');
     $profillulusan->save();
 
     return redirect()->route('admin.profillulusan.index')->with('success', 'Profil Lulusan berhasil diperbarui!');

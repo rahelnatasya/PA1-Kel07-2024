@@ -18,27 +18,32 @@ class PrestasiController extends Controller
     public function create()
     {
         return view('admin.prestasi.create');
-    }
+    }    
 
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|string',
-            'jenisprestasi' => 'required|string',
-            'deskripsi' => 'required|string',
+            'name' => 'required|string',
+            'time_event' => 'required|string', // This field is required
+            'description' => 'required|string',
+            'achievement_level' => 'required|in:Lokal, Wilayah, Nasional, Internasional'
         ]);
 
+        // Create a new Prestasi instance
         $prestasi = new Prestasi([
-            'nama' => $request->get('nama'),
-            'jenisprestasi' => $request->get('jenisprestasi'),
-            'deskripsi' => $request->get('deskripsi'),
+            'name' => $request->get('name'),
+            'time_event' => $request->get('time_event'), // Ensure 'time_event' is provided in the request
+            'description' => $request->get('description'),
+            'achievement_level' => $request->get('achievement_level')
         ]);
-
+    
+        // Save the Prestasi instance
         $prestasi->save();
-        return redirect()->route('admin.prestasi.index')->with('success', 'prestasi berhasil dibuat!');
+    
+        // Redirect back to the index page with a success message
+        return redirect()->route('admin.prestasi.index')->with('success', 'Prestasi berhasil dibuat!');
     }
-
-    public function edit($id)
+        public function edit($id)
     {
         $prestasi = Prestasi::findOrFail($id);
         
@@ -48,17 +53,19 @@ class PrestasiController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama' => 'required|string',
-            'jenisprestasi' => 'required|string',
-            'deskripsi' => 'required|string',
+            'name' => 'required|string',
+            'time_event' => 'required|string',
+            'description' => 'required|string',
+            'achievement_level' => 'required|in:Lokal, Wilayah, Nasional, Internasional'
         ]);
     
         $prestasi = Prestasi::findOrFail($id);
         
-        $prestasi->nama = $request->input('nama');
-        $prestasi->jenisprestasi = $request->input('jenisprestasi');
-        $prestasi->deskripsi = $request->input('deskripsi');
-        
+        $prestasi->name = $request->input('name');
+        $prestasi->time_event = $request->input('time_event');
+        $prestasi->description = $request->input('description');
+        $prestasi->achievement_level = $request->input('achievement_level');
+
         $prestasi->save();
 
         return redirect()->route('admin.prestasi.index')->with('success', 'prestasi berhasil diperbarui!');

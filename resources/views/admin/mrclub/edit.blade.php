@@ -14,24 +14,24 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group mb-3">
-                            <label for="gambar">Pilih Gambar :</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar">
-                            @error('gambar')
+                            <label for="images">Pilih gambar :</label>
+                            <input type="file" class="form-control" id="images" name="images">
+                            @error('images')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
-                            <img src="{{ asset('aset/img/' . $mrclub->gambar) }}" alt="{{ $mrclub->gambar }}" width="200">
+                            <img src="{{ asset('aset/img/' . $mrclub->images) }}" alt="{{ $mrclub->images }}" width="200">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="judul">Nama Club :</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $mrclub->judul }}">
-                            @error('judul')
+                            <label for="name">Nama Club :</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $mrclub->name }}">
+                            @error('name')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="deskripsi">Deskripsi :</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{ $mrclub->deskripsi }}</textarea>
-                            @error('deskripsi')
+                            <label for="description">Deskripsi CLub :</label>
+                            <textarea class="form-control" id="description" name="description" rows="3">{{ $mrclub->description }}</textarea>
+                            @error('description')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
@@ -39,9 +39,8 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
+        <button type="submit" class="btn btn-primary" id="btn-simpan">Simpan Club MR</button>
+        <a href="{{ route('admin.mrclub.index') }}" class="btn btn-warning" id="btn-batal">Batal</a>
     </form>
 </div>
 @endsection

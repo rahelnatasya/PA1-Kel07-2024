@@ -20,31 +20,29 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">No.</th>
-                                        <th scope="col">Judul</th>
+                                        <th scope="col">Nama Pekerjaan</th>
                                         <th scope="col">Job Title</th>
-                                        <th scope="col">Deskripsi</th>
-                                        <th scope="col">Aksi</th> <!-- Tambah kolom aksi -->
+                                        <th scope="col">Deskripsi Pekerjaan</th>
+                                        <th scope="col">Aksi</th> 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($profillulusan as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->judul}}</td>
+                                            <td>{{ $item->name}}</td>
                                             <td>{{ $item->jobtitle }}</td>
-                                            <td>{{ $item->deskripsi }}</td>
-                                            <td class="d-flex justify-content-center">
-                                                <a href="{{ route('admin.profillulusan.edit', ['profillulusan' => $item->id]) }}"
-                                                    class="btn btn-primary mr-2"><i class="fa fa-edit"></i></a>
-
-                                                <form action="{{ route('admin.profillulusan.destroy', ['profillulusan' => $item->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger"
-                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                            class="fa fa-trash"></i></button>
-                                                </form>
+                                            <td>{{ $item->description }}</td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <a href="{{ route('admin.profillulusan.edit', ['profillulusan' => $item->id]) }}" class="btn btn-warning" onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
+                                                    <form action="{{ route('admin.profillulusan.destroy', ['profillulusan' => $item->id]) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger mx-1"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
+                                                    </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach

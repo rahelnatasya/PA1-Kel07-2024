@@ -2,6 +2,8 @@
 
 @section('title')
         Create Berita
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -53,5 +55,9 @@
     </div>
 </div>
 @endsection
-@endsection
 
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif

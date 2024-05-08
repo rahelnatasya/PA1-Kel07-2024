@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('profillulusans', function (Blueprint $table) {
             $table->id();
-            $table->text('judul');
-            $table->text('deskripsi');
+            $table->text('name');
+            $table->text('description');
             $table->text('jobtitle');
             $table->timestamps();
         });

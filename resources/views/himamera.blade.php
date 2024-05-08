@@ -30,9 +30,9 @@
     </div>
 </section>
 
-<nav class="navbar bg-dark mt-3 mb-4"> <!-- Menambahkan kelas mt-3 dan mb-4 untuk memberikan margin top dan bottom pada navbar -->
+<nav class="navbar bg-dark mt-3 mb-4">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h6 text-center mx-auto text-white">KEGIATAN BESAR HIMAMERA</span> <!-- Menambahkan kelas mb-3 untuk memberikan margin bottom -->
+        <span class="navbar-brand mb-0 h6 text-center mx-auto text-white">KEGIATAN BESAR HIMAMERA</span> 
     </div>
 </nav>
 
@@ -42,13 +42,12 @@
   <div class="row mt-4">
       <div class="col-md-5">
           <a href="#">
-              <img class="img-fluid rounded mb-3 mb-md-0" src="{{ URL::asset('aset/img/' . $project->gambar) }}" alt="{{ $project->gambar }}">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="{{ URL::asset('aset/img/' . $project->images) }}" alt="{{ $project->images }}">
           </a>
       </div>
-      <div class="col-md-7">
-          <h4><?php echo $project->judul; ?></h4>
-          <p><?php echo $project->deskripsi; ?></p>
-          <a class="btn btn-danger" href="<?php echo $project->link; ?>">Dokumentasi Kegiatan</a>
+      <div class="col-md-6">
+          <h4><?php echo $project->activity_name; ?></h4>
+          <p><?php echo $project->content; ?></p>
       </div>
   </div>
   <?php endforeach; ?>

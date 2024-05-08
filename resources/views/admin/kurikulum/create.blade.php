@@ -30,20 +30,30 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label for="course_code">Kode Matakuliah</label>
-                                <input type="text" class="form-control" id="kode" name="kode"
+                                <label for="kode_mk">Kode Matakuliah</label>
+                                <input type="text" class="form-control" id="kode_mk" name="kode_mk"
                                     placeholder="Contoh: MK101">
-                                @error('kode')
+                                @error('kode_mk')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="course_name">Nama Matakuliah</label>
-                                <textarea class="form-control" id="nama" name="nama" rows="3"
-                                    placeholder="Contoh : DASPRO"></textarea>
-                                @error('nama')
+                                <label for="subject">Nama Matakuliah</label>
+                                <input type="text" class="form-control" id="subject" name="subject" 
+                                    placeholder="Contoh : DASPRO">
+                                @error('subject')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status Matakuliah</label>
+                                <select name="status" class="form-control" id="status">
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                @error('status')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -51,7 +61,7 @@
 
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan Kurikulum</button>
             </div>
         </form>
     </div>

@@ -16,7 +16,16 @@
     <link rel="stylesheet" href="{{asset('Template/dist/css/adminlte.min.css')}}">
     
     <link rel="website icon" type="png" href="{{ asset('aset/img/logo.png') }}">
-
+    
+    <style>
+        /* CSS for background image */
+        body {
+            background-image: url('{{ asset('aset/img/login.jpg') }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
 
 </head>
 
@@ -25,12 +34,12 @@
 
     <div class="login-box">
 
-        <div class="card card-outline card-primary">
+        <div class="card card-outline card-warning">
             <div class="card-header text-center">
-                <a href="/" class="h1">Login</a>
+                <a href="/" class="h4">Login Admin Manajemen Rekayasa</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Hi Admin! Start ur session here.</p>
                 <form class="needs-validation" novalidate action="/login" method="POST">
                     @csrf
                     <div class="input-group mb-3">
@@ -51,7 +60,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
+                            <div class="icheck-">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
                                     Remember Me
@@ -60,7 +69,7 @@
                         </div>
 
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-warning btn-block">Sign In</button>
                         </div>
                     </div>
                 </form>

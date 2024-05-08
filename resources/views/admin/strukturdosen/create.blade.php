@@ -1,35 +1,35 @@
 @extends('admin.master')
 
 @section('title')
-    Create Laboratorium
+    Create Struktur Dosen
 @endsection
 
 @section('content')
 <div class="section-body">
-    <form action="{{ route('admin.laboratorium.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.strukturdosen.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group mb-3">
-                            <label for="gambar">Pilih Gambar :</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar" value="{{ old('gambar') }}">
-                            @error('gambar')
+                            <label for="images">Pilih Gambar :</label>
+                            <input type="file" class="form-control" id="images" name="images" value="{{ old('images') }}">
+                            @error('images')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nama">Nama Laboratorium :</label>
-                            <input type="text" class="form-control" id="nama" name="nama" >
-                            @error('nama')
+                            <label for="name">Nama Dosen :</label>
+                            <input type="text" class="form-control" id="name" name="name" >
+                            @error('name')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="deskripsi">Deskripsi Laboratorium :</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{ old('deskripsi') }}</textarea>
-                            @error('deskripsi')
+                            <label for="posisition">Posisi :</label>
+                            <input type="text" class="form-control" id="posisition" name="posisition">
+                            @error('posisition')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan Struktur Dosen</button>
         </div>
     </form>
 </div>

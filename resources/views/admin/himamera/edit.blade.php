@@ -14,24 +14,24 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group mb-3">
-                            <label for="gambar">Pilih Gambar :</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar">
-                            @error('gambar')
+                            <label for="images">Pilih Gambar :</label>
+                            <input type="file" class="form-control" id="images" name="images">
+                            @error('images')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
-                            <img src="{{ asset('aset/img/' . $himamera->gambar) }}" alt="{{ $himamera->gambar }}" width="200">
+                            <img src="{{ asset('aset/img/' . $himamera->images) }}" alt="{{ $himamera->images }}" width="200">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="judul">Judul :</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ $himamera->judul }}">
-                            @error('judul')
+                            <label for="activity_name">Nama Aktivitas :</label>
+                            <input type="text" class="form-control" id="activity_name" name="activity_name" value="{{ $himamera->activity_name }}">
+                            @error('activity_name')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="deskripsi">Deskripsi :</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{ $himamera->deskripsi }}</textarea>
-                            @error('deskripsi')
+                            <label for="content">Deskripsi Aktivitas :</label>
+                            <textarea class="form-control" id="content" name="content" rows="3">{{ $himamera->content }}</textarea>
+                            @error('content')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
@@ -39,9 +39,8 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
+        <button type="submit" class="btn btn-primary" id="btn-simpan">Simpan Kegiatan Mahasiswa</button>
+        <a href="{{ route('admin.himamera.index') }}" class="btn btn-warning" id="btn-batal">Batal</a>
     </form>
 </div>
 @endsection

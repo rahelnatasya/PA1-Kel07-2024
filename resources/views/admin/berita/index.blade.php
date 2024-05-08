@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title')
-  Berita
+@section('title', 'Berita')
+  
 @section('subtitle')
     <a class="btn btn-primary" href="{{ route('admin.berita.create') }}" role="button">Tambah <i
             class="fa-solid fa-plus"></i></a>
@@ -38,7 +38,7 @@
                                     <td>{{ $data->created_by }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('admin.berita.edit', ['id' => $data->id]) }}" class="btn btn-warning mx-1">Edit</a>
+                                            <a href="{{ route('admin.berita.edit', ['id' => $data->id]) }}" class="btn btn-warning "onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
                                             <form action="{{ route('admin.berita.destroy', ['id' => $data->id]) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -57,5 +57,4 @@
         </div>
     </div>
 </div>
-@endsection
 @endsection

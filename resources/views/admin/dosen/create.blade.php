@@ -13,46 +13,49 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group mb-3">
-                            <label for="gambar">Masukkan foto dosen :</label>
-                            <input type="file" class="form-control" id="gambar" name="gambar" value="{{ old('gambar') }}">
-                            @error('gambar')
+                            <label for="images">Masukkan foto dosen :</label>
+                            <input type="file" class="form-control" id="images" name="images" value="{{ old('images') }}">
+                            @error('images')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nama">Nama Dosen:</label>
-                            <input type="text" class="form-control" id="nama" name="nama" >
-                            @error('nama')
+                            <label for="name">Nama Dosen:</label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                            @error('name')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="pendidikan">Pendidikan dosen :</label>
-                            <textarea class="form-control" id="pendidikan" name="pendidikan"  rows="3">{{ old('pendidikan') }}</textarea>
-                            @error('pendidikan')
+                            <label for="employee_no">Kode Pegawai :</label>
+                            <input type="text" class="form-control" id="employee_no" name="employee_no" value="{{ old('employee_no') }}">
+                            @error('employee_no')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div> 
                         <div class="form-group mb-3">
-                            <label for="nidn">NIDN :</label>
-                            <textarea class="form-control" id="nidn" name="nidn"></textarea>
-                            @error('nidn')
+                            <label for="education">Pendidikan dosen :</label>
+                            <textarea class="form-control" id="education" name="education" rows="3">{{ old('education') }}</textarea>
+                            @error('education')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div>                       
                         <div class="form-group mb-3">
                             <label for="role">Role :</label>
-                            <textarea class="form-control" id="role" name="role"></textarea>
+                            <select class="form-control" id="role" name="role">
+                                <option value="dosen">Dosen</option>
+                                <option value="staff">Staff</option>
+                            </select>
                             @error('role')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
-                        </div>
+                        </div>    
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Simpan Dosen dan Staff</button>
+                        </div>               
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     </form>
 </div>

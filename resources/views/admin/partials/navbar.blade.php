@@ -8,27 +8,16 @@
             <a href="{{ Route('home') }}" class="nav-link">Home</a>
         </li>
     </ul>
-
-
-
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <form method="POST" action="{{ route('logout') }}">
-            @csrf
-            <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
-                <i class="mr-2 fas fa-sign-out-alt"></i>
-                Log Out
-            </a>
+                @csrf
+                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                    <i class="mr-2 fas fa-sign-out-alt"></i>
+                    Log Out
+                </a>
             </form>
         </li>
     </ul>
 </nav>
-<footer class="main-footer">
-    <div class="float-right d-none d-sm-inline">
-        love u PA 1
-    </div>
-    <!-- Default to the left -->
-    <strong>Made with tears by <a href="#">Rahel Natasya</a></strong>
-</footer>
-

@@ -22,26 +22,26 @@ class HimameraController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-            'judul' => 'required|string',
-            'deskripsi' => 'required|string',
-            'gambar' => 'image|mimes:jpg,jpeg,png|'
+            'activity_name' => 'required|string',
+            'content' => 'required|string',
+            'images' => 'image|mimes:jpg,jpeg,png|max:5000'
         ]);
     
         $namaFile = null;
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
             $namaFile = $file->getClientOriginalName();
             $tujuanFile = 'aset/img';
     
             if (!$file->move($tujuanFile, $namaFile)) {
-                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah gambar.'])->withInput();
+                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah images.'])->withInput();
             }
         }
     
         $newHimamera = new Himamera();
-        $newHimamera->judul = $request->judul;
-        $newHimamera->deskripsi = $request->deskripsi;
-        $newHimamera->gambar = $namaFile;
+        $newHimamera->activity_name = $request->activity_name;
+        $newHimamera->content = $request->content;
+        $newHimamera->images = $namaFile;
     
         $newHimamera->save();
     
@@ -58,30 +58,30 @@ class HimameraController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-            'judul' => 'required|string',
-            'deskripsi' => 'required|string',
-            'gambar' => 'image|mimes:jpg,jpeg,png'
+            'activity_name' => 'required|string',
+            'content' => 'required|string',
+            'images' => 'image|mimes:jpg,jpeg,png|max:5000'
         ]);
     
         $himamera = Himamera::findOrFail($id);
     
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
             $namaFile = $file->getClientOriginalName();
             $tujuanFile = 'aset/img';
     
             if (!$file->move($tujuanFile, $namaFile)) {
-                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah gambar.'])->withInput();
+                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah images.'])->withInput();
             }
-            if ($himamera->gambar && file_exists($tujuanFile . '/' . $himamera->gambar)) {
-                unlink($tujuanFile . '/' . $himamera->gambar);
+            if ($himamera->images && file_exists($tujuanFile . '/' . $himamera->images)) {
+                unlink($tujuanFile . '/' . $himamera->images);
             }
     
-            $himamera->gambar = $namaFile;
+            $himamera->images = $namaFile;
         }
     
-        $himamera->judul = $request->judul;
-        $himamera->deskripsi = $request->deskripsi;
+        $himamera->activity_name = $request->activity_name;
+        $himamera->content = $request->content;
         $himamera->save();
     
         return redirect()->route('admin.himamera.index')->with('success', 'Himamera berhasil diperbarui!');

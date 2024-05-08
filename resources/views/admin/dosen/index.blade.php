@@ -1,12 +1,9 @@
 @extends('admin.master')
 
-@section('title')
-    Dosen
-@endsection
+@section('title', 'Dosen')
 
 @section('subtitle')
-    <a class="btn btn-primary" href="{{ route('admin.dosen.create') }}" role="button">Tambah <i
-            class="fa-solid fa-plus"></i></a>
+    <a class="btn btn-primary" href="{{ route('admin.dosen.create') }}" role="button">Tambah <i class="fa-solid fa-plus"></i></a>
 @endsection
 
 @section('content')
@@ -20,32 +17,34 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col">No</th>
+                                    <th scope="col">Kode Pegawai</th>
                                     <th scope="col">Gambar</th>
-                                    <th scope="col">Nama Dosen</th>
-                                    <th scope="col">Pendidikan</th>
+                                    <th scope="col">Nama Dosen & Staff</th>
+                                    <th scope="col">Pendidikan Dosen & Staff</th>
                                     <th scope="col">Role</th>
-                                    <th scope="col">NIDN</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($dosen as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ asset('aset/img/' . $item->gambar) }}" alt="{{ $item->judul }}" width="100"></td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->pendidikan }}</td>
-                                    <td>{{ $item->role }}</td>
-                                    <td>{{ $item->nidn }}</td>
-                                    <td class="d-flex justify-content-center">
-                                        <a href="{{ route('admin.dosen.edit', $item->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                        <form action="{{ route('admin.dosen.destroy', $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')"><i class="fa fa-trash"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->employee_no }}</td>
+                                        <td><img src="{{ asset('aset/img/' . $item->images) }}" alt="{{ $item->name }}" width="100"></td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->education }}</td>
+                                        <td>{{ $item->role }}</td>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{ route('admin.dosen.edit', ['id' => $item->id]) }}" class="btn btn-warning" onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
+                                                <form action="{{ route('admin.dosen.destroy', ['id' => $item->id]) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label for="images">Pilih Gambar :</label>
-                            <input type="file" class="form-control" id="images" name="images" value="{{ old('images') }}">
+                            <input type="file" class="form-control" id="images" name="images" >
                             @error('images')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="jobdescription">Profesi Pemberi Testimoni :</label>
-                            <input type="text" class="form-control" id="jobdescription" name="jobdescription" rows="3">
+                            <input type="text" class="form-control" id="jobdescription" name="jobdescription">
                             @error('jobdescription')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
@@ -47,12 +47,12 @@
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Simpan Testimoni</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
     </form>
 </div>

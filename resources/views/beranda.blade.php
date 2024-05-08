@@ -43,9 +43,8 @@
                             Kegiatan Mahasiswa
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <li><a class="dropdown-item" href="/himamera">Struktur Himpunan Mahasiswa</a></li>
+                            <li><a class="dropdown-item" href="/himamera">Kegiatan Besar Mahasiswa</a></li>
                             <li><a class="dropdown-item" href="/mrclub">Club MR</a></li>
-                            <li><a class="dropdown-item" href="/asrama">Asrama</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -54,7 +53,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
                             @foreach ($category as $item)
-                                <a href="/?category={{ $item->id }}" class="dropdown-item">{{ $item->category }}</a>
+                                <a href="/fasilitas?category={{ $item->id }}" class="dropdown-item">{{ $item->category }}</a>
                             @endforeach
                         </ul>
                         <li class="nav-item"><a class="nav-link" href="/prestasi">Prestasi Mahasiswa</a></li>
@@ -96,7 +95,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="beritaModal{{ $data->id }}" tabindex="-1" aria-labelledby="beritaModalLabel{{ $data->id }}" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="beritaModalLabel{{ $data->id }}">{{ $data->title }}</h5>
@@ -155,25 +154,16 @@
         </div>
     </div>
 </section>
-
-        <section class="py-5 bg-image-full">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 text-center">
-                        <h3>Video Terkait</h3>
-                    </div>
-                </div>
+<section class="py-5 bg-image-full">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h3>Video Terkait</h3>
+                <iframe width="750" height="500" src="https://www.youtube.com/embed/EadBu-uScZQ" frameborder="5" allowfullscreen></iframe>
             </div>
-        </section>
-        <section class="py-5 bg-image-full">
-            <div class="container my-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-4 text-center">
-                        <h3>Kerja Sama</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </div>
+</section>
         <!-- Footer -->
         <footer class="py-5 bg-dark">
             <div class="container">

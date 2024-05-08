@@ -43,9 +43,8 @@
                                 Kegiatan Mahasiswa
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                <li><a class="dropdown-item" href="/himamera">Struktur Himpunan Mahasiswa</a></li>
+                                <li><a class="dropdown-item" href="/himamera">Kegiatan Besar Mahasiswa</a></li>
                                 <li><a class="dropdown-item" href="/mrclub">MR CLUB</a></li>
-                                <li><a class="dropdown-item" href="/asrama">Asrama</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -53,14 +52,8 @@
                                 Fasilitas
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                <li><a class="dropdown-item" href="/olahraga">Olahraga</a></li>
-                                <li><a class="dropdown-item" href="/ruangkelas">Ruang kelas</a></li>
-                                <li><a class="dropdown-item" href="/smartclass">Smartclass</a></li>
-                                <li><a class="dropdown-item" href="/ruangbaca">Ruang Baca</a></li>
-                                <li><a class="dropdown-item" href="/laboratorium">Laboratorium</a></li>
-                                <li><a class="dropdown-item" href="/ruangseminar">Ruang Seminar</a></li>
                                 @foreach ($category as $item)
-                                    <a href="/?category={{ $item->id }}" class="dropdown-item">{{ $item->category }}</a>
+                                    <a href="/fasilitas?category={{ $item->id }}" class="dropdown-item">{{ $item->category }}</a>
                                 @endforeach
                             </ul>
                         </li>

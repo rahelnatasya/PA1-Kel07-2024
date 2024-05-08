@@ -14,26 +14,23 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group mb-3">
-                                <label for="judul">Nama Pekerjaan</label>
-                                <input type="text" class="form-control" id="judul" name="judul"
-                                    value="{{ $profillulusan->judul }}">
-                                @error('judul')
+                                <label for="name">Nama Pekerjaan</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $profillulusan->name }}">
+                                @error('name')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
                                 <label for="jobtitle">Job Title</label>
-                                <input type="text" class="form-control" id="jobtitle" name="jobtitle"
-                                    value="{{ $profillulusan->jobtitle }}">
+                                <input type="text" class="form-control" id="jobtitle" name="jobtitle" value="{{ $profillulusan->jobtitle }}">
                                 @error('jobtitle')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="deskripsi">Deskripsi</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi"
-                                    rows="3">{{ $profillulusan->deskripsi }}</textarea>
-                                @error('deskripsi')
+                                <label for="description">Deskripsi</label>
+                                <textarea class="form-control" id="description" name="description" rows="3">{{ $profillulusan->description }}</textarea>
+                                @error('description')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -41,9 +38,8 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
+            <button type="submit" class="btn btn-primary" id="btn-simpan">Simpan Profil Lulusan</button>
+            <a href="{{ route('admin.profillulusan.index') }}" class="btn btn-warning" id="btn-batal">Batal</a>
         </form>
     </div>
 @endsection

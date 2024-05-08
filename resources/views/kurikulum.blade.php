@@ -16,25 +16,29 @@
 </header>
 
 <div class="container text-center"> 
-    <div class="row">
-        <div class="row">
-            <div class="col fw-bold">Semester</div>
-            <div class="col fw-bold">Kode Mata Kuliah</div>
-            <div class="col fw-bold">Nama Mata Kuliah</div>
-            <div class="col fw-bold">SKS</div>
-        </div>
-
-        @foreach($kurikulum as $data)
-        <div class="row">
-            <div class="col">{{ $data['semester'] }}</div>
-            <div class="col">{{ $data['kode'] }}</div>
-            <div class="col">{{ $data['nama'] }}</div>
-            <div class="col">{{ $data['sks'] }}</div>
-        </div>
-        @endforeach
-
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="fw-bold">Semester</th>
+                <th class="fw-bold">Kode Mata Kuliah</th>
+                <th class="fw-bold">Nama Mata Kuliah</th>
+                <th class="fw-bold">SKS</th>
+                <th class="fw-bold">Status</th>
+        </thead>
+        <tbody>
+            @foreach($kurikulum as $data)
+            <tr>
+                <td>{{ $data->semester }}</td>
+                <td>{{ $data->kode_mk }}</td>
+                <td>{{ $data->subject }}</td>
+                <td>{{ $data->sks }}</td>
+                <td>{{ $data->status }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
+
 @endsection
 
 

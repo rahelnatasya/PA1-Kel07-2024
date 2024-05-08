@@ -10,104 +10,94 @@ class TestimoniController extends Controller
 {
     public function index()
     {
-    $testimoni = Testimoni::all();
-    return view('admin.testimoni.index', ['testimoni' => $testimoni]);
+        $testimoni = Testimoni::all();
+        return view('admin.testimoni.index', compact('testimoni'));
     }
 
     public function create()
     {
         return view('admin.testimoni.create');
     }
-    
+
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string',
             'content' => 'required|string',
             'jobdescription' => 'required|string',
-            'images' => 'image|mimes:jpg,jpeg,png|max:5000',
-            'created_by'=>'required|string',
-            'updated_by'=>'required|string'
+            'images' => 'required|image|mimes:jpg,jpeg,png|max:5000',
+            'created_by' => 'required|string',
         ]);
-    
-        $namaFile = null;
-        if ($request->hasFile('images')) {
-            $file = $request->file('images');
-            $namaFile = $file->getClientOriginalName();
-            $tujuanFile = 'aset/img';
-    
-            if (!$file->move($tujuanFile, $namaFile)) {
-                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah gambar.'])->withInput();
-            }
+
+        try {
+            $imageName = time() . '.' . $request->file('images')->getClientOriginalExtension();
+            $request->file('images')->move(public_path('aset/img'), $imageName);
+
+            $newTestimoni = new Testimoni();
+            $newTestimoni->name = $request->name;
+            $newTestimoni->content = $request->content;
+            $newTestimoni->jobdescription = $request->jobdescription;
+            $newTestimoni->created_by = $request->created_by;
+            $newTestimoni->updated_by = 'some_default_value'; 
+            $newTestimoni->images = $imageName;
+
+            $newTestimoni->save();
+
+            return redirect()->route('admin.testimoni.index')->with('status', 'Testimoni berhasil ditambahkan');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
         }
-    
-        $newtestimoni = new Testimoni();
-        $newtestimoni->name = $request->name;
-        $newtestimoni->content = $request->content;
-        $newtestimoni->jobdescription = $request->jobdescription;
-        $newtestimoni->created_by = $request->created_by;
-        $newtestimoni->updated_by = $request->updated_by;
-        $newtestimoni->images = $namaFile;
-    
-        $newtestimoni->save();
-    
-        return redirect()->route('admin.testimoni.index')->with('success', 'testimoni berhasil dibuat!');
-    }
-    
+    }    
     public function edit($id)
     {
-    $testimoni = Testimoni::findOrFail($id);
-    
-    return view('admin.testimoni.edit', compact('testimoni'));
+        try {
+            $testimoni = Testimoni::findOrFail($id);
+            return view('admin.testimoni.edit', compact('testimoni'));
+        } catch (\Exception $e) {
+            return redirect()->route('admin.testimoni.index')->with('error', 'Testimoni tidak ditemukan');
+        }
     }
-
+    
     public function update(Request $request, $id)
     {
-    $request->validate([
-        'name' => 'required|string',
-        'content' => 'required|string',
-        'jobdescription' => 'required|string',
-        'images' => 'image|mimes:jpg,jpeg,png|max:5000',
-        'created_by'=>'required|string',
-        'updated_by'=>'required|string'
-
-    ]);
-
-    $testimoni = Testimoni::findOrFail($id);
-
-    if ($request->hasFile('images')) {
-        $file = $request->file('images');
-        $namaFile = $file->getClientOriginalName();
-        $tujuanFile = 'aset/img';
-
-        if (!$file->move($tujuanFile, $namaFile)) {
-            return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah gambar.'])->withInput();
+        $request->validate([
+            'name' => 'required|string',
+            'content' => 'required|string',
+            'jobdescription' => 'required|string',
+            'images' => 'image|mimes:jpg,jpeg,png|max:5000',
+            'created_by' => 'required|string',
+        ]);
+    
+        try {
+            $testimoni = Testimoni::findOrFail($id);
+    
+            if ($request->hasFile('images')) {
+                $images = $request->file('images');
+                $namaFile = $images->getClientOriginalName();
+                $tujuanFile = 'aset/img';
+                $images->move($tujuanFile, $namaFile);
+                $testimoni->images = $namaFile;
+            }
+    
+            $testimoni->name = $request->name;
+            $testimoni->content = $request->content;
+            $testimoni->jobdescription = $request->jobdescription;
+            $testimoni->created_by = $request->created_by;
+    
+            $testimoni->save();
+    
+            return redirect()->route('admin.testimoni.index')->with('status', 'Testimoni berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
         }
-        if ($testimoni->images && file_exists($tujuanFile . '/' . $testimoni->images)) {
-            unlink($tujuanFile . '/' . $testimoni->images);
-        }
-
-        $testimoni->images = $namaFile;
     }
-
-    $testimoni->name = $request->name;
-    $testimoni->content = $request->content;
-    $testimoni->jobdescription = $request->jobdescription;
-    $testimoni->created_by = $request->created_by;
-    $testimoni->updated_by = $request->updated_by;
-
-    $testimoni->save();
-
-    return redirect()->route('admin.testimoni.index')->with('success', 'testimoni berhasil diperbarui!');
-    }
+    
     public function destroy($id)
     {
-    $testimoni = Testimoni::findOrFail($id);
-    $testimoni->delete();
+            $testimoni = Testimoni::findOrFail($id);
+            $testimoni->delete();
 
-    return redirect()->back()->with([
-        'message' => 'Success Delete!',
-        'alert-type' => 'danger'
-    ]);
-}
+            return redirect()->route('admin.testimoni.index')->with('status', 'Testimoni berhasil dihapus');
+
+    }
 }

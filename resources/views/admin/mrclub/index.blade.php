@@ -21,8 +21,8 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Gambar</th>
-                                    <th scope="col">Judul</th>
-                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Nama Club</th>
+                                    <th scope="col">Deskripsi Club</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -30,16 +30,19 @@
                                 @foreach ($mrclub as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ asset('aset/img/' . $item->gambar) }}" alt="{{ $item->judul }}" width="100"></td>
-                                    <td>{{ $item->judul }}</td>
-                                    <td>{{ $item->deskripsi }}</td>
-                                    <td class="d-flex justify-content-center">
-                                        <a href="{{ route('admin.mrclub.edit', $item->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                        <form action="{{ route('admin.mrclub.destroy', $item->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')"><i class="fa fa-trash"></i></button>
-                                        </form>
+                                    <td><img src="{{ asset('aset/img/' . $item->images) }}" alt="{{ $item->name }}" width="100"></td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->description }}</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="{{ route('admin.mrclub.edit', ['id' => $item->id]) }}" class="btn btn-warning "onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
+                                            <form action="{{ route('admin.mrclub.destroy', ['id' => $item->id]) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger mx-1"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                                 @endforeach

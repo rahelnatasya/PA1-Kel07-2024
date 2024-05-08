@@ -23,22 +23,24 @@ class KurikulumController extends Controller
     {
         $request->validate([
             'semester' => 'required|string',
-            'kode' => 'required|string',
-            'nama' => 'required|string',
-            'sks' => 'required|integer'
+            'kode_mk' => 'required|string', 
+            'subject' => 'required|string', 
+            'sks' => 'required|integer',
+            'status' => 'required|in:active,inactive'
         ]);
-
+    
         $kurikulum = new Kurikulum([
             'semester' => $request->get('semester'),
-            'kode' => $request->get('kode'),
-            'nama' => $request->get('nama'),
+            'kode_mk' => $request->get('kode_mk'), 
+            'subject' => $request->get('subject'),
             'sks' => $request->get('sks'),
+            'status' => $request->get('status') 
         ]);
-
+    
         $kurikulum->save();
         return redirect()->route('admin.kurikulum.index')->with('success', 'Kurikulum berhasil dibuat!');
     }
-
+    
     public function edit($id)
     {
         $kurikulum = Kurikulum::findOrFail($id);
@@ -50,18 +52,20 @@ class KurikulumController extends Controller
     {
         $request->validate([
             'semester' => 'required|string',
-            'kode' => 'required|string',
-            'nama' => 'required|string',
-            'sks' => 'required|integer'
+            'kode_mk' => 'required|string',
+            'subject' => 'required|string',
+            'sks' => 'required|integer',
+            'status' => 'required|in:active,inactive'
         ]);
     
         $kurikulum = Kurikulum::findOrFail($id);
         
         $kurikulum->semester = $request->input('semester');
-        $kurikulum->kode = $request->input('kode');
-        $kurikulum->nama = $request->input('nama');
+        $kurikulum->kode_mk = $request->input('kode_mk');
+        $kurikulum->subject = $request->input('subject');
         $kurikulum->sks = $request->input('sks');
-        
+        $kurikulum->status =$request->input('status');
+
         $kurikulum->save();
 
         return redirect()->route('admin.kurikulum.index')->with('success', 'Kurikulum berhasil diperbarui!');

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('mr_clubs', function (Blueprint $table) {
             $table->id();
-            $table->text('judul');
-            $table->text('deskripsi');
-            $table->string('gambar');
+            $table->text('name');
+            $table->text('description');
+            $table->string('images');
             $table->timestamps();
         });
     }

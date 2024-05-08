@@ -29,9 +29,9 @@ $sections = [
     <div class="container my-3">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h5>{{ $section['judul'] }}</h5>
-                <p class="lead">{{ $section['jobtitle'] }}</p>
-                <p class="mb-0">{{ $section['deskripsi'] }}</p>
+                <h5>{{ $section->name }}</h5>
+                <p class="lead">{{ $section->jobtitle }}</p>
+                <p class="mb-0">{{ $section->description }}</p>
             </div>
         </div>
     </div>

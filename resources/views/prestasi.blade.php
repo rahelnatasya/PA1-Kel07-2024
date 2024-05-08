@@ -10,22 +10,25 @@
 
 <!--Content -->
 <div class="container text-center"> 
-    <div class="row">
-        <div class="row">
-            <div class="col fw-bold">Jenis Prestasi</div>
-            <div class="col fw-bold">Nama Mahasiswa</div>
-            <div class="col fw-bold">Deksripsi</div>
-        </div>
-
-        @foreach($prestasi as $data)
-        <div class="row">
-            <div class="col">{{ $data['jenisprestasi'] }}</div>
-            <div class="col">{{ $data['nama'] }}</div>
-            <div class="col">{{ $data['deskripsi'] }}</div>
-        </div>
-        @endforeach
-
-    </div>
+  <table class="table">
+      <thead>
+          <tr>
+              <th class="fw-bold">Nama Kegiatan</th>
+              <th class="fw-bold">Waktu Pelaksanaan</th>
+              <th class="fw-bold">Tingkat</th>
+              <th class="fw-bold">Prestasi yang dicapai</th>
+          </tr>
+      </thead>
+      <tbody>
+          @foreach($prestasi as $data)
+          <tr>
+              <td>{{ $data->name }}</td>
+              <td>{{ $data->time_event }}</td>
+              <td>{{ $data->achievement_level }}</td>
+              <td>{{ $data->description }}</td>
+          </tr>
+          @endforeach
+      </tbody>
+  </table>
 </div>
-
 @endsection

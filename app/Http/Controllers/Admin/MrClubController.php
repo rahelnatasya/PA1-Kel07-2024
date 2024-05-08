@@ -23,26 +23,26 @@ class MrClubController extends Controller
         public function store(Request $request)
         {
         $request->validate([
-            'judul' => 'required|string',
-            'deskripsi' => 'required|string',
-            'gambar' => 'image|mimes:jpg,jpeg,png|'
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'images' => 'image|mimes:jpg,jpeg,png|'
         ]);
     
         $namaFile = null;
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
             $namaFile = $file->getClientOriginalName();
             $tujuanFile = 'aset/img';
     
             if (!$file->move($tujuanFile, $namaFile)) {
-                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah gambar.'])->withInput();
+                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah images.'])->withInput();
             }
         }
     
         $newmrclub = new MrClub();
-        $newmrclub->judul = $request->judul;
-        $newmrclub->deskripsi = $request->deskripsi;
-        $newmrclub->gambar = $namaFile;
+        $newmrclub->name = $request->name;
+        $newmrclub->description = $request->description;
+        $newmrclub->images = $namaFile;
     
         $newmrclub->save();
     
@@ -59,30 +59,30 @@ class MrClubController extends Controller
         public function update(Request $request, $id)
         {
         $request->validate([
-            'judul' => 'required|string',
-            'deskripsi' => 'required|string',
-            'gambar' => 'image|mimes:jpg,jpeg,png'
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'images' => 'image|mimes:jpg,jpeg,png'
         ]);
     
         $mrclub = MrClub::findOrFail($id);
     
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
+        if ($request->hasFile('images')) {
+            $file = $request->file('images');
             $namaFile = $file->getClientOriginalName();
             $tujuanFile = 'aset/img';
     
             if (!$file->move($tujuanFile, $namaFile)) {
-                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah gambar.'])->withInput();
+                return redirect()->back()->withErrors(['upload' => 'Gagal mengunggah images.'])->withInput();
             }
-            if ($mrclub->gambar && file_exists($tujuanFile . '/' . $mrclub->gambar)) {
-                unlink($tujuanFile . '/' . $mrclub->gambar);
+            if ($mrclub->images && file_exists($tujuanFile . '/' . $mrclub->images)) {
+                unlink($tujuanFile . '/' . $mrclub->images);
             }
     
-            $mrclub->gambar = $namaFile;
+            $mrclub->images = $namaFile;
         }
     
-        $mrclub->judul = $request->judul;
-        $mrclub->deskripsi = $request->deskripsi;
+        $mrclub->name = $request->name;
+        $mrclub->description = $request->description;
         $mrclub->save();
     
         return redirect()->route('admin.mrclub.index')->with('success', 'mrclub berhasil diperbarui!');

@@ -13,7 +13,7 @@ class himamera extends Model
     
     protected $fillable = [
         'id',
-        'judul',
-        'deskripsi'
+        'activity_name',
+        'content'
     ];
 }

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('title')
-    Prestasi
+    Prestasi Mahasiswa
 @endsection
 
 @section('subtitle')
@@ -19,9 +19,10 @@
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">No.</th>
-                                        <th scope="col">Nama Mahasiswa</th>
-                                        <th scope="col">Jenis Prestasi</th>
-                                        <th scope="col">Deskripsi Prestasi</th>
+                                        <th scope="col">Nama Kegiatan</th>
+                                        <th scope="col">Waktu Pelaksanaan</th>
+                                        <th scope="col">Tingkat</th>
+                                        <th scope="col">Prestasi yang Dicapai</th>
                                         <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
@@ -29,19 +30,20 @@
                                     @foreach ($prestasi as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->nama }}</td>
-                                            <td>{{ $item->jenisprestasi }}</td>
-                                            <td>{{ $item->deskripsi }}</td>
-                                            <td class="d-flex justify-content-center">
-                                                <a href="{{ route('admin.prestasi.edit', $item->id) }}" class="btn btn-primary mr-2"><i class="fa fa-edit"></i></a>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->time_event }}</td>
+                                            <td>{{ $item->achievement_level }}</td>
+                                            <td>{{ $item->description }}</td>
+                                        <td>
+                                            <div class="d-flex justify-content-center">
+                                                <a href="{{ route('admin.prestasi.edit', $item->id) }}" class="btn btn-warning" onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
                                                 <form action="{{ route('admin.prestasi.destroy', $item->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                                                        <i class="fa fa-trash"></i>
-                                                    </button>
+                                                    <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                                                 </form>
-                                            </td>
+                                            </div>
+                                        </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

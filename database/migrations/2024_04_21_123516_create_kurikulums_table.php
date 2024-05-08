@@ -16,9 +16,10 @@
             Schema::create('kurikulums', function (Blueprint $table) {
                 $table->id();
                 $table->string('semester');
-                $table->string('kode');
-                $table->text('nama');
+                $table->string('kode_mk');
+                $table->text('subject');
                 $table->integer('sks');
+                $table->enum('status', ['active', 'inactive'])->default('active');
                 $table->timestamps();
             });
         }

@@ -13,8 +13,8 @@ class Prestasi extends Model
     
     protected $fillable = [
         'id',
-        'jenisprestasi',
-        'deskripsi',
-        'nama'
+        'name',
+        'achievement_level',
+        'description'
     ];
 }

@@ -13,7 +13,7 @@ class MrClub extends Model
     
     protected $fillable = [
         'id',
-        'judul',
-        'deskripsi'
+        'name',
+        'description'
     ];
 }

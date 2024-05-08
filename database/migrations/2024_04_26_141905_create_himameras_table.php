@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('himameras', function (Blueprint $table) {
             $table->id();
-            $table->string('gambar');
-            $table->text('judul');
-            $table->text('deskripsi');
+            $table->string('activity_name');
+            $table->text('content');
+            $table->string('images');
             $table->timestamps();
         });
     }

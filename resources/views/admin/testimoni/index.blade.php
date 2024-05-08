@@ -37,13 +37,15 @@
                                     <td>{{ $item->content }}</td>
                                     <td>{{ $item->jobdescription }}</td>
                                     <td>{{ $item->created_by }}</td>
-                                    <td class="d-flex justify-content-center">
-                                        <a href="{{ route('admin.testimoni.edit', $item->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                    <td>
+                                    <div class="d-flex justify-content-center">
+                                        <a href="{{ route('admin.testimoni.edit', $item->id) }}" class="btn btn-warning mx-1"onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
                                         <form action="{{ route('admin.testimoni.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')"><i class="fa fa-trash"></i></button>
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</button>
                                         </form>
+                                    </div>
                                     </td>
                                 </tr>
                                 @endforeach

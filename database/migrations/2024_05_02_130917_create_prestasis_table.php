@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('prestasis', function (Blueprint $table) {
             $table->id();
-            $table->text('jenisprestasi');
-            $table->text('deskripsi');
-            $table->text('nama');
+            $table->text('name');
+            $table->string('time_event')->default('Unknown');
+            $table->enum('achievement_level', ['Lokal', 'Wilayah', 'Nasional', 'Internasional'])->default('Lokal');
+            $table->text('description');
             $table->timestamps();
         });
     }

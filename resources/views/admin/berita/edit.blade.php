@@ -54,9 +54,9 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
+        <button type="submit" class="btn btn-primary" id="btn-simpan">Simpan Berita</button>
+        <a href="{{ route('admin.berita.index') }}" class="btn btn-warning" id="btn-batal">Batal</a>
     </form>
 </div>
 @endsection 
+

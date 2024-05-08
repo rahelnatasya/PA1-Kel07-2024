@@ -1,39 +1,48 @@
 @extends('admin.master')
 
-@section('title')
-    Kurikulum
-@endsection
+@section('title', 'Kurikulum')
 
-@section('subtitle')
-    Form Edit
-@endsection
+@section('subtitle', 'Form Edit')
 
 @section('content')
-    <form action="{{ route('admin.kurikulum.update', ['kurikulum' => $kurikulum->id]) }}"
-        method="post">
+    <form action="{{ route('admin.kurikulum.update', ['kurikulum' => $kurikulum->id]) }}" method="post">
         @method('put')
         @csrf
         <div class="form-group">
-            <label for="name">Semester</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $kurikulum->name }}"
-                required>
+            <label for="semester">Semester</label>
+            <input type="text" class="form-control" id="semester" name="semester" value="{{ $kurikulum->semester }}" required>
         </div>
         <div class="form-group">
-            <label for="description">Jumlah SKS</label>
-            <textarea class="form-control" id="description" name="description" rows="10" required>{{ $kurikulum->description }}</textarea>
+            <label for="sks">Jumlah SKS</label>
+            <input type="text" class="form-control" id="sks" name="sks" value="{{ old('sks', $kurikulum->sks) }}" required>
         </div>
-        <button type="submit" class="btn btn-primary" id="btn-simpan">Simpan</button>
+        <div class="form-group">
+            <label for="kode_mk">Kode Matakuliah</label>
+            <input type="text" class="form-control" id="kode_mk" name="kode_mk" value="{{ $kurikulum->kode_mk }}" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Nama Matakuliah</label>
+            <input type="text" class="form-control" id="subject" name="subject" value="{{ $kurikulum->subject }}" required>
+        </div>
+        <div class="form-group">
+            <label for="status">Status Matakuliah</label>
+            <select name="status" class="form-control" id="status" required>
+                <option value="active" {{ $kurikulum->status == 'active' ? 'selected' : '' }}>Active</option>
+                <option value="inactive" {{ $kurikulum->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+            </select>
+        </div>        
+        <button type="submit" class="btn btn-primary" id="btn-simpan">Simpan Kurikulum</button>
         <a href="{{ route('admin.kurikulum.index') }}" class="btn btn-warning" id="btn-batal">Batal</a>
     </form>
 @endsection
 
-@section('styles')
+{{-- @section('styles')
     <style>
         .ck-editor__editable_inline {
             min-height: 200px;
         }
     </style>
-@endsection
+@endsection --}}
 
 {{-- @section('scripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>

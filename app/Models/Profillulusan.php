@@ -13,8 +13,8 @@ class Profillulusan extends Model
     
     protected $fillable = [
         'id',
-        'judul',
+        'name',
         'jobtitle',
-        'deskripsi',
+        'description'
     ];
 }

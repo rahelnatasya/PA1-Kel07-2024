@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\AsramaController;
 use App\Http\Controllers\RuangBacaController;
 use App\Http\Controllers\GaleriRuangController;
 use App\Http\Controllers\RuangSeminarController;
@@ -17,8 +16,8 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfilLulusanController;
 use App\Http\Controllers\RuangKelasController;
 use App\Http\Controllers\SmartClassController;
+use App\Http\Controllers\StrukturDosenController;
 use App\Http\Controllers\VisiMisiController;
-
 use Illuminate\Support\Facades\Route;
 
 
@@ -51,17 +50,15 @@ Route::get('/smartclass', [SmartClassController::class, 'index']);
 Route::get('/visimisi', [VisiMisiController::class, 'index']);
 Route::get('/himamera', [HimameraController::class, 'index']);
 Route::get('/mrclub', [MrClubController::class, 'index']);
-Route::get('/asrama', [AsramaController::class, 'index']);
 Route::get('/dosen', [DosenController::class, 'index']);
 Route::get('/laboratorium', [LaboratoriumController::class, 'index']);
 Route::get('/', [BeritaController::class, 'index'])->name('home');
 Route::get('/prestasi', [PrestasiController::class, 'index']);
-Route::get('/category', [CategoryRoomController::class, 'index']);
+Route::get('/fasilitas', [BeritaController::class, 'fasilitas']);
+
+Route::get('/strukturdosen', [StrukturDosenController::class, 'index']);
 
 
-Route::get('/strukturdosen', function () {
-    return view ('strukturdosen');
-});
 Route::get('/olahraga', function () {
     return view ('olahraga');
 });
@@ -104,8 +101,8 @@ Route::delete('admin/kurikulum/{kurikulum}', [App\Http\Controllers\Admin\Kurikul
 
 //Profillulusan
 Route::get('profillulusan', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'index'])->name('admin.profillulusan.index');
+Route::get('profillulusan/create', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'create'])->name('admin.profillulusan.create'); // Definisikan rute create sebelum rute edit
 Route::get('profillulusan/{profillulusan}/edit', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'edit'])->name('admin.profillulusan.edit');
-Route::get('profillulusan/create', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'create'])->name('admin.profillulusan.create');
 Route::post('admin/profillulusan', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'store'])->name('admin.profillulusan.store');
 Route::put('profillulusan/{profillulusan}', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'update'])->name('admin.profillulusan.update');
 Route::delete('admin/profillulusan/{profillulusan}', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'destroy'])->name('admin.profillulusan.destroy');
@@ -135,6 +132,13 @@ Route::get('category/{id}', [App\Http\Controllers\Admin\CategoryRoomController::
 Route::put('category/{id}', [App\Http\Controllers\Admin\CategoryRoomController::class, 'update'])->name('admin.category.update');
 Route::delete('category/{id}', [App\Http\Controllers\Admin\CategoryRoomController::class, 'destroy'])->name('admin.category.destroy');
 
+//Stuktur Dosen
+Route::get('strukturdosen', [App\Http\Controllers\Admin\StrukturDosenController::class,'index'])->name('admin.strukturdosen.index');
+Route::get('strukturdosen/create', [App\Http\Controllers\Admin\StrukturDosenController::class,'create'])->name('admin.strukturdosen.create');
+Route::post('admin/strukturdosen',[App\Http\Controllers\Admin\StrukturDosenController::class, 'store'])->name('admin.strukturdosen.store');
+Route::get('admin/strukturdosen/{id}/edit', [App\Http\Controllers\Admin\StrukturDosenController::class, 'edit'])->name('admin.strukturdosen.edit');
+Route::put('admin/strukturdosen/{id}', [App\Http\Controllers\Admin\StrukturDosenController::class, 'update'])->name('admin.strukturdosen.update');
+Route::delete('admin/strukturdosen/{id}', [App\Http\Controllers\Admin\StrukturDosenController::class, 'destroy'])->name('admin.strukturdosen.destroy');
 
 //Himamera
 Route::get('himamera', [App\Http\Controllers\Admin\HimameraController::class,'index'])->name('admin.himamera.index');
@@ -143,15 +147,6 @@ Route::post('admin/himamera',[App\Http\Controllers\Admin\HimameraController::cla
 Route::get('admin/himamera/{id}/edit', [App\Http\Controllers\Admin\HimameraController::class, 'edit'])->name('admin.himamera.edit');
 Route::put('admin/himamera/{id}', [App\Http\Controllers\Admin\HimameraController::class, 'update'])->name('admin.himamera.update');
 Route::delete('admin/himamera/{id}', [App\Http\Controllers\Admin\HimameraController::class, 'destroy'])->name('admin.himamera.destroy');
-
-//Asrama
-Route::get('asrama', [App\Http\Controllers\Admin\AsramaController::class,'index'])->name('admin.asrama.index');
-Route::get('asrama/create', [App\Http\Controllers\Admin\AsramaController::class,'create'])->name('admin.asrama.create');
-Route::post('admin/asrama',[App\Http\Controllers\Admin\AsramaController::class, 'store'])->name('admin.asrama.store');
-Route::get('admin/asrama/{id}/edit', [App\Http\Controllers\Admin\AsramaController::class, 'edit'])->name('admin.asrama.edit');
-Route::put('admin/asrama/{id}', [App\Http\Controllers\Admin\AsramaController::class, 'update'])->name('admin.asrama.update');
-Route::delete('admin/asrama/{id}', [App\Http\Controllers\Admin\AsramaController::class, 'destroy'])->name('admin.asrama.destroy');
-
 
 //MR Club
 Route::get('mrclub', [App\Http\Controllers\Admin\MrClubController::class,'index'])->name('admin.mrclub.index');
@@ -162,9 +157,9 @@ Route::put('admin/mrclub/{id}', [App\Http\Controllers\Admin\MrClubController::cl
 Route::delete('admin/mrclub/{id}', [App\Http\Controllers\Admin\MrClubController::class, 'destroy'])->name('admin.mrclub.destroy');
 
 //Dosen
-Route::get('dosen', [App\Http\Controllers\Admin\DosenController::class,'index'])->name('admin.dosen.index');
-Route::get('dosen/create', [App\Http\Controllers\Admin\DosenController::class,'create'])->name('admin.dosen.create');
-Route::post('admin/dosen',[App\Http\Controllers\Admin\DosenController::class, 'store'])->name('admin.dosen.store');
+Route::get('dosen', [App\Http\Controllers\Admin\DosenController::class, 'index'])->name('admin.dosen.index');
+Route::get('dosen/create', [App\Http\Controllers\Admin\DosenController::class, 'create'])->name('admin.dosen.create');
+Route::post('admin/dosen', [App\Http\Controllers\Admin\DosenController::class, 'store'])->name('admin.dosen.store');
 Route::get('admin/dosen/{id}/edit', [App\Http\Controllers\Admin\DosenController::class, 'edit'])->name('admin.dosen.edit');
 Route::put('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'update'])->name('admin.dosen.update');
 Route::delete('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'destroy'])->name('admin.dosen.destroy');
@@ -179,7 +174,7 @@ Route::delete('admin/laboratorium/{id}', [App\Http\Controllers\Admin\Laboratoriu
 
 //Prestasi
 Route::get('prestasi', [App\Http\Controllers\Admin\PrestasiController::class,'index'])->name('admin.prestasi.index');
-Route::get('prestasi/create', [App\Http\Controllers\Admin\PrestasiController::class,'create'])->name('admin.prestasi.create');
+Route::get('/prestasi/create', [App\Http\Controllers\Admin\PrestasiController::class, 'create'])->name('admin.prestasi.create');
 Route::post('admin/prestasi',[App\Http\Controllers\Admin\PrestasiController::class, 'store'])->name('admin.prestasi.store');
 Route::get('admin/prestasi/{id}/edit', [App\Http\Controllers\Admin\PrestasiController::class, 'edit'])->name('admin.prestasi.edit');
 Route::put('admin/prestasi/{id}', [App\Http\Controllers\Admin\PrestasiController::class, 'update'])->name('admin.prestasi.update');

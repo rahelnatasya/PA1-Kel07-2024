@@ -27,11 +27,11 @@
       @foreach ($dosen as $item)
       <div class="col-xl-3 col-md-6 mb-4">
           <div class="card border-0 shadow">
-              <img src="{{ URL::asset('aset/img/'. $item->gambar) }}" class="card-img-top" alt="{{ $item->gambar }}">
+              <img src="{{ URL::asset('aset/img/'. $item->images) }}" class="card-img-top" alt="{{ $item->images }}">
               <div class="card-body text-center">
                   <!-- Add data-dosen-id attribute with the faculty member's ID -->
-                  <button type="button" class="btn btn-primary mt-2 btn-view-details" data-toggle="modal" data-target="#exampleModal{{$item['id']}}" data-dosen-id="{{ $item['id'] }}">
-                    <h5 class="card-title mb-0">{{ $item['nama'] }}</h5>
+                  <button type="button" class="btn btn-light mt-2 btn-view-details" data-toggle="modal" data-target="#exampleModal{{$item['id']}}" data-dosen-id="{{ $item['id'] }}">
+                    <h5 class="card-title mb-0">{{ $item->name }}</h5>
                   </button>
               </div>
           </div>
@@ -41,22 +41,22 @@
 </div>
 @foreach ($dosen as $item)
 <!-- Modal -->
-<div class="modal fade" id="exampleModal{{$item['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalScrollableTitle">{{ $item['nama'] }}<br> NIDN: {{ $item['nidn'] }}</h5>
+              <h5 class="modal-title" id="exampleModalScrollableTitle">{{ $item->name }}<br> Nomor Pegawai: {{ $item->employee_no }}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
           </div>
           <div class="modal-body">
               <!-- Content here -->
-              <img src="{{ URL::asset('aset/img/'. $item->gambar) }}" class="card-img-top" alt="{{ $item->gambar }}">
+              <img src="{{ URL::asset('aset/img/'. $item->images) }}" class="card-img-top" alt="{{ $item->images }}">
               <div class="card-body text-center">
                   <h5 class="card-title mb-0">Pendidikan</h5>
-                  <p>{{ $item['pendidikan'] }}</p>
-                  <div class="card-text text-black-50">{{ $item['role'] }}</div>
+                  <p>{{ $item->education }}</p>
+                  <div class="card-text text-black-50">{{ $item->role }}</div>
               </div>
           </div>
       </div>
@@ -67,44 +67,22 @@
 <!-- jQuery and Bootstrap JS (Ensure they are included) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Tambahkan script JavaScript -->
 <script>
-  $(document).ready(function () {
-      // Function to handle click event on "View Details" button
-      $('.btn-view-details').click(function () {
-          var dosenId = $(this).data('dosen-id'); // Get the data-dosen-id attribute value
-          var dosenData = getDataForDosen(dosenId); // Fetch data for the selected faculty member
-
-          // Populate modal with data
-          $('#exampleModal' + dosenId).find('.modal-title').text(dosenData.nama + ' - NIDN: ' + dosenData.nidn);
-          $('#exampleModal' + dosenId).find('.card-img-top').attr('src', dosenData.gambar);
-          $('#exampleModal' + dosenId).find('.card-body').find('.card-title').text('Pendidikan');
-          $('#exampleModal' + dosenId).find('.card-body').find('p').text(dosenData.pendidikan);
-          $('#exampleModal' + dosenId).find('.card-body').find('.card-text').text(dosenData.role);
-
-          // Show the modal
-          $('#exampleModal' + dosenId).modal('show');
-      });
-
-      // Function to fetch data for the selected faculty member from the database
-      function getDataForDosen(dosenId) {
-          var dosenData;
-
-          // AJAX request to fetch data from the backend
-          $.ajax({
-              url: '/admin/dosen/' + dosenId, // Endpoint to fetch dosen data by ID
-              type: 'GET',
-              async: false, // Wait for the response before continuing
-              success: function (response) {
-                  dosenData = response;
-              },
-              error: function (xhr, status, error) {
-                  console.error(xhr.responseText);
-              }
-          });
-
-          return dosenData;
-      }
-  });
+    // Menggunakan event delegation untuk menangani tombol View More
+    document.addEventListener('click', function(event) {
+        // Periksa apakah tombol yang ditekan memiliki kelas 'view-more'
+        if (event.target.classList.contains('view-more')) {
+            // Ambil target modal berdasarkan atribut data-target pada tombol
+            var targetModalId = event.target.getAttribute('data-target');
+            // Cari modal dengan ID yang sesuai dan panggil metode modal Bootstrap 'show()'
+            var modal = document.querySelector(targetModalId);
+            if (modal) {
+                var bsModal = new bootstrap.Modal(modal);
+                bsModal.show();
+            }
+        }
+    });
 </script>
 @endsection
 
