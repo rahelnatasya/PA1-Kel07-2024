@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+<div class="text-right pr-3 pt-3">
+    <a href="{{ route('admin.prestasi.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+        Kembali
+    </a>
+</div>
         <form action="{{ route('admin.prestasi.update', $prestasi->id) }}" method="post">
         @method('put')
         @csrf

@@ -9,6 +9,11 @@
 @endsection
 
 @section('content')
+<div class="text-right pr-3 pt-3">
+    <a href="{{ route('admin.ruang.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+        Kembali
+    </a>
+</div>
     <div class="section-body">
         <form action="{{ route('admin.ruang.update', ['id' => $galeri->id]) }}"
             method="post" enctype="multipart/form-data">

@@ -12,9 +12,11 @@ class Prestasi extends Model
     protected $primaryKey = 'id';
     
     protected $fillable = [
-        'id',
-        'name',
-        'achievement_level',
-        'description'
+        'name', 'time_event', 'achievement_level', 'description'
+    ];
+    
+    public static $rules = [
+        'name' => 'required',
+        'achievement_level' => 'required|in:Lokal,Wilayah,Nasional,Internasional',
     ];
 }

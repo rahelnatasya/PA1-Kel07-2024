@@ -21,8 +21,8 @@
     <link rel="website icon" type="png" href="{{ asset('aset/img/logo.png') }}">
     <!-- Sweet Alert-->
     <link rel="stylesheet" href="{{ asset('Template/plugins/sweetalert2/sweetalert2.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" />
 
-    @stack('styles')
 
 </head>
 
@@ -115,6 +115,36 @@
     <!-- Sweet Alert2 -->
     <script src="{{ asset('Template/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 200,
+            });
+            $('#visi').summernote({
+                height: 65,
+            });
+            $('#history').summernote({
+                height: 65,
+            });
+            $('#misi').summernote({
+                height: 65,
+            });
+        });
+
+        const navbar = document.querySelector('.fixed-top');
+        if (navbar) {
+            window.onscroll = () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scroll-nav-active');
+                    navbar.classList.remove('navbar-dark');
+                } else {
+                    navbar.classList.remove('scroll-nav-active');
+                    navbar.classList.add('navbar-dark');
+                }
+            };
+        }
+    </script>
     <script>
         $(document).on('click', '#btn-delete', function(e) {
             e.preventDefault();

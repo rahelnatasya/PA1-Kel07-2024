@@ -12,6 +12,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="text-right pr-3 pt-3">
+                        <a href="{{ route('admin.dosen.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+                            Kembali
+                        </a>
+                    </div>
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label for="images">Pilih Gambar :</label>
@@ -30,7 +35,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="education">Pendidikan Dosen :</label>
-                            <textarea class="form-control" id="education" name="education" rows="3">{{ $dosen->education }}</textarea>
+                            <textarea class="form-control" id="summernote" name="education" rows="3">{{ $dosen->education }}</textarea>
                             @error('education')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror

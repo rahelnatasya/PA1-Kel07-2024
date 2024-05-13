@@ -12,6 +12,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="text-right pr-3 pt-3">
+                        <a href="{{ route('admin.himamera.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+                            Kembali
+                        </a>
+                    </div>
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label for="images">Pilih Gambar :</label>
@@ -30,7 +35,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="content">Deskripsi Aktivitas :</label>
-                            <textarea class="form-control" id="content" name="content" rows="3">{{ $himamera->content }}</textarea>
+                            <textarea class="form-control" id="summernote" name="content" rows="3">{{ $himamera->content }}</textarea>
                             @error('content')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror

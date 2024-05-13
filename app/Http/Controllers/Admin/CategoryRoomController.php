@@ -65,8 +65,14 @@ class CategoryRoomController extends Controller
 
     public function destroy($id)
     {
+        // Hapus data terkait di tabel 'galery_room' terlebih dahulu
+        GaleriRuang::where('room_id', $id)->delete();
+    
+        // Kemudian hapus data dari 'category_room'
         $category = CategoryRoom::findOrFail($id);
         $category->delete();
+        
         return redirect()->route('admin.category.index')->with('success', 'Data berhasil dihapus.');
     }
+    
 }

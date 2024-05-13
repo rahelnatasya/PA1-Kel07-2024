@@ -86,14 +86,12 @@
                 <a href="#" style="color:black; text-decoration:none;">{{ $data->title }}</a>
             </h5>
             <p class="card-text">{{ $data->date }}</p>
-            <button type="button" class="btn btn-primary view-more" data-toggle="modal" data-target="#beritaModal{{ $data->id }}">
-                View More
-            </button>
+            <a href="{{ route('berita.show', $data->id) }}" class="btn btn-primary" role="button">View More</a>            
         </div>
     </div>
 </div>
-
-<!-- Modal -->
+@endforeach
+{{-- <!-- Modal -->
 <div class="modal fade" id="beritaModal{{ $data->id }}" tabindex="-1" aria-labelledby="beritaModalLabel{{ $data->id }}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -129,7 +127,7 @@
             }
         }
     });
-</script>
+</script> --}}
 
         </div>           
     </div>
@@ -168,7 +166,7 @@
         <footer class="py-5 bg-dark">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="probootstrap-footer-widget text-white">
                             <img src="{{ asset('aset/img/logofooter1.png') }}" alt="Logo" style="width: 200px; height: auto;">
                         </div>
@@ -182,7 +180,7 @@
                             <p style="color: #fff; font-size: 17px;">Lokasi Kampus</p>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-2">
                         <div class="widget">
                             <h3 style="color: #fff; font-size: 24px; font-weight: bold;">Contact Us</h3>
                             <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0;">

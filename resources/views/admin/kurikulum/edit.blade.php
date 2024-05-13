@@ -5,6 +5,11 @@
 @section('subtitle', 'Form Edit')
 
 @section('content')
+<div class="text-right pr-3 pt-3">
+    <a href="{{ route('admin.kurikulum.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+        Kembali
+    </a>
+</div>
     <form action="{{ route('admin.kurikulum.update', ['kurikulum' => $kurikulum->id]) }}" method="post">
         @method('put')
         @csrf

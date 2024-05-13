@@ -12,6 +12,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <div class="text-right pr-3 pt-3">
+                        <a href="{{ route('admin.strukturdosen.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+                            Kembali
+                        </a>
+                    </div>
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label for="images">Pilih Gambar :</label>

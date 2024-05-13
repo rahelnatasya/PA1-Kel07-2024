@@ -3,7 +3,11 @@
 @section('content')
 <nav class="navbar bg-primary">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1 text-center mx-auto text-white">{{ $category->find($galery->first()->room_id)->category }}</span>
+        @if ($galery->isNotEmpty() && $category->find($galery->first()->room_id))
+            <span class="navbar-brand mb-0 h1 text-center mx-auto text-white">{{ $category->find($galery->first()->room_id)->category }}</span>
+        @else
+            <!-- Handle case when category or galery is empty or room_id is not found -->
+        @endif
     </div>
 </nav>
 <!-- Text -->
@@ -11,7 +15,11 @@
     <div class="container my-3">
         <div class="row justify-content-center">
             <div class="col-lg-15">
-                <p class="text-lg-start mt-10 text-justify">{{ $category->find($galery->first()->room_id)->description }}</p>
+                @if ($galery->isNotEmpty() && $category->find($galery->first()->room_id))
+                    <p class="text-lg-start mt-10 text-justify">{{ $category->find($galery->first()->room_id)->description }}</p>
+                @else
+                    <p class="text-lg-start mt-10 text-justify">No description available</p>
+                @endif
             </div>
         </div>
     </div>
@@ -27,6 +35,5 @@
             </div>
         @endforeach
     </div>
-  </div>
-  @endsection
-  
+</div>
+@endsection

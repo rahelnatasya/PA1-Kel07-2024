@@ -8,6 +8,11 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
+            <div class="text-right pr-3 pt-3">
+                <a href="{{ route('admin.berita.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+                    Kembali
+                </a>
+            </div>
             <div class="card-body">
                 <form action="{{ route('admin.berita.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -34,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Konten dari berita:</label>
-                        <textarea id="description" name="description" class="form-control"></textarea>
+                        <textarea id="summernote" name="description" class="form-control"></textarea>
                         @error('description')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

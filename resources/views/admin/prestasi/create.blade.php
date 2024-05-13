@@ -11,6 +11,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="text-right pr-3 pt-3">
+                            <a href="{{ route('admin.prestasi.index') }}" class="btn btn-warning btn-sm"><i class="fa-solid fa-arrow-rotate-left"></i>
+                                Kembali
+                            </a>
+                        </div>
                         <div class="card-body">
                             <div class="form-group mb-3">
                                 <label for="name">Nama Kegiatan</label>
@@ -33,7 +38,7 @@
                                     <option value="Wilayah">Wilayah</option>
                                     <option value="Nasional">Nasional</option>
                                     <option value="Internasional">Internasional</option>
-                                </select>
+                                </select>                                
                                 @error('achievement_level')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror

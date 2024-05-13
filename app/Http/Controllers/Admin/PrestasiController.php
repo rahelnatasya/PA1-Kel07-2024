@@ -24,9 +24,9 @@ class PrestasiController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'time_event' => 'required|string', // This field is required
+            'time_event' => 'required|string',
             'description' => 'required|string',
-            'achievement_level' => 'required|in:Lokal, Wilayah, Nasional, Internasional'
+            'achievement_level' => 'required|in:Lokal,Wilayah,Nasional,Internasional' 
         ]);
 
         // Create a new Prestasi instance
@@ -56,7 +56,7 @@ class PrestasiController extends Controller
             'name' => 'required|string',
             'time_event' => 'required|string',
             'description' => 'required|string',
-            'achievement_level' => 'required|in:Lokal, Wilayah, Nasional, Internasional'
+            'achievement_level' => 'required|in:Lokal,Wilayah,Nasional,Internasional' 
         ]);
     
         $prestasi = Prestasi::findOrFail($id);

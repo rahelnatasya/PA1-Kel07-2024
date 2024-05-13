@@ -32,4 +32,10 @@ class BeritaController extends Controller
         return view('ruang', compact('galery', 'category'));
 
     }
+    public function show($id){
+        $berita = Berita::findOrFail($id);
+        $testimoni = Testimoni::all();
+        $category = CategoryRoom::all();
+        return view('detail_berita', compact('berita','testimoni', 'category'));
+    }
 }

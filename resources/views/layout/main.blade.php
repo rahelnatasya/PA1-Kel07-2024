@@ -69,7 +69,7 @@
         <footer class="py-5 bg-dark">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="probootstrap-footer-widget text-white">
                             <img src="{{ asset('aset/img/logofooter1.png') }}" alt="Logo" style="width: 200px; height: auto;">
                         </div>
@@ -83,7 +83,7 @@
                             <p style="color: #fff; font-size: 17px;">Lokasi Kampus</p>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-2">
                         <div class="widget">
                             <h3 style="color: #fff; font-size: 24px; font-weight: bold;">Contact Us</h3>
                             <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0;">

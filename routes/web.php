@@ -1,21 +1,15 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
-use App\Http\Controllers\RuangBacaController;
-use App\Http\Controllers\GaleriRuangController;
-use App\Http\Controllers\RuangSeminarController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryRoomController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\HimameraController;
 use App\Http\Controllers\KurikulumController;
-use App\Http\Controllers\LaboratoriumController;
 use App\Http\Controllers\MrClubController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfilLulusanController;
-use App\Http\Controllers\RuangKelasController;
-use App\Http\Controllers\SmartClassController;
 use App\Http\Controllers\StrukturDosenController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
@@ -42,17 +36,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/kurikulum', [KurikulumController::class, 'index']);
 Route::get('/profillulusan', [profilLulusanController::class, 'index']);
-Route::get('/ruangbaca', [RuangBacaController::class, 'index']);
-Route::get('/ruang', [GaleriRuangController::class, 'index']);
-Route::get('/ruangseminar', [RuangSeminarController::class, 'index']);
-Route::get('/ruangkelas', [RuangKelasController::class, 'index']);
-Route::get('/smartclass', [SmartClassController::class, 'index']);
 Route::get('/visimisi', [VisiMisiController::class, 'index']);
 Route::get('/himamera', [HimameraController::class, 'index']);
 Route::get('/mrclub', [MrClubController::class, 'index']);
 Route::get('/dosen', [DosenController::class, 'index']);
-Route::get('/laboratorium', [LaboratoriumController::class, 'index']);
 Route::get('/', [BeritaController::class, 'index'])->name('home');
+Route::get('/detail/{id}', [BeritaController::class, 'show'])->name('berita.show');
 Route::get('/prestasi', [PrestasiController::class, 'index']);
 Route::get('/fasilitas', [BeritaController::class, 'fasilitas']);
 
@@ -62,7 +51,6 @@ Route::get('/strukturdosen', [StrukturDosenController::class, 'index']);
 Route::get('/olahraga', function () {
     return view ('olahraga');
 });
-
 
 
 
@@ -163,14 +151,6 @@ Route::post('admin/dosen', [App\Http\Controllers\Admin\DosenController::class, '
 Route::get('admin/dosen/{id}/edit', [App\Http\Controllers\Admin\DosenController::class, 'edit'])->name('admin.dosen.edit');
 Route::put('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'update'])->name('admin.dosen.update');
 Route::delete('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'destroy'])->name('admin.dosen.destroy');
-
-//Laboratorium
-Route::get('laboratorium', [App\Http\Controllers\Admin\LaboratoriumController::class,'index'])->name('admin.laboratorium.index');
-Route::get('laboratorium/create', [App\Http\Controllers\Admin\LaboratoriumController::class,'create'])->name('admin.laboratorium.create');
-Route::post('admin/laboratorium',[App\Http\Controllers\Admin\LaboratoriumController::class, 'store'])->name('admin.laboratorium.store');
-Route::get('admin/laboratorium/{id}/edit', [App\Http\Controllers\Admin\LaboratoriumController::class, 'edit'])->name('admin.laboratorium.edit');
-Route::put('admin/laboratorium/{id}', [App\Http\Controllers\Admin\LaboratoriumController::class, 'update'])->name('admin.laboratorium.update');
-Route::delete('admin/laboratorium/{id}', [App\Http\Controllers\Admin\LaboratoriumController::class, 'destroy'])->name('admin.laboratorium.destroy');
 
 //Prestasi
 Route::get('prestasi', [App\Http\Controllers\Admin\PrestasiController::class,'index'])->name('admin.prestasi.index');
