@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('title');
             $table->string('images');
-            $table->text('description');
+            $table->longText('description');
             $table->date('date');
             $table->text('created_by')->default('adminMR');
             $table->text('updated_by');

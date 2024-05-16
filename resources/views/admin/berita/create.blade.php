@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Konten dari berita:</label>
-                        <textarea id="summernote" name="description" class="form-control"></textarea>
+                        <textarea id="summernote" name="description" class="form-control summernote"></textarea>
                         @error('description')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

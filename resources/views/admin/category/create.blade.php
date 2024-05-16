@@ -29,7 +29,7 @@
                         </div>                        
                             <div class="form-group">
                                 <label for="description">Deskripsi Fasilitas</label>
-                                <textarea class="form-control" id="summernote" name="description" rows="3"
+                                <textarea class="form-control summernote" id="summernote" name="description" rows="3"
                                     placeholder=""></textarea>
                                 @error('description')
                                     <span class="text-danger mt-2">{{ $message }}</span>

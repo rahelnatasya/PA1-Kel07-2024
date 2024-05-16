@@ -66,79 +66,70 @@
 </head>
 <body>
 
-<div class="org-chart">
-    <!-- Level 1 -->
-    <div class="level">
-        <div class="node">
-            <div class="title">REKTOR INSTITUT TEKNOLOGI DEL</div>
-            <div class="subtitle">(Dr. Arnaldo Marulitua Sinaga, S.T., M.InfoTech)</div>
-        </div>
-    </div>
-    <div class="connector horizontal"></div>
-
-    <!-- Level 2 -->
-    <div class="level">
-        <div class="node">
-            <img src="{{URL::asset('aset/img/Picture2.png')}}" alt="Senat Fakultas Teknologi Industri">
-            <div class="title">SENAT FAKULTAS TEKNOLOGI INDUSTRI</div>
-            <div class="subtitle">Dr. Fitriani Tupa Ronauli Silalahi, S.Si, M.Si</div>
+    <div class="org-chart">
+        <!-- Level 1 -->
+        <div class="level">
+            <div class="node">
+                <div class="title">REKTOR INSTITUT TEKNOLOGI DEL</div>
+                <div class="subtitle">(Dr. Arnaldo Marulitua Sinaga, S.T., M.InfoTech)</div>
+            </div>
         </div>
         <div class="connector horizontal"></div>
-        <div class="node">
-            <img src="{{URL::asset('aset/img/Picture3.png')}}" alt="Senat Fakultas Teknologi Industri">
-            <div class="title">SENAT FAKULTAS TEKNOLOGI INDUSTRI</div>
-            <div class="subtitle">Wesly Mailander Siagian, S.Pt., M.M.</div>
+    
+        <!-- Level 2 -->
+        <div class="level">
+            @foreach ($strukturdosen as $item)
+                @if ($item->level == 2)
+                    <div class="node">
+                        <img src="{{ URL::asset('aset/img/' . $item->images) }}" alt="{{ $item->position }}">
+                        <div class="title">{{ $item->position }}</div>
+                        <div class="subtitle">{{ $item->name }}</div>
+                    </div>
+                    @if (!$loop->last)
+                        <div class="connector vertical"></div>
+                    @endif
+                @endif
+            @endforeach
         </div>
-        <div class="connector horizontal"></div>
-        <div class="node">
-            <img src="{{URL::asset('aset/img/Picture6.png')}}" alt="Senat Fakultas Teknologi Industri">
-            <div class="title">SENAT FAKULTAS TEKNOLOGI INDUSTRI</div>
-            <div class="subtitle">Hadi Sutanto Saragi, S.T, M.Eng</div>
+    
+        <!-- Level 3 -->
+        <div class="level">
+            @foreach ($strukturdosen as $item)
+                @if ($item->level == 3)
+                    <div class="node">
+                        <img src="{{ URL::asset('aset/img/' . $item->images) }}" alt="{{ $item->position }}">
+                        <div class="title">{{ $item->position }}</div>
+                        <div class="subtitle">{{ $item->name }}</div>
+                    </div>
+                    @if (!$loop->last)
+                        <div class="connector vertical"></div>
+                    @endif
+                @endif
+            @endforeach
         </div>
-        
+    
+        <!-- Level 4 -->
+        <div class="level">
+            @foreach ($strukturdosen as $item)
+                @if ($item->level == 4)
+                    <div class="node">
+                        <img src="{{ URL::asset('aset/img/' . $item->images) }}" alt="{{ $item->position }}">
+                        <div class="title">{{ $item->position }}</div>
+                        <div class="subtitle">{{ $item->name }}</div>
+                    </div>
+                    @if (!$loop->last)
+                        <div class="connector vertical"></div>
+                    @endif
+                @endif
+            @endforeach
+        </div>
     </div>
-
-    <!-- Level 3 -->
-    <div class="level">
-        <div class="node">
-            <img src="{{URL::asset('aset/img/Picture7.png')}}" alt="Kepala Laboratorium Sistem Produksi">
-            <div class="title">KEPALA LABORATORIUM SISTEM PRODUKSI</div>
-            <div class="subtitle">Samuel H. Tampubolon, S.T., MSc.</div>
-        </div>
-        <div class="connector vertical"></div>
-        <div class="node">
-            <img src="{{URL::asset('aset/img/Picture5.png')}}" alt="Ketua Program Studi S1 Manajemen Rekayasa">
-            <div class="title">KETUA PROGRAM STUDI S1 MANAJEMEN REKAYASA</div>
-            <div class="subtitle">Josua Boyke William Jawak, ST., M.Ds</div>
-        </div>
-        <div class="connector vertical"></div>
-        <div class="node">
-            <img src="{{URL::asset('aset/img/pak5.png')}}" alt="Gugus Jaminan Mutu Fakultas Teknologi Industri">
-            <div class="title">GUGUS JAMINAN MUTU FAKULTAS TEKNOLOGI INDUSTRI</div>
-            <div class="subtitle">Santi Febri Arianti S.Si, M.Sc</div>
-        </div>
-    </div>
-
-    <!-- Level 4 -->
-    <div class="level">
-        <div class="node">
-            <img src="{{URL::asset('aset/img/Picture5.png')}}" alt="Kepala Laboratorium Desain Produk dan Inovasi">
-            <div class="title">KEPALA LABORATORIUM DESAIN PRODUK DAN INOVASI</div>
-            <div class="subtitle">Josua Boyke William Jawak, ST., M.Ds</div>
-        </div>
-        <div class="connector vertical"></div>
-        <div class="node">
-            <img src="{{URL::asset('aset/img/Picture4.png')}}" alt="Gugus Kendali Mutu Prodi S1 Manajemen Rekayasa">
-            <div class="title">GUGUS KENDALI MUTU PRODI S1 MANAJEMEN REKAYASA</div>
-            <div class="subtitle">Iswanti Sihaloho, S.Si., M.Si</div>
-        </div>
-    </div>
-</div>
-
+    
 </body>
 </html>
+@endsection
 
-<!-- Page Content -->
+{{-- <!-- Page Content -->
 <div class="container">
   <div class="row">
     <?php foreach ($strukturdosen as $item): ?>
@@ -155,4 +146,4 @@
   </div>
 </div>
 </div>
-@endsection
+{{--  --}}

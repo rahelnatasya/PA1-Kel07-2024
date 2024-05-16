@@ -27,6 +27,15 @@
                             <img src="{{ asset('aset/img/' . $strukturdosen->images) }}" alt="{{ $strukturdosen->images }}" width="200">
                         </div>
                         <div class="form-group mb-3">
+                            <label for="level">Tingkat:</label>
+                            <input type="number" class="form-control" id="level" name="level" value="{{ $strukturdosen->tingkat }}">
+                            @error('level')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @else
+                                <span class="text-danger mt-2">Tingkat harus berupa angka.</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="name">Nama Dosen : :</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{ $strukturdosen->name }}">
                             @error('name')
@@ -34,9 +43,9 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="posisition">Posisi :</label>
-                            <input type="text" class="form-control" id="posisition" name="posisition" value=" {{ $strukturdosen->posisition }}">
-                            @error('posisition')
+                            <label for="position">Posisi :</label>
+                            <input type="text" class="form-control" id="position" name="position" value=" {{ $strukturdosen->position }}">
+                            @error('position')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>

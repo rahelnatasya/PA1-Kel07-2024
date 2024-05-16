@@ -57,7 +57,7 @@
             <img src="{{ URL::asset('aset/img/'. $item->images) }}" alt="{{ $item->images }}" style="width:100%">
           </div>
           <div class="profile-details mt-3">
-            <p><strong>NIP:</strong> <?php echo $item->employee_no ?></p>
+            <p><strong>NIDN:</strong> <?php echo $item->employee_no ?></p>
             <h3>Pendidikan</h3>
             <p><strong></strong> <?php echo $item->education ?></p>
             <h3>Riset Penelitian</h3>

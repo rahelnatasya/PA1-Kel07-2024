@@ -32,7 +32,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->name}}</td>
                                             <td>{{ $item->jobtitle }}</td>
-                                            <td>{{ $item->description }}</td>
+                                            <td><?php echo $item->description ?></td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <a href="{{ route('admin.profillulusan.edit', ['profillulusan' => $item->id]) }}" class="btn btn-warning" onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>

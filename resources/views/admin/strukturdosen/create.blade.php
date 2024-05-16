@@ -25,16 +25,23 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
+                            <label for="level">Tingkat:</label>
+                            <input type="number" class="form-control" id="level" name="level" value="{{ old('level') }}">
+                            @error('level')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="name">Nama Dosen :</label>
-                            <input type="text" class="form-control" id="name" name="name" >
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                             @error('name')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label for="posisition">Posisi :</label>
-                            <input type="text" class="form-control" id="posisition" name="posisition">
-                            @error('posisition')
+                            <label for="position">Posisi :</label>
+                            <input type="text" class="form-control" id="position" name="position" value="{{ old('position') }}">
+                            @error('position')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>

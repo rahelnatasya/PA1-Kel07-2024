@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('struktur_dosens', function (Blueprint $table) {
             $table->id();
+            $table->integer('level');
             $table->text('name');
-            $table->text('posisition');
+            $table->text('position');
             $table->string('images');
             $table->timestamps();
         });

@@ -32,7 +32,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td><img src="{{ asset('aset/img/' . $item->images) }}" alt="{{ $item->name }}" width="100"></td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->description }}</td>
+                                    <td><?php echo $item->description ?></td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <a href="{{ route('admin.mrclub.edit', ['id' => $item->id]) }}" class="btn btn-warning "onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>

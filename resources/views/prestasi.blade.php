@@ -25,7 +25,7 @@
               <td>{{ $data->name }}</td>
               <td>{{ $data->time_event }}</td>
               <td>{{ $data->achievement_level }}</td>
-              <td>{{ $data->description }}</td>
+              <td><?php echo $data->description ?></td>
           </tr>
           @endforeach
       </tbody>

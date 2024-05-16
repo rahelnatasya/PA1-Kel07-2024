@@ -36,7 +36,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="meta_description">Meta Deskripsi</label>
-                                <textarea class="form-control" id="summernote" name="meta_description" rows="3">{{ old('meta_description', $meta->meta_description) }}</textarea>
+                                <textarea class="form-control summernote" id="summernote" name="meta_description" rows="3">{{ old('meta_description', $meta->meta_description) }}</textarea>
                                 @error('meta_description')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror

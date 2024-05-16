@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="content">Deskripsi Aktivitas :</label>
-                            <textarea class="form-control" id="summernote" name="content" rows="3">{{ old('content') }}</textarea>
+                            <textarea class="form-control summernote" id="summernote" name="content" rows="3">{{ old('content') }}</textarea>
                             @error('content')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror

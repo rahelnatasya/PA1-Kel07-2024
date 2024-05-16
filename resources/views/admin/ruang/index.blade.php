@@ -22,7 +22,7 @@
                                         <th scope="col">No.</th>
                                         <th scope="col">Kategori</th>
                                         <th scope="col">Gambar</th>
-                                        <th scope="col">Aksi</th> <!-- Tambah kolom untuk aksi -->
+                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

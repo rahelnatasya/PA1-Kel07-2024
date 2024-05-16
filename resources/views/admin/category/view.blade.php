@@ -21,7 +21,7 @@
                             <tbody>
                                 <tr>
                                     <td>{{ $category->category }}</td>
-                                    <td>{{ $category->description }}</td>
+                                    <td><?php echo $category->description ?></td>
                                 </tr>
                             </tbody>
                         </table>

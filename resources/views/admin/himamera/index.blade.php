@@ -32,7 +32,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td><img src="{{ asset('aset/img/' . $item->images) }}" alt="{{ $item->activity_name }}" width="100"></td>
                                     <td>{{ $item->activity_name }}</td>
-                                    <td>{{ $item->content }}</td>
+                                    <td><?php echo $item->content ?></td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <a href="{{ route('admin.himamera.edit', $item->id) }}" class="btn btn-warning "onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>

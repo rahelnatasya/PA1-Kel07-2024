@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="meta_description">Meta Description</label>
-                            <textarea class="form-control" id="summernote" name="meta_description" placeholder=""></textarea>
+                            <textarea class="form-control summernote" id="summernote" name="meta_description" placeholder=""></textarea>
                             @error('meta_description')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror

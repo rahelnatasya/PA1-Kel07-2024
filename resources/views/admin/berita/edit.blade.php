@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="description">Deskripsi</label>
-                            <textarea class="form-control" name="description" id="summernote" style="height: 170px;" rows="5">{{ $berita->description }}</textarea>
+                            <textarea class="form-control summernote" name="description" id="summernote" style="height: 170px;" rows="5">{{ $berita->description }}</textarea>
                             @error('description')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror

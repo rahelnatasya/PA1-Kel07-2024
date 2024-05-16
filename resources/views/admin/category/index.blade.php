@@ -27,7 +27,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->category }}</td>
-                                    <td>{{ $item->description }}</td>
+                                    <td><?php echo $item->description ?></td>
                                     <td class="d-flex justify-content-center">
                                         <a href="{{ route('admin.category.view', ['id' => $item->id]) }}" class="btn btn-primary mr-2"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('admin.category.edit', ['id' => $item->id]) }}" class="btn btn-warning mr-2"><i class="fas fa-edit"></i></a>

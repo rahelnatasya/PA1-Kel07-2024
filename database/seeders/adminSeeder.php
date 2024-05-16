@@ -16,9 +16,9 @@ class adminSeeder extends Seeder
     {
             $admins = [
                 [
-                    'name' => 'Rahel',
-                    'email' => 'admin200@gmail.com',
-                    'password' => Hash::make('admin2024'),
+                    'name' => 'Rahel Natasya',
+                    'email' => 'admin@gmail.com',
+                    'password' => Hash::make('adminmr'),
                     'created_at' => now(),
                     'updated_at' => now()   
                 ]

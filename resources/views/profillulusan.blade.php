@@ -20,9 +20,9 @@
     <div class="container my-3">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
-                <h5>{{ $section->name }}</h5>
-                <p class="lead">{{ $section->jobtitle }}</p>
-                <p class="mb-0">{{ $section->description }}</p>
+                <h5><?php echo $section->name ?></h5>
+                <p class="lead"><?php echo $section->jobtitle ?></p>
+                <p class="mb-0"><?php echo $section->description ?></p>
             </div>
         </div>
     </div>

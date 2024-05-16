@@ -21,6 +21,7 @@ Struktur Dosen
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Gambar</th>
+                                    <th scope="col">Tingkat</th>
                                     <th scope="col">Nama Dosen</th>
                                     <th scope="col">Posisi</th>
                                     <th scope="col">Aksi</th>
@@ -30,9 +31,10 @@ Struktur Dosen
                                 @foreach ($strukturdosen as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td><img src="{{ asset('aset/img/' . $item->images) }}" alt="{{ $item->name }}" width="100"></td>
+                                    <td><img src="{{ asset('aset/img/' . $item->images) }}" width="100"></td>
+                                    <td>{{ $item->level }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->posisition }}</td>
+                                    <td>{{ $item->position }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <a href="{{ route('admin.strukturdosen.edit', $item->id) }}" class="btn btn-warning "onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
