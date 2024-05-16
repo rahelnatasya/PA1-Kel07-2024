@@ -13,59 +13,9 @@
             INSTITUT TEKNOLOGI DEL</span>
     </div>
 </nav>
-
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .org-chart {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .level {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0;
-        }
-        .node {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin: 0 10px;
-        }
-        .node img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        .node .title {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        .node .subtitle {
-            margin-top: 5px;
-        }
-        .connector {
-            width: 2px;
-            background-color: black;
-            position: relative;
-        }
-        .connector.horizontal {
-            height: 20px;
-        }
-        .connector.vertical {
-            height: 50px;
-            width: 2px;
-        }
-    </style>
-</head>
-<body>
-
+<link href="{{URL::asset('/aset/css/custom-vid.css')}}" rel="stylesheet" />
+<!-- Struktur Dosen -->
+<div class="container-dosen">
     <div class="org-chart">
         <!-- Level 1 -->
         <div class="level">
@@ -124,26 +74,7 @@
             @endforeach
         </div>
     </div>
-    
-</body>
-</html>
+</div>
+
 @endsection
 
-{{-- <!-- Page Content -->
-<div class="container">
-  <div class="row">
-    <?php foreach ($strukturdosen as $item): ?>
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-0 shadow">
-          <div class="card-body text-center">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ URL::asset('aset/img/' . $item->images) }}" alt="{{ $item->images }}">
-            <h5 class="card-title mb-0"><?php echo $item->name; ?></h5>
-            <div class="card-text text-black-50"><?php echo $item->posisition; ?></div>
-          </div>
-        </div>
-      </div>
-    <?php endforeach; ?>
-  </div>
-</div>
-</div>
-{{--  --}}
