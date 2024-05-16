@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dosen extends Model
+class Meta extends Model
 {
     use HasFactory;
-    protected $table = 'dosens';
-    protected $primaryKey = 'id';
+    protected $table = 'metas';
     protected $fillable = [
-        'id',
-        'name',
-        'educations',
+        'meta_key', 'meta_title', 'meta_description'
     ];
+
+    protected $hidden = [];
 }

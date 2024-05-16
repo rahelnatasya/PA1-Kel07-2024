@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+<link href="{{URL::asset('/aset/css/custom-vid.css')}}" rel="stylesheet" />
 <nav class="navbar bg-primary">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1 text-center mx-auto text-white">DOSEN/STAF PENGAJAR</span>
@@ -30,7 +31,7 @@
               <img src="{{ URL::asset('aset/img/'. $item->images) }}" class="card-img-top" alt="{{ $item->images }}">
               <div class="card-body text-center">
                   <!-- Add data-dosen-id attribute with the faculty member's ID -->
-                  <button type="button" class="btn btn-light mt-2 btn-view-details" data-toggle="modal" data-target="#exampleModal{{$item['id']}}" data-dosen-id="{{ $item['id'] }}">
+                  <button type="button" class="btn btn-light mt-2 btn-view-details" data-toggle="modal" data-target="#exampleModal{{$item->id}}" data-dosen-id="{{ $item->id }}">
                     <h5 class="card-title mb-0">{{ $item->name }}</h5>
                   </button>
               </div>
@@ -41,49 +42,44 @@
 </div>
 @foreach ($dosen as $item)
 <!-- Modal -->
-<div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalScrollableTitle">{{ $item->name }}<br> Nomor Pegawai: {{ $item->employee_no }}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <!-- Content here -->
-              <img src="{{ URL::asset('aset/img/'. $item->images) }}" class="card-img-top" alt="{{ $item->images }}">
-              <div class="card-body text-center">
-                  <h5 class="card-title mb-0">Pendidikan</h5>
-                  <p>{{ $item->education }}</p>
-                  <div class="card-text text-black-50">{{ $item->role }}</div>
-              </div>
-          </div>
+<div class="modal fade" id="exampleModal{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel{{$item->id}}" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel{{$item->id}}">{{ $item->name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <div class="profile-container">
+          <div class="profile-image">
+            <img src="{{ URL::asset('aset/img/'. $item->images) }}" alt="{{ $item->images }}" style="width:100%">
+          </div>
+          <div class="profile-details mt-3">
+            <p><strong>NIP:</strong> <?php echo $item->employee_no ?></p>
+            <h3>Pendidikan</h3>
+            <p><strong></strong> <?php echo $item->education ?></p>
+            <h3>Riset Penelitian</h3>
+            <p><strong></strong> <?php echo $item->riset ?></p>
+            <h3>Mata Kuliah yang diampu</h3>
+            <p><strong></strong> <?php echo $item->courses ?></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 @endforeach
 
-<!-- jQuery and Bootstrap JS (Ensure they are included) -->
+<!-- jQuery and Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Tambahkan script JavaScript -->
+
 <script>
-    // Menggunakan event delegation untuk menangani tombol View More
-    document.addEventListener('click', function(event) {
-        // Periksa apakah tombol yang ditekan memiliki kelas 'view-more'
-        if (event.target.classList.contains('view-more')) {
-            // Ambil target modal berdasarkan atribut data-target pada tombol
-            var targetModalId = event.target.getAttribute('data-target');
-            // Cari modal dengan ID yang sesuai dan panggil metode modal Bootstrap 'show()'
-            var modal = document.querySelector(targetModalId);
-            if (modal) {
-                var bsModal = new bootstrap.Modal(modal);
-                bsModal.show();
-            }
-        }
+    $(document).on('click', '.btn-view-details', function() {
+        var dosenId = $(this).data('dosen-id');
+        $('#exampleModal' + dosenId).modal('show');
     });
 </script>
 @endsection
-
-

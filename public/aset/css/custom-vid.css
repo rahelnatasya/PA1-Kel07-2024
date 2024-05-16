@@ -1,0 +1,194 @@
+
+/* vidioa header */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+  }
+  
+  .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover; /* Untuk memanjangkan video dan mempertahankan aspek rasio */
+    object-position: center; /* Untuk memfokuskan video ke tengah */
+    z-index: -1;
+  }
+  
+  .content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Untuk Berita */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-card {
+    background-color: #e0e0e0;
+    width: 100%;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 500px; /* Set a fixed height for the card */
+}
+
+.news-card img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Set a maximum height for the image */
+    object-fit: cover; /* Ensure the image covers the area */
+}
+
+.news-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 16px 0 8px;
+    flex-grow: 1; /* Allow the title to grow and fill available space */
+}
+
+.news-date {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.news-content {
+    color: #333;
+    margin-bottom: 16px;
+    flex-grow: 1; /* Allow the content to grow and fill available space */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+}
+
+.read-more {
+    text-align: center;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+/* Untuk testimonial */
+    .testimonial-card {
+        background: #e0e0e0;
+        border-radius: 0px;
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card .header {
+        width: 100%;
+        text-align: center;
+        color: white;
+    }
+
+    .testimonial-card .header img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: -50px;
+    }
+
+    .testimonial-card h5 {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    .testimonial-card .tags {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .testimonial-card .tags span {
+        padding: 3px 10px;
+        font-size: 0.9em;
+        color: #495057;
+    }
+
+    .testimonial-card .content {
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 20px;
+        text-align: justify;
+        width: 100%;
+        
+    }
+
+    .testimonial-card {
+        height: 100%;
+    }
+
+    /* Modal styles */
+    /* .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+        padding-top: 60px; 
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; 
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; 
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .profile-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .profile-image {
+        flex: 1;
+        padding: 10px;
+    }
+    .profile-details {
+        flex: 2;
+        padding: 10px;
+    }
+    .profile-details h2, .profile-details h3, .profile-details p, .profile-details ul {
+        margin: 0 0 10px 0;
+    } */

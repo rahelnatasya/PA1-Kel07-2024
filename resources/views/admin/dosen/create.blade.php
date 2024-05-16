@@ -40,11 +40,25 @@
                         </div> 
                         <div class="form-group mb-3">
                             <label for="education">Pendidikan dosen :</label>
-                            <textarea class="form-control" id="summernote" name="education" rows="3">{{ old('education') }}</textarea>
+                            <textarea class="form-control summernote" id="summernote" name="education" rows="3">{{ old('education') }}</textarea>
                             @error('education')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
-                        </div>                       
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="riset">Riset Penelitian :</label>
+                            <textarea class="form-control summernote" name="riset" rows="3">{{ old('riset') }}</textarea>
+                            @error('riset')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="courses">Mata kuliah yang diampu :</label>
+                            <textarea class="form-control summernote" name="courses" rows="3">{{ old('courses') }}</textarea>
+                            @error('courses')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
                         <div class="form-group mb-3">
                             <label for="role">Role :</label>
                             <select class="form-control" id="role" name="role">

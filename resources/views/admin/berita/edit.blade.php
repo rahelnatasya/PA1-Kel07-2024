@@ -42,8 +42,8 @@
                             @enderror
                         </div>                  
                         <div class="form-group mb-3">
-                            <label for="date">Tanggal</label>
-                            <input type="date" id="date" name="date" class="form-control" value="{{ $berita->date }}">
+                            <label for="edit_date">Tanggal</label>
+                            <input type="date" id="edit_date" name="date" class="form-control" value="{{ $berita->date }}">
                             @error('date')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                              @enderror
@@ -64,4 +64,5 @@
     </form>
 </div>
 @endsection 
+
 

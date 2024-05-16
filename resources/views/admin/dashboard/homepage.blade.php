@@ -90,12 +90,12 @@
             <!-- small box -->
             <div class="small-box bg-info">
                 <div class="inner">
-                    <p>Visi Misi Tujuan</p>
+                    <p>Meta Profile</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-compass"></i>
                 </div>
-                <a href="{{ Route('admin.visimisi.index') }}" class="small-box-footer">More info <i
+                <a href="{{ Route('admin.meta.index') }}" class="small-box-footer">More info <i
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>

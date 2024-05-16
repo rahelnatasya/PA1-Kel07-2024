@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="{{URL::asset('aset/assets/favicon.ico')}}" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{URL::asset('/aset/css/styles.css')}}" rel="stylesheet" />
+        
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -66,42 +67,39 @@
   <!-- As a heading -->
         @yield('content')
     <!-- Footer -->
-        <footer class="py-5 bg-dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="probootstrap-footer-widget text-white">
-                            <img src="{{ asset('aset/img/logofooter1.png') }}" alt="Logo" style="width: 200px; height: auto;">
-                        </div>
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center"> 
+                    <div class="probootstrap-footer-widget">
+                        <img src="{{ asset('aset/img/logofooter1.png') }}" alt="Logo" style="width: 150px; height: auto;">
                     </div>
-                    <div class="col-md-3">
-                        <div class="probootstrap-footer-widget text-white">
-                            <h3 style="color: #fff; font-size: 24px; font-weight: bold;">About Us</h3>
-                            <p style="color: #fff; font-size: 17px;" href="/sejarah">Sejarah</p>
-                            <p style="color: #fff; font-size: 17px;">Visi Misi Keilmuan dan Tujuan</p>
-                            <p style="color: #fff; font-size: 17px;">Struktur Organisasi</p>
-                            <p style="color: #fff; font-size: 17px;">Lokasi Kampus</p>
-                        </div>
+                </div>            
+                <div class="col-md-3">
+                    <div class="probootstrap-footer-widget">
+                        <h3 style="font-size: 18px; font-weight: bold; text-align: left;">About Us</h3>
+                        <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
+                            <li><a href="/sejarah" style="color: #fff; font-size: 15px; text-decoration: none;">Sejarah</a></li>
+                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Visi Misi Keilmuan dan Tujuan</a></li>
+                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Struktur Organisasi</a></li>
+                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Lokasi Kampus</a></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="widget">
-                            <h3 style="color: #fff; font-size: 24px; font-weight: bold;">Contact Us</h3>
-                            <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0;">
-                                <li><a href="" style="color: #fff; font-size: 15px; text-decoration: none;">+62 82161040669</a></li>
-                                <li><a href="" style="color: #fff; font-size: 15px; text-decoration: none;">@mr.itdel</a></li>
-                                <li><a href="" style="color: #fff; font-size: 15px; text-decoration: none;">Institut Teknologi Del</a></li>
-                            </ul>
-                            <address style="color: #fff; font-size: 14px;">Jl. Sisingamangaraja, Sitoluama, Laguboti, Toba Samosir</address>
-                            <ul class="list-inline social">
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f" style="color: #fff;"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" style="color: #fff;"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram" style="color: #fff;"></i></a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="probootstrap-footer-widget">
+                        <h3 style="font-size: 18px; font-weight: bold; text-align: left;">Contact Us</h3>
+                        <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
+                            <li><a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">+1234567890</a></li>
+                            <li><a href="https://instagram.com/mr.itdel" target="_blank" style="color: #fff; font-size: 15px; text-decoration: none;">@mr.itdel</a></li>
+                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Institut Teknologi Del</a></li>
+                        </ul>
+                        <address style="font-size: 14px;">Jl. Sisingamangaraja, Sitoluama, Laguboti, Toba Samosir</address>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
                 <!-- Bootstrap core JavaScript -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>

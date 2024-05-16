@@ -33,7 +33,7 @@
                                     <td><img src="{{ asset('aset/img/'.$data->images) }}" alt="Gambar Berita"
                                             style="width: 100px;"></td>
                                     <td>{{ $data->title }}</td>
-                                    <td>{{ $data->description }}</td>
+                                    <td><?php echo $data->description ?></td>
                                     <td>{{ $data->date }}</td>
                                     <td>{{ $data->created_by }}</td>
                                     <td>

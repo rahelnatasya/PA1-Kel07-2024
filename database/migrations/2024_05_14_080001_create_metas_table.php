@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dosens', function (Blueprint $table) {
+        Schema::create('metas', function (Blueprint $table) {
             $table->id();
-            $table->string('employee_no')->unique();
-            $table->text('name');
-            $table->text('education');
-            $table->enum('role', ['dosen', 'staff']);           
-            $table->string('images');
-            $table->longText('riset');
-            $table->longText('courses');
+            $table->string('meta_key')->unique();
+            $table->string('meta_title');
+            $table->string('meta_description');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dosens');
+        Schema::dropIfExists('metas');
     }
 };

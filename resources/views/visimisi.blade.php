@@ -14,18 +14,16 @@
                 </div>
             </div>
         </header>
-        @foreach ($visimisi as $section)
         <section class="py-2">
             <div class="container my-2">
                 <div class="row justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h5>{{ $section['judul'] }}</h5>
-                        <p class="mb-3">{{ $section['deskripsi'] }}</p>
+                        <h5>{{ $visimisi->meta_title }}</h5>
+                        <p class="mb-3">{{ $visimisi->meta_description  }}</p>
                     </div>
                 </div>
             </div>
         </section>
-        @endforeach
         
 
 @endsection

@@ -7,8 +7,7 @@
     <title>Halaman Admin Manajemen Rekayasa</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Font Awesome -->
@@ -21,8 +20,8 @@
     <link rel="website icon" type="png" href="{{ asset('aset/img/logo.png') }}">
     <!-- Sweet Alert-->
     <link rel="stylesheet" href="{{ asset('Template/plugins/sweetalert2/sweetalert2.min.css') }}">
+    <!-- Summernote -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" />
-
 
 </head>
 
@@ -36,13 +35,9 @@
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-
-
             <!-- Sidebar -->
             @include('admin.partials.sidebar')
             <!-- /.sidebar -->
-
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
@@ -54,38 +49,31 @@
                         <div class="col-sm-6">
                             <h1>@yield('title')</h1>
                         </div>
-
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
 
             <!-- Main content -->
             <section class="content">
-
                 <!-- Default box -->
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">@yield('subtitle')</h3>
-
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
-
                         </div>
                     </div>
                     <div class="card-body">
                         @yield('content')
                     </div>
-
                 </div>
                 <!-- /.card -->
-
             </section>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-inline">
@@ -94,18 +82,15 @@
             <!-- Default to the left -->
             <strong>Made with tears by <a href="#">Rahel Natasya</a></strong>
         </footer>
-
-        </div>
-<!-- ./wrapper -->
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
     <!-- jQuery -->
     <script src="{{ asset('Template/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
@@ -114,21 +99,14 @@
     <script src="{{ asset('Template/dist/js/adminlte.min.js') }}"></script>
     <!-- Sweet Alert2 -->
     <script src="{{ asset('Template/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-
+    <!-- Summernote -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            $('#summernote').summernote({
-                height: 200,
-            });
-            $('#visi').summernote({
-                height: 65,
-            });
-            $('#history').summernote({
-                height: 65,
-            });
-            $('#misi').summernote({
-                height: 65,
+            // Initialize Summernote for all textarea elements with the class 'summernote'
+            $('.summernote').summernote({
+                height: 200, // Set the height of the editor
             });
         });
 
@@ -144,11 +122,9 @@
                 }
             };
         }
-    </script>
-    <script>
+
         $(document).on('click', '#btn-delete', function(e) {
             e.preventDefault();
-
             Swal.fire({
                 title: 'Apakah anda yakin?',
                 text: "Data akan dihapus!",
@@ -161,18 +137,13 @@
                 if (result.isConfirmed) {
                     var dataId = $(this).data('id');
                     $('#form-delete-' + dataId).submit();
-                    Swal.fire(
-                        'Terhapus!',
-                        'Data telah dihapus.',
-                        'success'
-                    )
+                    Swal.fire('Terhapus!', 'Data telah dihapus.', 'success');
                 }
-            })
+            });
         });
-        
+
         $(document).on('click', '#btn-hapus', function(e) {
             e.preventDefault();
-
             Swal.fire({
                 title: 'Apakah anda yakin?',
                 text: "Data akan dihapus!",
@@ -185,20 +156,14 @@
                 if (result.isConfirmed) {
                     var imgId = $(this).data('id');
                     $('#form-hapus-' + imgId).submit();
-                    Swal.fire(
-                        'Terhapus!',
-                        'Data telah dihapus.',
-                        'success'
-                    )
+                    Swal.fire('Terhapus!', 'Data telah dihapus.', 'success');
                 }
-            })
-        })
-
+            });
+        });
 
         $(document).ready(function() {
             $('#btn-simpan').click(function(e) {
                 e.preventDefault(); // menghentikan form submit
-
                 // menampilkan SweetAlert2
                 Swal.fire({
                     title: 'Apakah anda yakin?',
@@ -212,21 +177,14 @@
                     if (result.isConfirmed) {
                         // jika tombol "Yes, simpan!" ditekan, submit form
                         $('form').submit();
-
-                        Swal.fire(
-                            'Tersimpan!',
-                            'Datamu berhasil.',
-                            'success'
-                        )
-
+                        Swal.fire('Tersimpan!', 'Datamu berhasil.', 'success');
                     }
-                })
+                });
             });
         });
 
         $(document).on('click', '#btn-batal', function(e) {
             e.preventDefault();
-
             Swal.fire({
                 title: 'Apakah anda yakin?',
                 text: "Data yang belum disimpan akan hilang!",
@@ -239,7 +197,7 @@
                 if (result.isConfirmed) {
                     window.location.href = $(this).attr('href');
                 }
-            })
+            });
         });
     </script>
 

@@ -35,8 +35,22 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="education">Pendidikan Dosen :</label>
-                            <textarea class="form-control" id="summernote" name="education" rows="3">{{ $dosen->education }}</textarea>
+                            <textarea class="form-control summernote" id="summernote" name="education" rows="3">{{ $dosen->education }}</textarea>
                             @error('education')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="riset">Riset Pendidikan :</label>
+                            <textarea class="form-control summernote" id="summernote" name="riset" rows="3">{{ $dosen->riset }}</textarea>
+                            @error('riset')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="courses">Matakuliah yang diampu :</label>
+                            <textarea class="form-control summernote" id="summernote" name="courses" rows="3">{{ $dosen->courses }}</textarea>
+                            @error('courses')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                             @enderror
                         </div>

@@ -21,6 +21,8 @@
                                     <th scope="col">Gambar</th>
                                     <th scope="col">Nama Dosen & Staff</th>
                                     <th scope="col">Pendidikan Dosen & Staff</th>
+                                    <th scope="col">Riset Pendidikan</th>
+                                    <th scope="col">Matakuliah yang diampu</th>
                                     <th scope="col">Role</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -32,7 +34,9 @@
                                         <td>{{ $item->employee_no }}</td>
                                         <td><img src="{{ asset('aset/img/' . $item->images) }}" alt="{{ $item->name }}" width="100"></td>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->education }}</td>
+                                        <td><?php echo $item->education ?></td>
+                                        <td><?php echo $item->riset ?></td>
+                                        <td><?php echo $item->courses ?></td>
                                         <td>{{ $item->role }}</td>
                                         <td>
                                             <div class="d-flex justify-content-center">

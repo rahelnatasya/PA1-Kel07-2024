@@ -16,7 +16,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-15">
                 @if ($galery->isNotEmpty() && $category->find($galery->first()->room_id))
-                    <p class="text-lg-start mt-10 text-justify">{{ $category->find($galery->first()->room_id)->description }}</p>
+                    <p class="text-lg-start mt-10 text-justify"><?php echo $category->find($galery->first()->room_id)->description ?></p>
                 @else
                     <p class="text-lg-start mt-10 text-justify">No description available</p>
                 @endif

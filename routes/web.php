@@ -48,8 +48,8 @@ Route::get('/fasilitas', [BeritaController::class, 'fasilitas']);
 Route::get('/strukturdosen', [StrukturDosenController::class, 'index']);
 
 
-Route::get('/olahraga', function () {
-    return view ('olahraga');
+Route::get('/some', function () {
+    return view ('some');
 });
 
 
@@ -96,12 +96,12 @@ Route::put('profillulusan/{profillulusan}', [App\Http\Controllers\Admin\ProfilLu
 Route::delete('admin/profillulusan/{profillulusan}', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'destroy'])->name('admin.profillulusan.destroy');
 
 // Visi Misi Tujuan
-Route::get('visimisi', [App\Http\Controllers\Admin\VisiMisiController::class, 'index'])->name('admin.visimisi.index');
-Route::get('visimisi/{visimisi}/edit', [App\Http\Controllers\Admin\VisiMisiController::class, 'edit'])->name('admin.visimisi.edit');
-Route::get('visimisi/create', [App\Http\Controllers\Admin\VisiMisiController::class, 'create'])->name('admin.visimisi.create');
-Route::post('admin/visimisi', [App\Http\Controllers\Admin\VisiMisiController::class, 'store'])->name('admin.visimisi.store');
-Route::put('visimisi/{visimisi}', [App\Http\Controllers\Admin\VisiMisiController::class, 'update'])->name('admin.visimisi.update');
-Route::delete('admin/visimisi/{visimisi}', [App\Http\Controllers\Admin\VisiMisiController::class, 'destroy'])->name('admin.visimisi.destroy');
+Route::get('meta', [App\Http\Controllers\Admin\MetaController::class, 'index'])->name('admin.meta.index');
+Route::get('meta/{meta}/edit', [App\Http\Controllers\Admin\MetaController::class, 'edit'])->name('admin.meta.edit');
+Route::get('meta/create', [App\Http\Controllers\Admin\MetaController::class, 'create'])->name('admin.meta.create');
+Route::post('admin/meta', [App\Http\Controllers\Admin\MetaController::class, 'store'])->name('admin.meta.store');
+Route::put('meta/{meta}', [App\Http\Controllers\Admin\MetaController::class, 'update'])->name('admin.meta.update');
+Route::delete('admin/meta/{meta}', [App\Http\Controllers\Admin\MetaController::class, 'destroy'])->name('admin.meta.destroy');
 
 //Ruang
 Route::get('ruang', [App\Http\Controllers\Admin\GaleriRuangController::class,'index'])->name('admin.ruang.index');

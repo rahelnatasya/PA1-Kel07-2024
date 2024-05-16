@@ -45,8 +45,8 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="date">Tanggal:</label>
-                        <input type="date" id="date" name="date" class="form-control">
+                        <label for="create_date">Tanggal:</label>
+                        <input type="date" id="create_date" name="date" class="form-control">
                         @error('date')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror

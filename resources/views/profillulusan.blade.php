@@ -14,15 +14,6 @@
                 </div>
             </div>
         </header>
-        {{-- @php
-$sections = [
-    [
-        'title' => 'Perekayasa Pengembangan Bisnis (Business Development Engineer)',
-        'lead' => 'Business Analyst, Business Developer, dan R&D Engineer',
-        'content' => 'Seseorang yang berkemampuan dalam: Mengidentifikasi dan menganalisis peluang pengembangan bisnis, memformulasikan strategi dan membuat rencana pengembangan bisnis kepada manajemen puncak. Memimpin dan mengorganisir sebuah tim teknis dalam mengimplementasikan rencana program bagi pengembangan bisnis.'
-    ],
-];
-@endphp  --}}
 <!-- Content section -->
 @foreach ($profillulusan as $section)
 <section class="py-2">

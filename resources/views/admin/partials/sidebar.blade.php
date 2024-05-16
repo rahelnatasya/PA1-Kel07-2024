@@ -73,9 +73,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ Route('admin.visimisi.index') }}" class="nav-link">
+                <a href="{{ Route('admin.meta.index') }}" class="nav-link">
                     <i class="fas fa-trophy"></i>
-                    <span>Visi Misi dan Tujuan</span>
+                    <span>Meta Profile</span>
                 </a>
             </li>
             <li class="nav-item">

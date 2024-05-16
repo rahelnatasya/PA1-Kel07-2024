@@ -34,8 +34,8 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td><img src="{{ asset('aset/img/'. $item->images) }}" alt="{{ $item->name }}" width="100"></td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->content }}</td>
-                                    <td>{{ $item->jobdescription }}</td>
+                                    <td><?php echo $item->content ?></td>
+                                    <td><?php echo $item->jobdescription ?></td>
                                     <td>{{ $item->created_by }}</td>
                                     <td>
                                     <div class="d-flex justify-content-center">

@@ -27,6 +27,8 @@ class DosenController extends Controller
             'employee_no' => 'required|string',
             'education' => 'required|string',
             'role' => 'required|in:dosen,staff',
+            'riset'=> 'required|string',
+            'courses'=> 'required|string'
         ]);
 
         $namaFile = $request->file('images')->getClientOriginalName();
@@ -38,6 +40,8 @@ class DosenController extends Controller
         $newDosen->education = $request->education;
         $newDosen->employee_no = $request->employee_no;
         $newDosen->role = $request->role;
+        $newDosen->riset = $request->riset;
+        $newDosen->courses = $request->courses;
         $newDosen->images = $namaFile; 
         $newDosen->save();
 
@@ -57,6 +61,8 @@ class DosenController extends Controller
             'education' => 'required|string',
             'role' => 'required|string|in:dosen,staff',
             'employee_no' => 'required|string',
+            'riset'=> 'required|string',
+            'courses'=> 'required|string',
             'images' => 'image|mimes:jpg,jpeg,png|max:2048'
         ]);
     
@@ -81,6 +87,8 @@ class DosenController extends Controller
         $dosen->education = $request->education;
         $dosen->role = $request->role;
         $dosen->employee_no = $request->employee_no;
+        $dosen->riset = $request->riset;
+        $dosen->courses = $request->courses;
         $dosen->save();
     
         return redirect()->route('admin.dosen.index')->with('success', 'Dosen berhasil diperbarui!');
