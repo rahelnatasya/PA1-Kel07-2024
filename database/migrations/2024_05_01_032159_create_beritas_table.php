@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('images');
             $table->longText('description');
             $table->date('date');
-            $table->text('created_by')->default('adminMR');
+            $table->text('created_by');
             $table->text('updated_by');
             $table->timestamp('publish_at')->nullable();
             $table->timestamps();

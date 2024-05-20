@@ -10,6 +10,7 @@ use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\MrClubController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfilLulusanController;
+use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\StrukturDosenController;
 use App\Http\Controllers\VisiMisiController;
 use Illuminate\Support\Facades\Route;
@@ -44,8 +45,9 @@ Route::get('/', [BeritaController::class, 'index'])->name('home');
 Route::get('/detail/{id}', [BeritaController::class, 'show'])->name('berita.show');
 Route::get('/prestasi', [PrestasiController::class, 'index']);
 Route::get('/fasilitas', [BeritaController::class, 'fasilitas']);
-
 Route::get('/strukturdosen', [StrukturDosenController::class, 'index']);
+Route::get('/sejarah', [SejarahController::class, 'index']);
+
 
 
 Route::get('/some', function () {
@@ -95,7 +97,7 @@ Route::post('admin/profillulusan', [App\Http\Controllers\Admin\ProfilLulusanCont
 Route::put('profillulusan/{profillulusan}', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'update'])->name('admin.profillulusan.update');
 Route::delete('admin/profillulusan/{profillulusan}', [App\Http\Controllers\Admin\ProfilLulusanController::class, 'destroy'])->name('admin.profillulusan.destroy');
 
-// Visi Misi Tujuan
+// Meta Profile
 Route::get('meta', [App\Http\Controllers\Admin\MetaController::class, 'index'])->name('admin.meta.index');
 Route::get('meta/{meta}/edit', [App\Http\Controllers\Admin\MetaController::class, 'edit'])->name('admin.meta.edit');
 Route::get('meta/create', [App\Http\Controllers\Admin\MetaController::class, 'create'])->name('admin.meta.create');

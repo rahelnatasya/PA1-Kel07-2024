@@ -77,10 +77,10 @@
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-inline">
-                love u PA 1
+                Love u PA 1 
             </div>
             <!-- Default to the left -->
-            <strong>Made with tears by <a href="#">Rahel Natasya</a></strong>
+            <strong>Made with love by <a href="#">Kelompok 7 PA 1 D3TI</a></strong>
         </footer>
     </div>
     <!-- ./wrapper -->

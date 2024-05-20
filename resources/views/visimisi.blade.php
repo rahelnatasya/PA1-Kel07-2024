@@ -18,7 +18,7 @@
             <div class="container my-2">
                 <div class="row justify-content-center">
                     <div class="col-lg-9 text-center">
-                        <h5><?php echo $visimisi->meta_title ?></h5>
+                        {{-- <h5><?php echo $visimisi->meta_title ?></h5> --}}
                         <p class="mb-3"><?php echo $visimisi->meta_description  ?></p>
                     </div>
                 </div>

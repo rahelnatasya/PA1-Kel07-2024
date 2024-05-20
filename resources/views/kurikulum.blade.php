@@ -23,7 +23,6 @@
                 <th class="fw-bold">Kode Mata Kuliah</th>
                 <th class="fw-bold">Nama Mata Kuliah</th>
                 <th class="fw-bold">SKS</th>
-                <th class="fw-bold">Status</th>
         </thead>
         <tbody>
             @foreach($kurikulum as $data)
@@ -32,8 +31,7 @@
                 <td>{{ $data->kode_mk }}</td>
                 <td>{{ $data->subject }}</td>
                 <td>{{ $data->sks }}</td>
-                <td>{{ $data->status }}</td>
-            </tr>
+           </tr>
             @endforeach
         </tbody>
     </table>

@@ -11,6 +11,8 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{URL::asset('/aset/css/styles.css')}}" rel="stylesheet" />
     <link href="{{URL::asset('/aset/css/custom-vid.css')}}" rel="stylesheet" />
+    <link rel="website icon" type="png" href="{{ asset('aset/img/logo.png') }}">
+
 </head>
 <body>
     <!-- Responsive navbar-->
@@ -90,8 +92,7 @@
                     <img src="{{ asset('aset/img/'.$data->images) }}" alt="News Image">
                     <div class="news-title">{{ $data->title }}</div>
                     <div class="news-date">{{ \Carbon\Carbon::parse($data->date)->translatedFormat('d F Y') }}</div>
-                    <div class="news-content"><?php echo Str::limit($data->description, 100) ?></div>
-                    <div class="read-more">
+                    {{-- <div class="news-content"><?php echo Str::limit($data->description, 100) ?></div>    --}}
                         <a href="{{ route('berita.show', $data->id) }}">Selengkapnya>></a>
                     </div>
                 </div>
@@ -150,9 +151,9 @@
                         <h3 style="font-size: 18px; font-weight: bold; text-align: left;">About Us</h3>
                         <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
                             <li><a href="/sejarah" style="color: #fff; font-size: 15px; text-decoration: none;">Sejarah</a></li>
-                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Visi Misi Keilmuan dan Tujuan</a></li>
-                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Struktur Organisasi</a></li>
-                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Lokasi Kampus</a></li>
+                            <li><a href="/visimisi" style="color: #fff; font-size: 15px; text-decoration: none;">Visi Misi Keilmuan dan Tujuan</a></li>
+                            <li><a href="/strukturdosen" style="color: #fff; font-size: 15px; text-decoration: none;">Struktur Organisasi</a></li>
+                            <li><a href="https://maps.app.goo.gl/UYq2CZQxYFjUYaPn9" style="color: #fff; font-size: 15px; text-decoration: none;">Lokasi Kampus</a></li>
                         </ul>
                     </div>
                 </div>
@@ -162,9 +163,14 @@
                         <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
                             <li><a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">+1234567890</a></li>
                             <li><a href="https://instagram.com/mr.itdel" target="_blank" style="color: #fff; font-size: 15px; text-decoration: none;">@mr.itdel</a></li>
-                            <li><a href="#" style="color: #fff; font-size: 15px; text-decoration: none;">Institut Teknologi Del</a></li>
+                            <li><a href="https://www.del.ac.id/" style="color: #fff; font-size: 15px; text-decoration: none;">Institut Teknologi Del</a></li>
                         </ul>
                         <address style="font-size: 14px;">Jl. Sisingamangaraja, Sitoluama, Laguboti, Toba Samosir</address>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-12 text-center">
+                        <small>&copy; 2024 Institut Teknologi Del. Made by Kelompok 7 D3 TI. Copyright Manajemen Rekayasa</small>
                     </div>
                 </div>
             </div>

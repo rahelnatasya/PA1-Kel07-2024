@@ -7,11 +7,11 @@ use App\Models\Meta;
 use Illuminate\Http\Request;
 
 
-class VisiMisiController extends Controller
+class SejarahController extends Controller
 {
     public function index(){
-        $visimisi = Meta::where('meta_key', 'visi-misi')->first();
+        $sejarah = Meta::where('meta_key', 'sejarah')->first();
         $category = CategoryRoom::all();
-        return view('visimisi', ['visimisi' => $visimisi],  ['category' => $category]);
+        return view('sejarah', ['sejarah' => $sejarah],  ['category' => $category]);
     }
 }

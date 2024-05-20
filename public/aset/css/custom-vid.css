@@ -239,4 +239,24 @@
         height: 50px;
         width: 2px;
     }
-
+/* Sejarah */
+    .history {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+    .container-hs {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .content {
+        margin-top: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    p {
+        margin: 2em 0;
+    }
