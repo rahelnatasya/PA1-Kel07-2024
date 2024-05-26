@@ -195,7 +195,36 @@
         border-radius: 5px;
         font-weight: bold;
     }
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .text h2 {
+                font-size: 1.5em;
+            }
     
+            .text p {
+                font-size: 1em;
+            }
+    
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    
+        @media (max-width: 576px) {
+            .text h2 {
+                font-size: 1.2em;
+            }
+    
+            .text p {
+                font-size: 0.9em;
+            }
+    
+            .btn {
+                padding: 6px 12px;
+                font-size: 0.8em;
+            }
+        }
     /* Modal styles */
     /* .modal {
         display: none; 

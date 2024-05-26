@@ -70,7 +70,7 @@
    <header>
         <div class="video-container">
             <video autoplay loop muted class="bg-video">
-              <source src="{{ asset('aset/img/vid-header.mp4') }}" type="video/mp4">
+              <source src="{{ asset('aset/img/HEADER.mp4') }}" type="video/mp4">
             </video>
             <div class="text-center my-0 content-overlay">
               <!-- Konten lainnya tetap sama -->
