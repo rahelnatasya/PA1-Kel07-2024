@@ -20,8 +20,8 @@
                         <div class="card-body">
                             <div class="form-group mb-3">
                                 <label for="semester">Semester</label>
-                                <input type="text" class="form-control" id="semester" name="semester"
-                                    placeholder="Contoh: Semester 1">
+                                <input type="number" class="form-control" id="semester" name="semester"
+                                    placeholder="">
                                 @error('semester')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror

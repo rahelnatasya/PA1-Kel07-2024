@@ -28,13 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Route::prefix('Admin')->middleware('auth')->group(function () {
-//     Route::get('/Admin', [DashboardController::class, 'index']);
-// });
-// Route::get('/login', [AuthController::class, 'index'])->name('login');
-// Route::post('/login', [AuthController::class, 'authenticate']);
-// Route::post('/logout', [AuthController::class, 'logout']);
-
+//User Route
 Route::get('/kurikulum', [KurikulumController::class, 'index']);
 Route::get('/profillulusan', [profilLulusanController::class, 'index']);
 Route::get('/visimisi', [VisiMisiController::class, 'index']);
@@ -48,16 +42,11 @@ Route::get('/fasilitas', [BeritaController::class, 'fasilitas']);
 Route::get('/strukturdosen', [StrukturDosenController::class, 'index']);
 Route::get('/sejarah', [SejarahController::class, 'index']);
 
-
-
-Route::get('/some', function () {
+Route::get('/some', function(){
     return view ('some');
 });
 
-
-
-
-
+//Admin Route
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -80,6 +69,15 @@ Route::post('admin/testimoni',[App\Http\Controllers\Admin\TestimoniController::c
 Route::get('admin/testimoni/{id}/edit', [App\Http\Controllers\Admin\TestimoniController::class, 'edit'])->name('admin.testimoni.edit');
 Route::put('admin/testimoni/{id}', [App\Http\Controllers\Admin\TestimoniController::class, 'update'])->name('admin.testimoni.update');
 Route::delete('admin/testimoni/{id}', [App\Http\Controllers\Admin\TestimoniController::class, 'destroy'])->name('admin.testimoni.destroy');
+
+//Kerjasama
+Route::get('kerjasama', [App\Http\Controllers\Admin\KerjaSamaController::class,'index'])->name('admin.kerjasama.index');
+Route::get('kerjasama/create', [App\Http\Controllers\Admin\KerjaSamaController::class,'create'])->name('admin.kerjasama.create');
+Route::post('admin/kerjasama',[App\Http\Controllers\Admin\KerjaSamaController::class, 'store'])->name('admin.kerjasama.store');
+Route::get('admin/kerjasama/{id}/edit', [App\Http\Controllers\Admin\KerjaSamaController::class, 'edit'])->name('admin.kerjasama.edit');
+Route::put('admin/kerjasama/{id}', [App\Http\Controllers\Admin\KerjaSamaController::class, 'update'])->name('admin.kerjasama.update');
+Route::delete('admin/kerjasama/{id}', [App\Http\Controllers\Admin\KerjaSamaController::class, 'destroy'])->name('admin.kerjasama.destroy');
+
 
 //Kurikulum
 Route::get('kurikulum', [App\Http\Controllers\Admin\KurikulumController::class,'index'])->name('admin.kurikulum.index');

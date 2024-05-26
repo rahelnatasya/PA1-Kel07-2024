@@ -1,31 +1,46 @@
 @extends('layout.main')
 
 @section('content')
+<link href="{{URL::asset('/aset/css/custom-vid.css')}}" rel="stylesheet" />
 <nav class="navbar bg-primary">
     <div class="container-fluid">
         <span class="navbar-brand mb-0 h1 text-center mx-auto text-white">BERITA</span>
     </div>
 </nav>
 <!-- Page Content -->
-<div class="container col-mb-4 mx-auto">
-
-    <!-- Portfolio Item Heading -->
-    <div class="col-md-8 mt-4 mx-auto">
-        <p class="mb-0"><?php echo  \Carbon\Carbon::parse($berita->date)->translatedFormat('d F Y') ?></p>
-        <h3 class="my-2 col-md-10" style="text-align: justify;">{{ $berita->title }}</h3>
-        <p class="mb-3 mx-auto">Oleh: <?php echo $berita->created_by ?></p>
-    </div>
-
-    <!-- Portfolio Item Row -->
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <img class="img-fluid" src="{{ asset('aset/img/'.$berita->images) }}" style="max-width: 100%; height: auto;" alt="">
+<section class="class-of-news">
+    <div class="container-news">
+        <div class="main-content-news">
+            <div class="header-news">
+                <div>
+                    <p>{{ \Carbon\Carbon::parse($berita->date)->translatedFormat('d F Y') }}</p>
+                </div>
+                <div>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(Request::fullUrl()) }}" target="_blank"><i class="fab fa-facebook" style="font-size: 24px; margin-right: 10px;"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" onclick="alert('Copy the link and share on Instagram: {{ Request::fullUrl() }}')"><i class="fab fa-instagram" style="font-size: 24px; margin-right: 10px;"></i></a>
+                    <a href="https://wa.me/?text={{ urlencode(Request::fullUrl()) }}" target="_blank"><i class="fab fa-whatsapp" style="font-size: 24px; margin-right: 10px;"></i></a>
+                </div>
+            </div>
+            <h3 class="my-2 col-md-10">{{ $berita->title }}</h3>
+            <p>Oleh: {{ $berita->created_by }}</p>
+            <div class="article-news">
+                <img src="{{ asset('aset/img/' . $berita->images) }}" style="max-width: 800px; height: 400px;" alt="">
+                <p><?php echo $berita->description ?></p>
+            </div>
+        </div>
+        <div class="sidebar-news">
+            <h3>Terbaru</h3>
+            <div class="latest-news">
+                @foreach ($relatedBerita as $data)
+                <div class="news-item">
+                    <img src="{{ asset('aset/img/' . $data->images) }}" style="max-width: 300px; height: 150px" alt="News Image">
+                    <h5>{{ \Carbon\Carbon::parse($data->date)->translatedFormat('d F Y') }}</h5>
+                    <p><?php echo Str::limit($data->description, 100) ?></p>
+                    <a href="{{ route('berita.show', $data->id) }}">Selengkapnya>></a>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
-
-    <div class="col-md-8 mx-auto">
-        <p style="text-align: justify;"><?php echo $berita->description ?></p>
-    </div>
-  
-</div>
+</section>
 @endsection

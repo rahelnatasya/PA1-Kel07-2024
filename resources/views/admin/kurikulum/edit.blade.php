@@ -15,11 +15,11 @@
         @csrf
         <div class="form-group">
             <label for="semester">Semester</label>
-            <input type="text" class="form-control" id="semester" name="semester" value="{{ $kurikulum->semester }}" required>
+            <input type="number" class="form-control" id="semester" name="semester" value="{{ $kurikulum->semester }}" required>
         </div>
         <div class="form-group">
             <label for="sks">Jumlah SKS</label>
-            <input type="text" class="form-control" id="sks" name="sks" value="{{ old('sks', $kurikulum->sks) }}" required>
+            <input type="number" class="form-control" id="sks" name="sks" value="{{ old('sks', $kurikulum->sks) }}" required>
         </div>
         <div class="form-group">
             <label for="kode_mk">Kode Matakuliah</label>

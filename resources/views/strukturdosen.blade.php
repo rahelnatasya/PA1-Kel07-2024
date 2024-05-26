@@ -3,7 +3,7 @@
 @section('content')
 <nav class="navbar bg-primary">
     <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1 text-center mx-auto text-white">STRUKTUR ORGANISASI</span>
+      <span class="navbar-brand mb-0 h1 text-center mx-auto text-white">STRUKTUR ORGANISASI DOSEN</span>
     </div>
 </nav>
 <nav class="navbar">

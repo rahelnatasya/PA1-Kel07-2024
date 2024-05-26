@@ -1,9 +1,9 @@
 
-/* vidioa header */
+/* video header */
 .video-container {
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 93vh;
     overflow: hidden;
   }
   
@@ -32,7 +32,7 @@
   }
 
   /* Untuk Berita */
-  .container {
+  .news-container {
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -56,26 +56,16 @@
 }
 
 .news-title {
-    font-size: 18px;
+    font-size: 23px;
     font-weight: bold;
-    margin: 16px 0 8px;
+    margin: 8px 0 3px;
     flex-grow: 1; /* Allow the title to grow and fill available space */
 }
 
 .news-date {
     color: #666;
+    font-size: 17px;
     margin-bottom: 8px;
-}
-
-.news-content {
-    color: #333;
-    margin-bottom: 16px;
-    flex-grow: 1; /* Allow the content to grow and fill available space */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limit to 3 lines */
-    -webkit-box-orient: vertical;
 }
 
 .read-more {
@@ -144,6 +134,68 @@
         height: 100%;
     }
 
+    /* Poster */
+    .hero-section {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    /* .navbar {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .navbar img {
+        height: 50px;
+    }
+    .navbar a {
+        text-decoration: none;
+        font-weight: bold;
+        margin-left: 20px;
+    } */
+    .hero {
+        position: relative;
+        text-align: left;
+        color: white;
+    }
+    .hero img {
+        width: 100%;
+        height: auto;
+    }
+    .hero .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .hero .text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .hero h1 {
+        font-size: 2.5em;
+        margin: 0;
+    }
+    .hero p {
+        font-size: 1.2em;
+        margin: 8px 0 20px;
+    }
+    .hero .btn {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    
     /* Modal styles */
     /* .modal {
         display: none; 
@@ -260,3 +312,102 @@
     p {
         margin: 2em 0;
     }
+
+    /* Kerjasama */
+    .kerjasama {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+        margin-bottom: 4;
+    }
+    
+    .container-k {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px;
+        max-width: 1000px;
+        width: 100%; 
+
+    }
+    
+    .container-k .item {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .container-k img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+/*Detail Berita */
+.class-of-news {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.container-news {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+}
+.main-content-news, .sidebar-news {
+    padding: 20px;
+}
+.main-content-news {
+    flex: 2;
+}
+.sidebar-news {
+    flex: 1;
+    padding-top: 0;
+}
+.sidebar-news .latest-news {
+    margin-bottom: 20px;
+}
+.latest-news img {
+    width: 100%;
+    height: auto;
+}
+.latest-news h3 {
+    margin-top: 0;
+    padding-top: 20px;
+    background-color: #ddd;
+    padding: 10px;
+}
+.news-item {
+    margin-bottom: 20px;
+}
+.news-item h {
+    margin: 10px 0;
+}
+.news-item p {
+    margin: 0;
+}
+.news-item a {
+    text-decoration: none;
+    color: #1e90ff;
+}
+.article-news {
+    display: flex;
+    flex-direction: column;
+}
+.article-news img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.header-news {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-news img {
+    height: 24px;
+    margin-right: 10px;
+}
+.header-news p {
+    margin: 0;
+}

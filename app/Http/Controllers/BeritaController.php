@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Berita;
 use App\Models\CategoryRoom;
 use App\Models\GaleriRuang;
+use App\Models\KerjaSama;
+use App\Models\Meta;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,9 @@ class BeritaController extends Controller
         $berita = Berita::all();
         $testimoni = Testimoni::all();
         $category = CategoryRoom::all();
-        return view('beranda', compact('berita', 'testimoni', 'category'));
+        $kerjasama = KerjaSama::all();
+        $poster = Meta::where('meta_key', 'poster')->first();
+        return view('beranda', compact('berita', 'testimoni', 'category', 'kerjasama', 'poster'));
     }
 
     public function fasilitas(Request $request){
@@ -32,10 +36,14 @@ class BeritaController extends Controller
         return view('ruang', compact('galery', 'category'));
 
     }
+    
     public function show($id){
         $berita = Berita::findOrFail($id);
+        $relatedBerita = Berita::where('id', '!=', $id)->latest()->take(5)->get();
         $testimoni = Testimoni::all();
         $category = CategoryRoom::all();
-        return view('detail_berita', compact('berita','testimoni', 'category'));
+        $kerjasama = KerjaSama::all();
+        return view('detail_berita', compact('berita', 'relatedBerita', 'testimoni', 'category', 'kerjasama'));
     }
+    
 }

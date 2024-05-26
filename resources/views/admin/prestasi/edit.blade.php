@@ -23,8 +23,8 @@
                 required>
         </div>
         <div class="form-group">
-            <label for="time_event">Waktu Pelaksanaan </label>
-            <textarea class="form-control" id="time_event" name="time_event" required>{{ $prestasi->time_event }}</textarea>
+            <label for="create_date">Waktu Pelaksanaan </label>
+            <input type="date" class="form-control" id="create_date" name="time_event" class="form-control" value="{{ $prestasi->time_event }}">
         </div>
         <div class="form-group">
             <label for="achievement_level">Tingkat Prestasi</label>

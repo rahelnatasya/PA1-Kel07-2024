@@ -25,8 +25,8 @@
                                 @enderror
                             </div>
                             <div class="form-group mb-3">
-                                <label for="time_event">Waktu Pelaksanaan</label>
-                                <input type="text" class="form-control" id="time_event" name="time_event" placeholder="">
+                                <label for="create_date">Waktu Pelaksanaan</label>
+                                <input type="date" id="tcreate_date" class="form-control" name="time_event" placeholder="">
                                 @error('time_event')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror

@@ -83,23 +83,36 @@
           </div>
         </header>
     <!-- News Section -->
-    <div class="container">
+    <div class="news-container">
         <h3 class="my-4 mb-5 text-center">Berita Terkini</h3>
-        <div class="row">
+        <div class="row justify-content-start">
             @foreach ($berita as $data)
-            <div class="col-md-3 mb-3">
+            <div class="col-lg-3 col-md-4 mb-3">
                 <div class="news-card">
                     <img src="{{ asset('aset/img/'.$data->images) }}" alt="News Image">
                     <div class="news-title">{{ $data->title }}</div>
                     <div class="news-date">{{ \Carbon\Carbon::parse($data->date)->translatedFormat('d F Y') }}</div>
-                    {{-- <div class="news-content"><?php echo Str::limit($data->description, 100) ?></div>    --}}
-                        <a href="{{ route('berita.show', $data->id) }}">Selengkapnya>></a>
-                    </div>
+                    <a href="{{ route('berita.show', $data->id) }}" class="read-more">Selengkapnya>></a>
                 </div>
             </div>
             @endforeach
         </div>
     </div>
+    <!-- Poster -->
+    <div class="text-center mb-0 py-5">
+        <h3>Penerimaan Mahasiswa Baru</h3>
+    </div>
+    <section class="hero-section">
+        <div class="hero">
+            <img src="{{ URL::asset ('aset/img/header2.png') }}" alt="Background Image">
+            <div class="overlay"></div>
+            <div class="text">
+                <h2><strong>PENERIMAAN MAHASISWA BARU JALUR PRESTASI SISWA (JPS)</strong></h2>
+                <p>Pendaftaran DIPERPANJANG hingga 14 Februari 2024</p>
+                <a href="https://spmb.del.ac.id" class="btn">More Info</a>
+            </div>
+        </div>
+    </section>
     <!-- Testimonials section-->
     <section class="py-5">
         <div class="container">
@@ -137,7 +150,19 @@
             </div>
         </div>
     </section>
-    <!-- Footer -->
+<!-- Kerjasama Section -->
+<section class="py-5 kerjasama">
+    <h3 class="mb-5">Kerjasama</h3>
+    <div class="container-k">
+        @foreach ($kerjasama as $data)
+        <div class="item">
+            <img src="{{ asset('aset/img/'.$data->logo) }}" alt="logo">
+        </div>
+        @endforeach
+    </div>
+</section>
+
+<!-- Footer -->
     <footer class="py-5 bg-dark text-white">
         <div class="container">
             <div class="row justify-content-center">

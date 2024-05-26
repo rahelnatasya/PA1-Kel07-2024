@@ -16,25 +16,34 @@
 </header>
 
 <div class="container text-center"> 
-    <table class="table">
-        <thead>
-            <tr>
-                <th class="fw-bold">Semester</th>
-                <th class="fw-bold">Kode Mata Kuliah</th>
-                <th class="fw-bold">Nama Mata Kuliah</th>
-                <th class="fw-bold">SKS</th>
-        </thead>
-        <tbody>
-            @foreach($kurikulum as $data)
-            <tr>
-                <td>{{ $data->semester }}</td>
-                <td>{{ $data->kode_mk }}</td>
-                <td>{{ $data->subject }}</td>
-                <td>{{ $data->sks }}</td>
-           </tr>
-            @endforeach
-        </tbody>
-    </table>
+    @php
+        $groupedKurikulum = [];
+        foreach($kurikulum as $data) {
+            $groupedKurikulum[$data->semester][] = $data;
+        }
+    @endphp
+
+    @foreach($groupedKurikulum as $semester => $courses)
+        <div class="semester-title"><strong>SEMESTER  {{ $semester }}</strong></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="fw-bold">Kode Mata Kuliah</th>
+                    <th class="fw-bold">Nama Mata Kuliah</th>
+                    <th class="fw-bold">SKS</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($courses as $course)
+                    <tr>
+                        <td>{{ $course->kode_mk }}</td>
+                        <td>{{ $course->subject }}</td>
+                        <td>{{ $course->sks }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @endforeach
 </div>
 
 @endsection

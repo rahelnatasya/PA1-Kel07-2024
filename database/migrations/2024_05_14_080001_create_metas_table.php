@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('meta_key')->unique();
             $table->string('meta_title');
-            $table->string('meta_description');
+            $table->longText('meta_description');
             $table->timestamps();
         });
     }

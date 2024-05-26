@@ -40,6 +40,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{ Route('admin.kerjasama.index') }}" class="nav-link">
+                    <i class="fas fa-handshake"></i>
+                    <span>Kerjasama</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ Route('admin.kurikulum.index') }}" class="nav-link">
                     <i class="fas fa-book"></i>
                     <span>Kurikulum</span>
