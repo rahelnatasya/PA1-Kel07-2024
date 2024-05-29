@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+<link href="{{URL::asset('/aset/css/custom-vid.css')}}" rel="stylesheet" />
 <nav class="navbar bg-primary">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1 text-center mx-auto text-white">MR CLUB</span>

@@ -34,7 +34,7 @@
                             <p>Testimoni</p>
                         </div>
                         <div class="icon">
-                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-comment-alt"></i>
                         </div>
                         <a href="{{ Route('admin.testimoni.index') }}" class="small-box-footer">More info <i
                                 class="fas fa-arrow-circle-right"></i></a>
@@ -98,7 +98,20 @@
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
-        
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+                <div class="inner">        
+                    <p>Struktur Dosen</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-sitemap"></i>
+                </div>
+                <a href="{{ Route('admin.strukturdosen.index') }}" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>  
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -107,7 +120,7 @@
                     <p>Meta Profile</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-compass"></i>
+                    <i class="fas fa-plane"></i>
                 </div>
                 <a href="{{ Route('admin.meta.index') }}" class="small-box-footer">More info <i
                         class="fas fa-arrow-circle-right"></i></a>
@@ -170,20 +183,21 @@
             </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-                <div class="inner">        
-                    <p>Struktur Dosen</p>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">        
+                            <p>Prestasi Mahasiswa</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <a href="{{ Route('admin.prestasi.index') }}" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
-                <div class="icon">
-                    <i class="fas fa-sitemap"></i>
-                </div>
-                <a href="{{ Route('admin.strukturdosen.index') }}" class="small-box-footer">More info <i
-                            class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>  
-    </div> 
+ 
 
     
 @endsection

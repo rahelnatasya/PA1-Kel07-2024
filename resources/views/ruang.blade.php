@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('content')
+<link href="{{URL::asset('/aset/css/custom-vid.css')}}" rel="stylesheet" />
 <nav class="navbar bg-primary">
     <div class="container-fluid">
         @if ($galery->isNotEmpty() && $category->find($galery->first()->room_id))

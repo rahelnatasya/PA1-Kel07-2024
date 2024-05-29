@@ -47,14 +47,3 @@
 </div>
 
 @endsection
-
-
-{{-- @foreach($kurikulum as $data)
-<div class="container text-center"> {{ $data[ 'semester ']}}
-<div class="row">
-    <div class="col">{{ $data['kode'] }}</div>
-    <div class="col">{{ $data['nama'] }}</div>
-    <div class="col">{{ $data['sks'] }}</div>
-</div>
-</div>
-@endforeach --}}
