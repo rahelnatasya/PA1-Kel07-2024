@@ -19,8 +19,8 @@
 <section class="py-2">
     <div class="container my-3">
         <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h5><?php echo $section->name ?></h5>
+            <div class="col-lg-10 text-left">
+                <h3><?php echo $section->name ?></h3>
                 <p class="lead"><?php echo $section->jobtitle ?></p>
                 <p class="mb-0"><?php echo $section->description ?></p>
             </div>

@@ -9,16 +9,6 @@
         <a href="#" class="d-block">Admin Website | MR</a>
     </div>
 </div>
-    <div class="sidebar-search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search...">
-            <div class="input-group-append">
-                <button class="btn btn-secondary" type="button">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </div>
     <div class="mt-2">
         <ul class="nav flex-column">
             <li class="nav-item">
