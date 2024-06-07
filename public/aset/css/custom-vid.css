@@ -280,6 +280,7 @@
     .hero p {
         font-size: 1.2em;
         margin: 8px 0 20px;
+        color: white;
     }
     .hero .btn {
         background-color: #007BFF;
@@ -542,6 +543,7 @@
 .container-k .item {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .container-k img {
@@ -553,8 +555,7 @@
 
 .container-k img:hover {
     transform: scale(1.1); /* Efek zoom in ketika gambar dihover */
-}
-    
+}    
 /*Detail Berita */
 .class-of-news {
     margin: 0;

@@ -23,6 +23,7 @@
                                     <th scope="col">Pendidikan Dosen & Staff</th>
                                     <th scope="col">Riset Pendidikan</th>
                                     <th scope="col">Matakuliah yang diampu</th>
+                                    <th scope="col">Ruangan</th>
                                     <th scope="col">Role</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
@@ -37,6 +38,7 @@
                                         <td><?php echo $item->education ?></td>
                                         <td><?php echo $item->riset ?></td>
                                         <td><?php echo $item->courses ?></td>
+                                        <td><?php echo $item->room ?></td>
                                         <td>{{ $item->role }}</td>
                                         <td>
                                             <div class="d-flex justify-content-center">

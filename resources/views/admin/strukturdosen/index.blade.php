@@ -1,12 +1,11 @@
 @extends('admin.master')
 
 @section('title')
-Struktur Dosen
+    Struktur Dosen
 @endsection
 
 @section('subtitle')
-    <a class="btn btn-primary" href="{{ route('admin.strukturdosen.create') }}" role="button">Tambah <i
-            class="fa-solid fa-plus"></i></a>
+    <a class="btn btn-primary" href="{{ route('admin.strukturdosen.create') }}" role="button">Tambah <i class="fa-solid fa-plus"></i></a>
 @endsection
 
 @section('content')
@@ -37,15 +36,15 @@ Struktur Dosen
                                     <td>{{ $item->position }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('admin.strukturdosen.edit', $item->id) }}" class="btn btn-warning "onclick="return confirm('Apakah Anda yakin ingin memperbaharui?')">Edit</a>
-                                            <form action="{{ route('admin.strukturdosen.destroy', $item->id) }}" method="post">
+                                            <a href="{{ route('admin.strukturdosen.edit', $item->id) }}" class="btn btn-warning" onclick="return confirm('Apakah Anda yakin ingin memperbarui?')">Edit</a>
+                                            <form action="{{ route('admin.strukturdosen.destroy', $item->id) }}" method="post" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger mx-1"
-                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus berita ini?')">Hapus</button>
+                                                <button type="submit" class="btn btn-danger mx-1" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</button>
                                             </form>
                                         </div>
                                     </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

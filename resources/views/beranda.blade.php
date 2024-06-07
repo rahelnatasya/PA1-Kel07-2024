@@ -12,6 +12,7 @@
     <link href="{{ URL::asset('/aset/css/styles.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('/aset/css/custom-vid.css') }}" rel="stylesheet" />
     <link rel="website icon" type="image/png" href="{{ asset('aset/img/logo.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">   
 </head>
 <body>
     <!-- Responsive navbar-->
@@ -77,7 +78,22 @@
                 <h2 class="text-white fs-30 fw-bolder" style="font-size: 50px;">MANAJEMEN REKAYASA</h2>
                 <p class="text-white fs-10 fw-bolder" style="font-size: 20px;">INSTITUT TEKNOLOGI DEL</p>
                 <p class="text-white fs-10" style="font-size: 20px;">Engineering Solutions, Managing Tomorrow</p>
-            </div>
+                <div class="image-container">
+                    <img class="img-fluid-head mb-2" src="{{ asset('aset/img/kampus.png') }}" alt="" width="100">
+                    <img class="img-fluid-head mb-2" src="{{ asset('aset/img/akreditasi.png') }}" alt="" width="100">
+                </div>
+            </div>>
+            <style>
+                .image-container {
+                    display: flex;
+                    justify-content: center; /* Untuk mengatur posisi horizontal */
+                    gap: 50px; /* Jarak antara gambar */
+                }
+                .image-container img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            </style>
         </div>
     </header>
 
@@ -104,11 +120,11 @@
     </div>
     <section class="hero-section">
         <div class="hero">
-            <img src="{{ URL::asset('aset/img/header2.png') }}" alt="Background Image">
+            <img src="{{ URL::asset('aset/img/posterwow.jpg') }}" alt="Background Image" >
             <div class="overlay"></div>
             <div class="text">
-                <h2><strong>PENERIMAAN MAHASISWA BARU JALUR PRESTASI SISWA (JPS)</strong></h2>
-                <p>Pendaftaran DIPERPANJANG hingga 14 Februari 2024</p>
+                <h2><strong>{{ $poster->meta_title }}</strong></h2>
+                <p>{{ $poster->meta_description }}</p>
                 <a href="https://spmb.del.ac.id" class="btn">More Info</a>
             </div>
         </div>
@@ -142,39 +158,39 @@
 </section>
 
 
-    <!-- Video Section -->
-    <section class="py-2 bg-image-full">
-        <div class="container mb-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h3 class="mb-5">Video Terkait</h3>
-                    <iframe width="750" height="500" src="https://www.youtube.com/embed/EadBu-uScZQ" frameborder="5" allowfullscreen></iframe>
-                </div>
+<!-- Video Section -->
+<section class="py-2 bg-image-full">
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h3 class="mb-5">Video Terkait</h3>
+                <iframe width="750" height="500" src="{{ $youtube->meta_description }}" frameborder="5" allowfullscreen></iframe>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Kerjasama Section -->
-    <section class="py-5 kerjasama">
-        <h3 class="mb-5 text-center"><strong>Kerjasama</strong></h3>
-        <div class="container-k">
-            @foreach ($kerjasama as $data)
-            <div class="item">
-                <img src="{{ asset('aset/img/'.$data->logo) }}" alt="logo">
-            </div>
-            @endforeach
+
+<!-- Kerjasama Section -->
+<section class="py-5 kerjasama">
+    <h3 class="mb-5 text-center"><strong>Kerjasama</strong></h3>
+    <div class="container-k">
+        @foreach ($kerjasama as $data)
+        <div class="item">
+            <img src="{{ asset('aset/img/'.$data->logo) }}" alt="logo">
         </div>
-    </section>
-
+        @endforeach
+    </div>
+</section>
     <!-- Footer -->
     <footer class="py-5 bg-dark text-white">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center"> 
                     <div class="probootstrap-footer-widget">
                         <img src="{{ asset('aset/img/logofooter1.png') }}" alt="Logo" style="width: 150px; height: auto;">
                     </div>
-                </div>
+                </div>            
                 <div class="col-md-3">
                     <div class="probootstrap-footer-widget">
                         <h3 style="font-size: 18px; font-weight: bold; text-align: left;">About Us</h3>
@@ -190,23 +206,37 @@
                     <div class="probootstrap-footer-widget">
                         <h3 style="font-size: 18px; font-weight: bold; text-align: left;">Contact Us</h3>
                         <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
-                            <li><a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">+1234567890</a></li>
-                            <li><a href="https://instagram.com/mr.itdel" target="_blank" style="color: #fff; font-size: 15px; text-decoration: none;">@mr.itdel</a></li>
-                            <li><a href="https://www.del.ac.id/" style="color: #fff; font-size: 15px; text-decoration: none;">Institut Teknologi Del</a></li>
+                            <li>
+                                <a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class="fab fa-whatsapp"></i> +1234567890
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/mr.itdel" target="_blank" style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class="fab fa-instagram"></i> @mr.itdel
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.del.ac.id/" style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class=""></i> Institut Teknologi Del
+                                </a>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> Jl. Sisingamangaraja, Sitoluama, Laguboti, Toba Samosir
+                            </li>
+
                         </ul>
-                        <address style="font-size: 14px;">Jl. Sisingamangaraja, Sitoluama, Laguboti, Toba Samosir</address>
                     </div>
                 </div>
                 <div class="row mt-1">
                     <div class="col-12 text-center">
-                        <small>&copy; 2024 Institut Teknologi Del. Made by Kelompok 7 D3 TI. Copyright Manajemen Rekayasa</small>
+                        <small>&copy; Manajemen Rekayasa IT Del. Made by Kelompok 7 D3 TI-23</small>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-    <!-- DropDown List and Date Formatting Script -->
+        <!-- DropDown List and Date Formatting Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>

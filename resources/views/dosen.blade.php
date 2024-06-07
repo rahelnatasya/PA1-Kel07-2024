@@ -8,7 +8,7 @@
     </div>
 </nav>
 <!-- Header - set the background image for the header in the line below-->
-<header class="py-5 bg-image-full" style="background-image: url('{{URL::asset('aset/img/header3.png')}}'); height: 400px; margin-bottom: 20px;">
+<header class="py-5 bg-image-full" style="background-image: url('{{URL::asset('aset/img/dosen.jpeg')}}'); height:400px; margin-bottom: 20px;">
     <div class="text-center my-5">
         <div class="navbar">
             <!-- Navbar content -->
@@ -58,12 +58,14 @@
           </div>
           <div class="profile-details mt-3">
             <p><strong>NIDN:</strong> <?php echo $item->employee_no ?></p>
-            <h3>Pendidikan</h3>
+            <h5>Pendidikan</h5>
             <p><strong></strong> <?php echo $item->education ?></p>
-            <h3>Riset Penelitian</h3>
+            <h5>Riset Penelitian</h5>
             <p><strong></strong> <?php echo $item->riset ?></p>
-            <h3>Mata Kuliah yang diampu</h3>
+            <h5>Mata Kuliah yang diampu</h5>
             <p><strong></strong> <?php echo $item->courses ?></p>
+            <h5>Ruangan</h5>
+            <p><strong></strong> <?php echo $item->room ?></p>
           </div>
         </div>
       </div>

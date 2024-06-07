@@ -17,19 +17,23 @@
 </header>
 
 <!-- Text -->
-<section class="py-2">
-    <div class="container my-3">
-        <div class="row justify-content-center">
-            <div class="col-lg-15">
-                <p class="text-lg-start mt-10 text-justify">HIMAMERA (Himpunan Mahasiswa Manajemen Rekayasa) adalah organisasi mahasiswa di Institut 
-                    Teknologi Del Fakultas Teknologi Industri yang mewakili mahasiswa dalam program studi atau jurusan tertentu. 
-                    Fungsi utamanya adalah mewakili mahasiswa, membangun komunitas, mengembangkan keterampilan, mengadakan kegiatan, 
-                    dan memfasilitasi pembangunan jaringan. Memiliki karakteristik yang sama dengan himpunan mahasiswa di program studi lainnya, 
-                    HIMAMERA membantu memperkaya pengalaman akademik, sosial, dan profesional mahasiswa di kampus.</p>
-            </div>
+<div class="container mt-4">
+    <div class="row align-items-center">
+        <div class="col-md-2">
+            <img src="{{ URL::asset('aset/img/himameralogo.png') }}" alt="Sidebar Image" class="img-fluid" width="100px">
+        </div>
+        <div class="col-md-10">
+            <p class="text-lg-start text-justify mb-0">
+                HIMAMERA (Himpunan Mahasiswa Manajemen Rekayasa) adalah organisasi mahasiswa di Institut 
+                Teknologi Del Fakultas Teknologi Industri yang mewakili mahasiswa dalam program studi atau jurusan tertentu. 
+                Fungsi utamanya adalah mewakili mahasiswa, membangun komunitas, mengembangkan keterampilan, mengadakan kegiatan, 
+                dan memfasilitasi pembangunan jaringan. Memiliki karakteristik yang sama dengan himpunan mahasiswa di program studi lainnya, 
+                HIMAMERA membantu memperkaya pengalaman akademik, sosial, dan profesional mahasiswa di kampus.
+            </p>
         </div>
     </div>
-</section>
+</div>
+
 
 <nav class="navbar bg-dark mt-3 mb-4">
     <div class="container-fluid">

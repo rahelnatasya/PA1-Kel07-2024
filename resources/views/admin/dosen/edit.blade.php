@@ -55,6 +55,13 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
+                            <label for="room">Ruangan :</label>
+                            <textarea class="form-control summernote" id="summernote" name="room" rows="3">{{ $dosen->room }}</textarea>
+                            @error('room')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="employee_no">Kode Pegawai :</label>
                             <input type="text" class="form-control" id="employee_no" name="employee_no" value="{{ $dosen->employee_no }}">
                             @error('employee_no')

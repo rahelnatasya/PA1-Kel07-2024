@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Simpan</button>
+            <button type="submit" class="btn btn-primary">Simpan Kegiatan Mahasiswa</button>
         </div>
     </form>
 </div>

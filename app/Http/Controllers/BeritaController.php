@@ -18,8 +18,9 @@ class BeritaController extends Controller
         $testimoni = Testimoni::all();
         $category = CategoryRoom::all();
         $kerjasama = KerjaSama::all();
+        $youtube = Meta::where('meta_key', 'youtube')->first();
         $poster = Meta::where('meta_key', 'poster')->first();
-        return view('beranda', compact('berita', 'testimoni', 'category', 'kerjasama', 'poster'));
+        return view('beranda', compact('berita', 'testimoni', 'category', 'kerjasama', 'youtube','poster'));
     }
 
     public function fasilitas(Request $request){

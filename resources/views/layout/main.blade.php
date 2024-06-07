@@ -12,6 +12,7 @@
         <link href="{{URL::asset('/aset/css/styles.css')}}" rel="stylesheet" />
         <link rel="website icon" type="png" href="{{URL::asset('aset/img/logo.png') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -91,16 +92,30 @@
                     <div class="probootstrap-footer-widget">
                         <h3 style="font-size: 18px; font-weight: bold; text-align: left;">Contact Us</h3>
                         <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
-                            <li><a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">+1234567890</a></li>
-                            <li><a href="https://instagram.com/mr.itdel" target="_blank" style="color: #fff; font-size: 15px; text-decoration: none;">@mr.itdel</a></li>
-                            <li><a href="https://www.del.ac.id/" style="color: #fff; font-size: 15px; text-decoration: none;">Institut Teknologi Del</a></li>
+                            <li>
+                                <a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class="fab fa-whatsapp"></i> +1234567890
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/mr.itdel" target="_blank" style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class="fab fa-instagram"></i> @mr.itdel
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.del.ac.id/" style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class=""></i> Institut Teknologi Del
+                                </a>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i> Jl. Sisingamangaraja, Sitoluama, Laguboti, Toba Samosir
+                            </li>
                         </ul>
-                        <address style="font-size: 14px;">Jl. Sisingamangaraja, Sitoluama, Laguboti, Toba Samosir</address>
                     </div>
                 </div>
                 <div class="row mt-1">
                     <div class="col-12 text-center">
-                        <small>&copy; 2024 Institut Teknologi Del. Made by Kelompok 7 D3 TI. Copyright Manajemen Rekayasa</small>
+                        <small>&copy; Manajemen Rekayasa IT Del. Made by Kelompok 7 D3 TI-23</small>
                     </div>
                 </div>
             </div>

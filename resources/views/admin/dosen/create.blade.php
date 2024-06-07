@@ -60,6 +60,13 @@
                             @enderror
                         </div>
                         <div class="form-group mb-3">
+                            <label for="courses">Ruangan :</label>
+                            <textarea class="form-control summernote" name="room" rows="3">{{ old('room') }}</textarea>
+                            @error('room')
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="role">Role :</label>
                             <select class="form-control" id="role" name="role">
                                 <option value="dosen">Dosen</option>
