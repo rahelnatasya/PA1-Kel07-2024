@@ -7,12 +7,14 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\HimameraController;
 use App\Http\Controllers\KurikulumController;
+use App\Http\Controllers\LaboratoriumController;
 use App\Http\Controllers\MrClubController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfilLulusanController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\StrukturDosenController;
 use App\Http\Controllers\VisiMisiController;
+use App\Models\Laboratorium;
 use Illuminate\Support\Facades\Route;
 
 
@@ -33,6 +35,7 @@ Route::get('/kurikulum', [KurikulumController::class, 'index']);
 Route::get('/profillulusan', [profilLulusanController::class, 'index']);
 Route::get('/visimisi', [VisiMisiController::class, 'index']);
 Route::get('/himamera', [HimameraController::class, 'index']);
+Route::get('/laboratorium', [LaboratoriumController::class, 'index']);
 Route::get('/mrclub', [MrClubController::class, 'index']);
 Route::get('/dosen', [DosenController::class, 'index']);
 Route::get('/', [BeritaController::class, 'index'])->name('home');
@@ -136,6 +139,15 @@ Route::get('admin/himamera/{id}/edit', [App\Http\Controllers\Admin\HimameraContr
 Route::put('admin/himamera/{id}', [App\Http\Controllers\Admin\HimameraController::class, 'update'])->name('admin.himamera.update');
 Route::delete('admin/himamera/{id}', [App\Http\Controllers\Admin\HimameraController::class, 'destroy'])->name('admin.himamera.destroy');
 
+//Laboratorium
+Route::get('laboratorium', [App\Http\Controllers\Admin\laboratoriumController::class,'index'])->name('admin.laboratorium.index');
+Route::get('laboratorium/create', [App\Http\Controllers\Admin\laboratoriumController::class,'create'])->name('admin.laboratorium.create');
+Route::post('admin/laboratorium',[App\Http\Controllers\Admin\laboratoriumController::class, 'store'])->name('admin.laboratorium.store');
+Route::get('admin/laboratorium/{id}/edit', [App\Http\Controllers\Admin\laboratoriumController::class, 'edit'])->name('admin.laboratorium.edit');
+Route::put('admin/laboratorium/{id}', [App\Http\Controllers\Admin\laboratoriumController::class, 'update'])->name('admin.laboratorium.update');
+Route::delete('admin/laboratorium/{id}', [App\Http\Controllers\Admin\laboratoriumController::class, 'destroy'])->name('admin.laboratorium.destroy');
+
+
 //MR Club
 Route::get('mrclub', [App\Http\Controllers\Admin\MrClubController::class,'index'])->name('admin.mrclub.index');
 Route::get('mrclub/create', [App\Http\Controllers\Admin\MrClubController::class,'create'])->name('admin.mrclub.create');
@@ -151,6 +163,15 @@ Route::post('admin/dosen', [App\Http\Controllers\Admin\DosenController::class, '
 Route::get('admin/dosen/{id}/edit', [App\Http\Controllers\Admin\DosenController::class, 'edit'])->name('admin.dosen.edit');
 Route::put('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'update'])->name('admin.dosen.update');
 Route::delete('admin/dosen/{id}', [App\Http\Controllers\Admin\DosenController::class, 'destroy'])->name('admin.dosen.destroy');
+
+//Staf
+Route::get('staf', [App\Http\Controllers\Admin\StafController::class, 'index'])->name('admin.staf.index');
+Route::get('staf/create', [App\Http\Controllers\Admin\StafController::class, 'create'])->name('admin.staf.create');
+Route::post('admin/staf', [App\Http\Controllers\Admin\StafController::class, 'store'])->name('admin.staf.store');
+Route::get('admin/staf/{id}/edit', [App\Http\Controllers\Admin\StafController::class, 'edit'])->name('admin.staf.edit');
+Route::put('admin/staf/{id}', [App\Http\Controllers\Admin\StafController::class, 'update'])->name('admin.staf.update');
+Route::delete('admin/staf/{id}', [App\Http\Controllers\Admin\StafController::class, 'destroy'])->name('admin.staf.destroy');
+
 
 //Prestasi
 Route::get('prestasi', [App\Http\Controllers\Admin\PrestasiController::class,'index'])->name('admin.prestasi.index');

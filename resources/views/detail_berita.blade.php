@@ -24,7 +24,7 @@
             <h3 class="my-2 col-md-10">{{ $berita->title }}</h3>
             <p>Oleh: {{ $berita->created_by }}</p>
             <div class="article-news">
-                <img src="{{ asset('aset/img/' . $berita->images) }}" style="max-width: 800px; height: 400px;" alt="">
+                <img src="{{ asset('aset/img/' . $berita->images) }}" style="max-width: 800px; height: auto;" alt="">
                 <p><?php echo $berita->description ?></p>
             </div>
         </div>
@@ -33,7 +33,7 @@
             <div class="latest-news">
                 @foreach ($relatedBerita as $data)
                 <div class="news-item">
-                    <img src="{{ asset('aset/img/' . $data->images) }}" style="max-width: 300px; height: 150px" alt="News Image">
+                    <img src="{{ asset('aset/img/' . $data->images) }}" alt="News Image">
                     <h5>{{ \Carbon\Carbon::parse($data->date)->translatedFormat('d F Y') }}</h5>
                     <p><?php echo Str::limit($data->description, 100) ?></p>
                     <a href="{{ route('berita.show', $data->id) }}">Selengkapnya>></a>

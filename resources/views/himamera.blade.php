@@ -8,7 +8,7 @@
     </div>
 </nav>
 <!-- Header - set the background image for the header in the line below-->
-<header class="py-5 bg-image-full" style="background-image: url('{{URL::asset('aset/img/header4.png')}}'); height: 400px;">
+<header class="py-5 bg-image-full" style="background-image: url('{{URL::asset('aset/img/header4.png')}}'); height: 500px;">
     <div class="text-center my-5">
         <div class="navbar">
             <!-- Navbar content -->

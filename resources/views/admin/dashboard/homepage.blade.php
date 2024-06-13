@@ -43,7 +43,7 @@
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg-success">
                         <div class="inner">
                             <p>Kerjasama</p>
                         </div>
@@ -57,7 +57,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-danger">
                 <div class="inner">
                     <p>Kurikulum</p>
                 </div>
@@ -72,7 +72,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-warning">
                 <div class="inner">
                     <p>Profil Lulusan</p>
                 </div>
@@ -87,9 +87,9 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-info">
                 <div class="inner">
-                    <p>Dosen & Staff</p>
+                    <p>Dosen</p>
                 </div>
                 <div class="icon">
                     <i class="fas fa-user-tie"></i>
@@ -98,10 +98,24 @@
                         class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-light">
+                    <div class="inner">
+                        <p>Staf</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <a href="{{ Route('admin.staf.index') }}" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-dark">
                 <div class="inner">        
                     <p>Struktur Dosen</p>
                 </div>
@@ -115,7 +129,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-primary">
                 <div class="inner">
                     <p>Meta Profile</p>
                 </div>
@@ -129,7 +143,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-light">
+            <div class="small-box bg-secondary">
                 <div class="inner">        
                     <p>Galeri Fasiltas</p>
                 </div>
@@ -143,7 +157,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-primary">
+            <div class="small-box bg-success">
                 <div class="inner">        
                     <p>Kategori Fasilitas</p>
                 </div>
@@ -154,10 +168,24 @@
                             class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">        
+                        <p>Laboratorium</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <a href="{{ Route('admin.laboratorium.index') }}" class="small-box-footer">More info <i
+                                class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-secondary">
+            <div class="small-box bg-warning">
                 <div class="inner">        
                     <p>MR Club</p>
                 </div>
@@ -171,7 +199,7 @@
         <!-- ./col -->
         <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-info">
                 <div class="inner">        
                     <p>Kegiatan Besar Mahasiswa</p>
                 </div>
@@ -186,7 +214,7 @@
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-warning">
+                    <div class="small-box bg-light">
                         <div class="inner">        
                             <p>Prestasi Mahasiswa</p>
                         </div>

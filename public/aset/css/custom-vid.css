@@ -3,7 +3,7 @@
 .video-container {
     position: relative;
     width: 100%;
-    height: 93vh;
+    height: 94vh;
     overflow: hidden;
   }
   
@@ -515,12 +515,60 @@
     .content {
         margin-top: 20px;
     }
-    h1 {
+    h3 {
         text-align: center;
     }
     p {
         margin: 2em 0;
     }
+.history .container-hs {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styles for the content */
+.history .content {
+    text-align: center;
+}
+
+/* Responsive typography */
+.history h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.history p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Responsive image styles */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive media queries */
+@media (max-width: 768px) {
+    .history h3 {
+        font-size: 1.5em;
+    }
+
+    .history p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .history h3 {
+        font-size: 1.2em;
+    }
+
+    .history p {
+        font-size: 0.9em;
+    }
+}
 
 /* Kerjasama Section */
 .kerjasama {
@@ -612,7 +660,7 @@
 .article-news img {
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .header-news {
     display: flex;
@@ -625,6 +673,9 @@
 }
 .header-news p {
     margin: 0;
+}
+.article-news p {
+    margin-top: 0; /* Menghilangkan margin atas pada paragraf */
 }
 
 /*Kegiatan Mahasiswa */

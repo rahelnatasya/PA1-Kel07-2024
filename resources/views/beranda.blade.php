@@ -56,10 +56,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/prestasi">Prestasi Mahasiswa</a>
+                        <a class="nav-link" href="/laboratorium">Laboratorium</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a class="nav-link" href="/prestasi">Prestasi Mahasiswa</a>
                     </li>
                 </ul>
             </div>
@@ -73,14 +73,14 @@
                 <source src="{{ asset('aset/img/HEADER.mp4') }}" type="video/mp4">
             </video>
             <div class="text-center my-0 content-overlay">
-                <img class="img-fluid-head mb-2" src="{{ asset('aset/img/logo.png') }}" alt="Logo" width="100">
+                <img class="img-fluid-head mb-2" src="{{ asset('aset/img/logo.png') }}" alt="Logo" width="120">
                 <h3 class="text-white fs-8 fw-bolder">SELAMAT DATANG DI</h3>
                 <h2 class="text-white fs-30 fw-bolder" style="font-size: 50px;">MANAJEMEN REKAYASA</h2>
                 <p class="text-white fs-10 fw-bolder" style="font-size: 20px;">INSTITUT TEKNOLOGI DEL</p>
                 <p class="text-white fs-10" style="font-size: 20px;">Engineering Solutions, Managing Tomorrow</p>
                 <div class="image-container">
-                    <img class="img-fluid-head mb-2" src="{{ asset('aset/img/kampus.png') }}" alt="" width="100">
-                    <img class="img-fluid-head mb-2" src="{{ asset('aset/img/akreditasi.png') }}" alt="" width="100">
+                    <img class="img-fluid-head mb-2" src="{{ asset('aset/img/kampus.png') }}" alt="" width="150">
+                    <img class="img-fluid-head mb-2" src="{{ asset('aset/img/akreditasi.png') }}" alt="" width="150">
                 </div>
             </div>>
             <style>
@@ -207,8 +207,8 @@
                         <h3 style="font-size: 18px; font-weight: bold; text-align: left;">Contact Us</h3>
                         <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
                             <li>
-                                <a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">
-                                    <i class="fab fa-whatsapp"></i> +1234567890
+                                <a style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class="fas fa-phone"></i> +62 632 331234
                                 </a>
                             </li>
                             <li>

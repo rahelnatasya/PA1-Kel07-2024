@@ -13,13 +13,15 @@
             <img src="{{ URL::asset('aset/img/kurikulum-side.png') }}" class="img-fluid" alt="Sidebar Image">
         </div>
         <div class="col-md-8">
-            <p class="text-lg-start text-justify">Pada Prodi Manajemen Rekayasa terdapat dua macam pendekatan struktur kurikulum, yaitu model serial dan model paralel. 
+            <p class="text-lg-start text-justify bg-light">
+                Pada Prodi Manajemen Rekayasa terdapat dua macam pendekatan struktur kurikulum, yaitu model serial dan model paralel. 
                 Pendekatan model serial adalah pendekatan yang menyusun mata kuliah berdasarkan logika atau struktur keilmuannya. 
                 Pada pendekatan serial ini, mata kuliah disusun dari yang paling dasar sampai di semester akhir yang merupakan mata kuliah lanjutan. 
                 Setiap mata kuliah saling berhubungan yang ditunjukkan dengan adanya mata kuliah prasyarat. Kombinasikan sistem seri dan sistem paralel juga memungkinkan untuk dilakukan, 
                 yaitu kelompok bidang ilmu (dengan perincian bahan kajiannya) disusun secara paralel, 
-                kemudian rumusan kompetensi dan urutan strategi pembelajarannya disusun secara bertahap menurut semesternya.</p>
-
+                kemudian rumusan kompetensi dan urutan strategi pembelajarannya disusun secara bertahap menurut semesternya.
+            </p>
+        
             @php
                 $groupedKurikulum = [];
                 foreach($kurikulum as $data) {
@@ -27,7 +29,7 @@
                 }
             @endphp
         </div>
-        @foreach($groupedKurikulum as $semester => $courses)
+                @foreach($groupedKurikulum as $semester => $courses)
         <div class="semester-section">
             <div class="semester-title">
                 <h5>SEMESTER {{ $semester }}</h5>
@@ -78,4 +80,10 @@
     .table th {
         text-align: center;
     }
+    .bg-light {
+    background-color: #e0e0e0; /* Warna latar belakang yang terang */
+    padding: 15px; /* Tambahkan padding agar teks tidak terlalu menempel pada tepi */
+    border-radius: 5px; /* Buat sudut-sudutnya sedikit melengkung */
+}
+
 </style>

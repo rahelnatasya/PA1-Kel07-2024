@@ -60,8 +60,8 @@
                                 @endforeach
                             </ul>
                         </li>
+                        <li class="nav-item"><a class="nav-link" href="/laboratorium">Laboratorium</a></li>
                         <li class="nav-item"><a class="nav-link" href="/prestasi">Prestasi Mahasiswa</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,8 +93,8 @@
                         <h3 style="font-size: 18px; font-weight: bold; text-align: left;">Contact Us</h3>
                         <ul class="list-unstyled links mb-4" style="list-style: none; padding-left: 0; text-align: left;">
                             <li>
-                                <a href="tel:+1234567890" style="color: #fff; font-size: 15px; text-decoration: none;">
-                                    <i class="fab fa-whatsapp"></i> +1234567890
+                                <a style="color: #fff; font-size: 15px; text-decoration: none;">
+                                    <i class="fas fa-phone"></i> +62 632 331234
                                 </a>
                             </li>
                             <li>
