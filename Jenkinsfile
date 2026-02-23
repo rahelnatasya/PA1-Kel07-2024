@@ -31,7 +31,7 @@ pipeline {
 
         stage('Selesai') {
             steps {
-                echo 'Mantap Felix! PHP sudah terpasang dan Laravel sudah siap.'
+                echo 'Mantap Rahel! PHP sudah terpasang dan Laravel sudah siap.'
             }
         }
     }
