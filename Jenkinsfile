@@ -17,7 +17,8 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'php composer.phar install --no-interaction --prefer-dist --optimize-autoloader'
+                // Tambahkan flag --ignore-platform-reqs agar tidak protes soal versi PHP 8.4
+                sh 'php composer.phar install --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs'
             }
         }
 
