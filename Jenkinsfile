@@ -1,25 +1,29 @@
 pipeline {
-    agent any
+    agent {
+        // Menggunakan image composer yang sudah lengkap dengan PHP & Composer
+        docker { 
+            image 'composer:latest' 
+        }
+    }
 
     stages {
         stage('Ambil Kode') {
             steps {
-                // Jenkins mengambil kode terbaru dari GitHub
+                // Mengambil kode terbaru dari GitHub
                 checkout scm
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                // Menjalankan composer install tanpa mengganggu folder vendor asli
-                // Karena Jenkins di Docker, kita asumsikan PHP & Composer sudah ada di sana
+                // Menginstal library Laravel
                 sh 'composer install --no-interaction --prefer-dist --optimize-autoloader'
             }
         }
 
         stage('Setup Environment') {
             steps {
-                // Menyalin file .env.example jadi .env untuk testing
+                // Menyiapkan file .env dan generate key
                 sh 'cp .env.example .env'
                 sh 'php artisan key:generate'
             }
@@ -28,13 +32,15 @@ pipeline {
         stage('Database Migration') {
             steps {
                 // Menjalankan migrasi database
+                // Catatan: Ini akan berhasil jika kamu sudah setting DB di .env
                 sh 'php artisan migrate --force'
             }
         }
 
         stage('Selesai') {
             steps {
-                echo 'Build Berhasil! Proyek Laravel kamu aman.'
+                sh 'php -v'
+                echo 'Mantap Felix! Build Berhasil dan Proyek Laravel kamu aman.'
             }
         }
     }
